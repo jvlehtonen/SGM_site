@@ -1,0 +1,88 @@
+@font-face {
+    font-family:"Font Awesome 5 Free";
+    font-style:normal;
+    font-weight:900;
+    src:url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.eot);
+    src:url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+	url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.woff2) format("woff2"),
+	url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.woff) format("woff"),
+	url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.ttf) format("truetype"),
+	url(https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+}
+@font-face {
+    font-family:'FontAwesome';
+    src:url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.eot');
+    src:url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+	url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.woff2') format('woff2'),
+	url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.wof') format('woff'),
+	url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.ttf') format('truetype'),
+	url('https://use.fontawesome.com/releases/v5.11.0/webfonts/fa-solid-900.svg#fontawesomeregular') format('svg');
+    font-weight:normal;
+    font-style:normal
+}
+
+.fas {
+    font-family:"Font Awesome 5 Free";
+    font-weight:900;
+}
+.fa {
+    display:inline-block;
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+
+.fa-download:before {
+    content:"\f019"
+}
+.fa-search::before {
+    content: "\f002";
+}
+.fa-question-circle:before {
+    content:"\f059"
+}
+.fa-info-circle:before {
+    content:"\f05a"
+}
+.fa-home:before {
+    content:"\f015"
+}
+.fa-sort:before {
+    content:"\f0dc"
+}
+.fa-sort-down:before {
+    content:"\f0dd"
+}
+.fa-sort-up:before {
+    content:"\f0de"
+}
+.fa-table:before {
+    content:"\f0ce"
+}
+.fa-image:before {
+    content:"\f03e"
+}
+.fa-eye:before {
+    content:"\f06e"
+}
+.fa-undo:before {
+    content:"\f0e2"
+}
+.fa-star:before {
+    content:"\f005"
+}
+.fa-star-o:before {
+    content:"\f006"
+}
+.fa-computer-mouse:before {
+    content:"\f8cc"
+}
+.fa-star-o {color: #5b616b;}
+.fa-star {color: #fdb81e;}
+
+.fa-icon {
+    margin-left:10px;
+    margin-right:10px;
+}

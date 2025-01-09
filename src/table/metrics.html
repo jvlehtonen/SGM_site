@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Metrics | SynGAP Server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="icon" type="image/png" href="/images/SynGAP.png"
+	sizes="32x32" />
+  <link rel="stylesheet" media="all" href="/styles/utu_a_20240222.css" />
+  <link rel="stylesheet" media="all" href="/styles/utu_b_20240222.css" />
+    <link rel="stylesheet" href="/styles/fa.css" />
+    <link rel="stylesheet" href="/styles/overlay.css" />
+    <link rel="stylesheet" href="/styles/topnav.css" />
+    <link rel="stylesheet" href="/styles/infotooltip.css" />
+    <script type="text/javascript" src="/sites/w3.js"></script>
+    <script type="text/javascript" src="/sites/overlay.js"></script>
+</head>
+<body lang="fi-FI" link="#0563c1" vlink="#800000" dir="ltr">
+  <span id="top"></span>
+  <div w3-include-html="/sites/overlay.html"></div>
+  <div class="layout">
+    <div class="layout__container">
+      <div class="layout__content">
+	<header role="banner" class="layout__item js-content" id="header">
+          <div class="region region--header header">
+		<a href="/index.html"><span><img src="/misc/titles/logo_underline_three_sideways.png"
+			 alt="SynGap Missense Server" /></span></a>
+	  </div>
+	</header>
+	<main role="main" class="main layout__item js-content" id="main">
+	  <div class="region region--content">
+	  <div class="page__item page__item--paragraph page__item--highlighted-rectangles">
+	    <div class="paragraph paragraph--type--highlighted-rectangles highlighted-rectangles highlighted-rectangles--default paragraph--view-mode--default">
+	      <div class="field field__field_heading">
+		<div class="field field__field_main_content page__main-content">
+		  <div class="page__item page__item--main-content page__item--free-text">
+		    <div class="paragraph paragraph--type--free-text free-text free-text--default paragraph--view-mode--default">
+                      <div class="field field__field_item_text
+				  free-text__item-text">
+	  <nav style="margin-bottom:15px">
+	    <div style="display:flex;">
+              <div class="topnav fa-icon" w3-include-html="/sites/hamburger.html"></div>
+              <script>w3.includeHTML();</script>
+              <a class="fa-icon" href="/index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
+              <div class="infotooltip fa-icon">
+		<a href="/table/index.php"><i class='fa fa-table' style='font-size:36px;color:#00B4CC;'></i></a>
+		<span class="infotooltiptext w200 myjust">
+		  Back to table
+		</span>
+              </div>
+              <div class="infotooltip fa-icon">
+		<a href="/viewer/index.php"><i class='fa fa-eye' style='font-size:36px;color:#00B4CC;'></i></a>
+		<span class="infotooltiptext w200 myjust">
+		  Back to 3D viewer
+		</span>
+              </div>
+	    </div>
+	  </nav>
+		<h1><span>Data Metrics</span></h1>
+
+	  <h2>Molecular dynamics (MD) analysis metrics</h2>
+
+<p class="myjust"><i><b>SASA &Delta;</b></i> value indicates the SASA
+  (Solvent Accessibility Surface Area) change (&Delta;) between the WT
+  and mutated residue between molecular dynamics simulations. Note
+  that the value provides the absolute SASA difference and, thus, both
+  the side chain positioning and intrinsic properties of the swapped
+  residues affect the reported value.  Negative values and positive
+  values indicate an increase or decrease in water exposure,
+  respectively.</p>
+
+<p class="myjust"><i><b>Normalized B-factor &Delta;</b></i> values are
+  calculated as an average of triplicate 150 ns simulations for the
+  sidechain atoms between the WT and the variant systems. The change
+  (&Delta;) between the residue bfactor in the WT and the variant is
+  reported. B-factor is the RMSF (Root Mean Square Fluctuation)
+  squared and weight by 8/3&pi;2. The normalized B-factor utilizes the
+  mass-weighted side chain &beta;-factors of unrestrained simulations
+  of isolated amino acids as normalization factors to adjust for the
+  difference in residues’ connectivities and sizes giving a
+  dimensionless relative local side-chain flexibility of 1.0 ( Fuchs
+  et al., 2015). All calculations were carried out by CTRAJ and
+  CPPTRAJ (DOI: <a href="https://doi.org/10.1021/ct500633u">10.1021/ct500633u</a>)</p>
+
+
+<h2>Status supported by evidence</h2>
+
+<p><i><b>c.dna</b></i> or HGVSc (Human Genome Variation Society) nucleotide code (e.g.,
+c.1205T&gt;G) is given in the c.dna column. The MANE (Matched
+Annotation from NCBI and EMBL-EBI) transcripts, which have the GenBank
+accession number  NM_006772.3 are the same as used in ClinVar. These
+SYNGAP1 transcripts match with the Ensembl Transcript ID
+ENST00000646630.1 used in gnomAD.</p>
+
+<p><i><b>Variant</b></i> name for missense variant, descriping the protein change, is
+provided using the single letter amino acid code and residue
+numbering.</p>
+
+<p class="myjust"><a href="https://www.ncbi.nlm.nih.gov/clinvar/"><i><b>ClinVar</b></i></a>,
+  which is a free and public archive of reports of the relationships
+  among human variations and phenotypes, provides the publically
+  available variant status (<i>benign, pathogenic, likely benign, likely
+  pathogenic, VUS</i>) with supporting evidence. Column <em>Clinical Status</em> has links to corresponding entries on <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ClinVar site</a>. ClinVar data on the table was last retrieved 2024-01-04.</p>
+
+<p class="myjust"><a href="https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/"><i><b>gnomAD</b></i></a>
+(Genome Aggregation Database) encompasses a comprehensive collection
+of both exome and genome sequencing data. The gnomAD v4 data set
+information for relevant missense variants, is readily
+accessible. (DOI  <a href="https://doi.org/10.1038/s41586-020-2308-7">10.1038/s41586-020-2308-7</a>)</p>
+
+<h2>Physical metrics</h2>
+
+<p class="myjust"><i><b>MW &Delta;</b></i> indicates the change (&Delta;) in
+molecular weight (mol/g) due to the side chain swap between the WT and
+mutated residue. Negative values and positive values indicate increase
+or decrease in the molecular weight due to the mutation,
+respectively.</p>
+
+<p class="myjust"><i><b>Hydropathy &Delta;</b></i> compares the change (&Delta;) in
+the hydropathy index number, which represents the hydrophobic or
+hydrophilic properties of the residue side chain, due to the missense
+mutation. The larger or smaller the change, the more hydrophobic or
+hydrophilic, respectively, the mutated residue is in comparison to the
+WT residue.</p>
+
+<h2>Evolutionary substitution metrics</h2>
+
+<p class="myjust"><i><b>PAM120</b></i> matrix is designed to compare two sequences
+which are ~120 mutations in 100 amino acids apart. PAM (Point Accepted
+Mutation) substitution matrices, which are traditionally used in
+sequence alignment, encode the expected evolutionary change. Smaller
+(even negative) and larger values indicate an increase or decrease,
+respectively, in the favorability of the residue swap.</p>
+
+<p class="myjust"><i><b>PAM250</b></i> matrix is designed to compare two sequences
+which are ~250 mutations in 100 amino acids apart. PAM (Point Accepted
+Mutation) substitution matrices, which are traditionally used in
+sequence alignment, encode the expected evolutionary change. Smaller
+(even negative) and larger values indicate an increase or decrease,
+respectively, in the favorability of the residue swap.</p>
+
+<h2>Sequence- and structure-based pathogenicity predictions</h2>
+
+<p class="myjust"><a href="https://sift.bii.a-star.edu.sg/"><i><b>SIFT</b></i></a>
+(Sorting Intolerant From Tolerant)predicts whether an amino acid
+substitution affects protein function based on sequence homology and
+the physical properties of amino acids. The default Single protein and
+SIFT sequence options, that provide automatic sequence alignment, were
+used when making the predictions.
+  (DOI: <a href="https://doi.org/10.1093/nar/gks539">10.1093/nar/gks539</a>)
+</p>
+
+<p class="myjust"><a href="http://genetics.bwh.harvard.edu/pph2/"><i><b>PolyPhen-2</b></i></a>
+  (Polymorphism Phenotyping v2)
+predicts the possible impact of an amino acid substitution on the
+structure and function of protein based of physical and comparative
+  consideration. (DOI: <a href="https://doi.org/10.1002/0471142905.hg0720s76">10.1002/0471142905.hg0720s76</a>)
+</p>
+
+<ul>
+  <li class="myjust"><b>HumDiv</b>: It is compiled using the differences between all
+	damaging alleles causing Mendelian diseases, and the
+	non-damaging ones present between human and mammalian
+	orthologues. Recognizes mutations with drastic effects from
+	normal human variation and can be used for the diagnosis of
+	Mendelian diseases
+  <li class="myjust"><b>HumVar</b>: It is trained using the differences between human
+	disease-causing mutations in UniProtKB and common human nsSNPs
+	with (MAF&gt;1%) with no disease-associated
+	annotation. Identify variants where mildly deleterious alleles
+	are treated as damaging.
+</ul>
+
+<p class="myjust"><a href="https://huggingface.co/spaces/ntranoslab/esm_variants"><i><b>ESM1b</b></i></a>
+(Evolutionary Scale Modelling) is a protein language model that
+leverages deep learning to predict the effects of missense variants on
+alternative protein isoforms. By analyzing the evolutionary
+information encoded within amino acid sequences, ESM-1b provides
+insights into the potential pathogenicity of genetic variants (DOI:
+<a href="https://doi.org/10.1038/s41588-023-01465-0">10.1038/s41588-023-01465-0</a>)
+</p>
+
+<p class="myjust"><a href="https://alphamissense.hegelab.org/search"><i><b>AlphaMissense</b></i></a>
+  predicts the effects of missense mutations on protein structure and
+  function. The machine learning model uses the AlphaFold model from
+  Google’s DeepMind as a base and modifies it to incorporate
+  information from multiple sequence alignments and genetic
+  databases. Missense variants that score from 0 to 0.34 are likely
+  benign, while those with a score between 0.34 and 0.564 fall under
+  ambiguous and scores higher than 0.564 are likely pathogenic. That
+  is shown as <em>Class</em>. (DOI:
+  <a href="https://doi.org/10.1126/science.adg7492">10.1126/science.adg7492</a>)
+  The <em>Optimized</em> column shows scores higher than 0.955 as
+  likely pathogenic, scores lower that 0.784 as likely benign, and
+  others as ambiguous.  These thresholds were selected based on the
+  performance in calculating balanced accuracy.
+</p>
+
+<p class="myjust"><a href="https://fathmm.biocompute.org.uk/"><i><b>FATHMM</b></i></a>
+  (Functional Analysis through Hidden Markov Models) is a
+  species-independent method with optional species-specific weightings
+  for the prediction of the functional effects of protein missense
+  variants. The coding variants were analyzed using the
+  disease-specific option: Nervous
+  System. (DOI: <a href="https://doi.org/10.1002/humu.22225">10.1002/humu.22225</a>)
+</p>
+
+<p class="myjust"><a href="https://lilab.jysw.suda.edu.cn/research/PremPS/"><i><b>PremPS</b></i></a>
+  is a computational method that evaluates the effect of a missense
+  mutation on protein stability. PremPS utilizes evolutionary- and
+  structure-based features, and it is parameterized on a balanced
+  dataset with an equal number of stabilizing and destabilizing
+  mutations. The 0 ns frame of the WT simulation was used as the
+  reference WT structure to calculate the Gibbs free energy
+  differences (&Delta;&Delta;G) values between the WT and missense variants. The
+  &Delta;&Delta;G cut-off was set to &ge;1.0 kcal for the destabilizing mutations
+  and &le;-1.0 kcal for the stabilizing mutations. Variants with &Delta;&Delta;G
+  values between -0.5 and 0.5 were considered neutral or likely
+  benign.
+  (DOI: <a href="https://doi.org/10.1371/journal.pcbi.1008543">10.1371/journal.pcbi.1008543</a>)
+</p>
+
+<p class="myjust"><a href="https://foldxsuite.crg.eu/"><i><b>FoldX</b></i></a>
+  calculates the relative free energy of folding between the WT and
+  missense variants. The Gibbs free energy differences or
+  &Delta;&Delta;G values are only comparable between the WT and
+  variant system in question used in the calculation. The calculations
+  were based on the 150 ns WT simulations, where each missense variant
+  structure was generated for every representative
+  nanosecond. Additionally, the averages from three replica molecular
+  dynamics (MD) simulation trajectories were computed. The energy
+  barrier for the destabilizing mutations was set to &ge;2.0 kcal and
+  &le;-2.0 kcal for the stabilizing mutations. Variants falling within
+  the energy barrier range from -0.5 to 0.5 were considered neutral or
+  likely
+  benign. (DOI: <a href="https://doi.org/10.1093/nar/gki387">10.1093/nar/gki387</a>)
+</p>
+
+<p class="myjust"><i><b>Rosetta</b></i> calculates the relative free
+  energy of folding between the WT and missense variants. The Gibbs
+  free energy differences or &Delta;&Delta;G values are only
+  comparable between the WT and variant system in question used in the
+  calculation. The Rosetta Cartesian &Delta;&Delta;G protocol was
+  applied to calculate the &Delta;&Delta;G between the WT and the
+  missense variants. The 0 ns WT structure from each replica
+  simulation was first relaxed using the full-atom FastRelax protocol
+  for 50 repeats each. The lowest energy relaxed structure was chosen
+  for the further &Delta;&Delta;G calculations using ref2015 scoring
+  function in the cartesian space. The reported &Delta;&Delta;G values
+  are the lowest energy difference between the relaxed WT and the
+  Rosetta-generated variant &Delta;G values from five prediction
+  iterations for each individual run. Rosetta Energy Units (REUS) were
+  converted to Kcal/mol using the scaling factor 2.94. The
+  calculations were run using the customizable PYTHON
+  wrapper <a href="https://github.com/ELELAB/RosettaDDGPrediction">RosettaDDGPrediction</a>
+  available under GNU General Public License v3.0, (DOI:
+  <a href="https://doi.org/10.1002/pro.4527">10.1002/pro.4527</a>). The
+  &Delta;&Delta;G cut-offs for the destabilizing mutations was set to
+  &ge;2.0 kcal and &le;-2.0 kcal for the stabilizing
+  mutations. Variants with &Delta;&Delta;G values within range of -0.5
+  to 0.5 were considered neutral or likely
+  benign. (DOI: <a href="https://doi.org/10.3389/fbioe.2020.558247">10.3389/fbioe.2020.558247</a>)
+</p>
+
+<p class="myjust"><i><b>Foldetta</b></i> calculates the mean
+  prediction value of FoldX and Rosetta for a given variant. The
+  superior performance of Foldx and Rosetta in distinguishing between
+  pathogenic and benign variants was shown to correlate more
+  accurately with the functional impacts from deep mutational scanning
+  experiments via the consensus score "Foldetta". The cut-offs for the
+  Gibbs free energy change (&Delta;&Delta;G) were established as
+  follows: For destabilizing mutations, the cut-off was set to &ge;2.0
+  kcal/mol while for stabilizing mutations, the cut-off was set to
+  &le;-2.0 kcal/mol. Variants with &Delta;&Delta;G values within the
+  range of -0.5 to 0.5 kcal/mol were classified as neutral or likely
+  benign. (DOI: <a href="https://doi.org/10.1002/pro.4688">10.1002/pro.4688</a>)
+</p>
+
+<p class="myjust"><i><b>PROVEAN</b></i> (Protein Variation Effect
+  Analyzer) v1.1 is designed to calculate a delta alignment score
+  derived from the comparison between the reference WT and the variant
+  versions of a protein query sequence. The sequences for comparison
+  are collected from the NCBI NR protein database using BLAST. PROVEAN
+  utilizes CD-HIT for the clustering of BLAST hits using a parameter
+  set at 75% global sequence identity. The sequence set, used to
+  generate the prediction, is composed of the top 30 clusters of
+  closely related sequences. The default score threshold of -2.5 is
+  applied for the binary classification of variants. Variants with
+  PROVEAN scores below this threshold are classified as deleterious,
+  while those with scores above the threshold are considered
+  neutral. (DOI: <a href="https://doi.org/10.1371/journal.pone.0046688">10.1371/journal.pone.0046688</a>)
+</p>
+
+<p class="myjust"><a href="https://sites.google.com/site/revelgenomics/"><i><b>REVEL</b></i></a>
+  (Rare Exome Variant Ensemble Learner) is an ensemble-based method
+  for assessing the pathogenicity of missense variants. It is based on
+  a combination of scores from 13 prediction tools including SiPhy,
+  phyloP, and phastCons, MutPred, FATHMM v2.3, VEST 3.0, PolyPhen-2,
+  SIFT, PROVEAN, MutationAssessor, MutationTaster, LRT, and
+  GERP++. The score ranges from 0 to 1 and, here, any variant
+  acquiring a score of ≥0.5 was assigned pathogenic. The
+  pre-calculated predictions (v1.3 May 3, 2021) in REVEL are not
+  explicitly for the SynGAP1 isoform &alpha;2 (UniProt Q96PV0-1;
+  ENST00000646630), but of other transcripts of the SYNGAP1
+  gene. Predictions for missense mutations at equivalent GRCh38
+  positions are in our
+  table. (DOI: <a href="https://doi.org/10.1016/j.ajhg.2016.08.016">10.1016/j.ajhg.2016.08.016</a>)
+</p>
+
+<p class="myjust"><i><b>DOI</b></i> link to relevant scientific
+  article.</p>
+
+  <h2>SynGAP Structural Annotation</h2>
+
+<p class="myjust"><i><b>Structural assessment</b></i> of missense mutations was done on those segments of the SynGAP protein that are covered by the N-terminal model. These evaluations are derived from a meticulous manual inspection of the in silico variant molecular dynamics simulations. While a missense mutation may align with multiple categories (X) within the structural annotation classification each variant ultimately receives a single status, categorizing it as <i>potentially pathogenic</i>, <i>potentially benign</i>, or <i>uncertain</i>. The variant was given an uncertain status, if the mutation was introduced at the truncated ends of the model. No variant was assigned pathogenic based on its placement at the C2-membrane or GAP-Ras interfaces, unless the mutation had an effect otherwise.</i>.
+
+
+  <ol>
+<li><i>Secondary</i>: Missense mutations that lead to changes or disruptions in secondary structure elements are potentially pathogenic. The β-hairpins are considered here as secondary structure elements in addition to β sheets, α helices and loops/turns.</li>
+<li><i>Tertiary Bonds</i>: Missense mutations that result in alterations to tertiary structure bonding, particularly the disruption or formation of hydrogen bonds or salt bridges between different secondary structure elements, are potentially pathogenic.</li>
+<li><i>Inside-Out</i>: Missense mutations that cause buried residues to become solvent-exposed and/or misplaced, also known as inside-out effects, are potentially pathogenic.</li>
+<li><i>GAP-Ras Interface</i>: Missense mutations that may alter or disrupt the association between the GAP domain and RasGTPase are noted but without using it as criterion for assigning pathogenicity.</li>
+<li><i>At Membrane</i>: Missense mutations that may alter or disrupt the association between the C2 domain and the membrane are noted but without using it as criterion for assigning pathogenicity.</li>
+<li><i>No Effect</i>: Missense mutations, that are not causing or are unlikely to cause detrimental effects on the protein structure based on the variant simulations, are potentially benign.</li>
+</ol>
+
+<p class="myjust"><i><b>MD alerts</b></i>: These alerts are given for those missense variants where molecular dynamics (MD) simulation results may not be entirely reliable. In these instances, the mutation shows clearly muted structural effect likely due to a fully folded starting conformation in the simulation.</p>
+
+<p class="myjust"><i><b>Verdict</b></i>: The variants are categorized based on the structural effects of the missense mutations into: 1) Potentially Benign: if no apparent negative effect is observed on the structure or folding; 2) Potentially Pathogenic: if a negative effect is observed; and 3) Uncertain: due to the premature truncation of the model or due to their projected effect on the complex formation with either the membrane or Ras-GTPase.</p>
+
+<p class="myjust"><i><b>Description of Structural Effects</b></i>: An exhaustive examination of the structural impacts of missense mutations on the 3D structure of SynGAP is presented. This analysis mainly focuses on observations from the SynGAP-solvent molecular dynamics simulation trajectories that aim to detect alterations in the folding stability or potential misfolding events. Notably, the simulations are not expected to result in a completely unfolded state, as they initiate with the protein in its fully folded form. Further insights are derived from the estimated proximity to the inner post-synaptic membrane and RasGTPase.</p>
+
+<hr>
+
+<p><a href="#top">Top</a></p>
+<br>
+  <script>
+    const event = new Date(document.lastModified);
+    document.write("This page was last modified: " + event.toISOString());
+  </script>
+</main>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

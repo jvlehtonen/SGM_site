@@ -1,0 +1,46 @@
+/* Tooltip container */
+.infotooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.infotooltip .infotooltiptext {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    /* text-align: center; */
+    padding: 5px 5px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.infotooltip .w600 {
+    width: 600px;
+}
+.infotooltip .w500 {
+    width: 500px;
+}
+.infotooltip .w450 {
+    width: 450px;
+}
+
+.infotooltip .w200 {
+    width: 200px;
+}
+.infotooltip .w120 {
+    width: 120px;
+}
+
+.infotooltip:hover .infotooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

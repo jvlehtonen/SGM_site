@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Front page | SynGAP Server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="icon" type="image/png" href="/images/SynGAP.png"
+	sizes="32x32" />
+  <link rel="stylesheet" media="all" href="/styles/utu_a_20240222.css" />
+  <link rel="stylesheet" media="all" href="/styles/utu_b_20240222.css" />
+  <link rel="stylesheet" href="/styles/fa.css" />
+  <link rel="stylesheet" href="/styles/overlay.css" />
+  <link rel="stylesheet" href="/styles/topnav.css" />
+  <script type="text/javascript" src="/sites/w3.js"></script>
+  <script type="text/javascript" src="/sites/overlay.js"></script>
+  <style>
+    .syngap-bk {
+	background-repeat:no-repeat;
+	background-position:80% center;
+	background-size:45%;
+    }
+    .myjust {
+	text-align: justify;
+	text-justify: inter-word;
+	margin-top: 0;
+    }
+  </style>
+</head>
+<body class="theme--page" id="body">
+  <div w3-include-html="/sites/overlay.html"></div>
+  <div class="layout">
+    <div class="layout__container">
+      <div class="layout__content">
+	<header role="banner" class="layout__item js-content" id="header">
+          <div class="region region--header header">
+	    <div class="topnav">
+	      <span><img src="/misc/titles/logo_underline_three_sideways.png"
+			 alt="SynGap Missense Server" />
+	      </span>
+	      <div style="display:flex;float:right;">
+		<div>
+		  <form action="/table/index.php">
+		    <label style="padding-top:2px">Search:</label>
+		    <select name="sengines" style="padding:1px; -webkit-appearance:menulist-button;" onchange="seChange(this);">
+		      <option value="cdna" selected>c.dna</option>
+		      <option value="variant">Variant</option>
+		    </select>
+		    <label style="padding-top:2px; margin-right:5px;">For:</label>
+		    <input type="search" placeholder="Code (e.g. c.597C&gt;A)"
+		    aria-label="Search variant" id="query" name="q" maxlength="9"/>
+		    <button type="submit">
+		      <i class="fa fa-search"></i>
+		    </button>
+		  </form>
+		</div>
+		<div w3-include-html="/sites/hamburger.html"></div>
+	      </div>
+	    </div>
+	  </div>
+	</header>
+  <script>
+    w3.includeHTML();
+  </script>
+	<main role="main" class="main layout__item js-content" id="main">
+	  <div class="region region--content">
+	      <div class="page__item page__item--paragraph page__item--highlighted-rectangles">
+		<div class="paragraph paragraph--type--highlighted-rectangles highlighted-rectangles highlighted-rectangles--default paragraph--view-mode--default">
+
+		  <div class="field field__field_heading">
+		    <div class="field field__field_main_content page__main-content">
+		      <div class="page__item page__item--main-content page__item--free-text">
+			<div class="paragraph paragraph--type--free-text
+				    free-text free-text--default
+				    paragraph--view-mode--default">
+			  <div class="field field__field_item_text
+				      free-text__item-text">
+			    <p class="MsoNormal myjust">SGM (SynGAP Missense) server
+			      offers sequence and structure-based analysis of
+			      SynGAP1 missense variants originating from
+			      <a href="/misc/citation.html">academic
+				research</a>. SGM provides open access to the
+			      modelling and bioinformatics results for
+			      clinicians and public alike,
+			      but <a href="/misc/disclaimer.html">no
+				warranty</a> on the data accuracy is
+			      given.
+			    </p>
+			  </div>
+			</div>
+		      </div>
+		    </div>
+		  </div>
+
+		  <div class="highlighted-rectangles__wrapper">
+		    <div class="field field__field_rectangle_items highlighted-rectangles__rectangle-items">
+		      <a class="paragraph paragraph--type--rectangle-item
+				paragraph--view-mode--default rectangle-item
+				text-color-white background-color-red has-title
+				js-object-fit link link--element"
+			 href="viewer/index.php" style="background-image:
+							url('/images/icons/art-2-2-820w.png');
+							background-repeat:no-repeat;
+							background-position:center;
+							background-size:cover;
+							--current-bg-color:var(--color-white);
+							--current-text-color:var(--color-black);
+							--current-icon:var(--icon-external-white);">
+			<h2><div class="field field__field_title
+					rectangle-item__title">3D Viewer</div></h2>
+		      </a>
+
+		      <a class="paragraph paragraph--type--rectangle-item
+				paragraph--view-mode--default rectangle-item
+				text-color-white background-color-black
+				has-title js-object-fit link link--element"
+			 href="table/index.php"
+			 style="background-image:
+				url('/images/icons/table_icon_white_big_bg.png');
+				background-repeat:no-repeat;
+				background-position:center;
+				background-size:100%;
+				--current-bg-color:var(--color-red);
+				--current-text-color:var(--color-white);
+				--current-icon:var(--icon-external-white);">
+			<h2 ><div class="field field__field_title
+					 rectangle-item__title">Data Table</div></h2>
+		      </a>
+
+		      <a class="paragraph paragraph--type--rectangle-item
+				paragraph--view-mode--default rectangle-item
+				text-color-white background-color-black
+				has-title js-object-fit link link--element"
+			 href="misc/video.html"
+			 style="background-image:
+				url('/images/icons/play_icon_bigger_white.png');
+				background-repeat:no-repeat;background-position:center;
+				background-size:70%;--current-bg-color:
+				var(--color-blue);--current-text-color:
+				var(--color-white);--current-icon:
+				var(--icon-external-white);">
+			<h2 ><div class="field field__field_title
+					 rectangle-item__title">Video</div></h2>
+		      </a>
+		    </div>
+		  </div>
+
+		  <div class="landing__item landing__item--paragraph
+			      landing__item--highlighted-news">
+		    <div class="paragraph paragraph--type--highlighted-news
+				highlighted-news highlighted-news--default
+				paragraph--view-mode--default">
+		      <div class="field field__field_items highlighted-news__items">
+			<div class="highlighted-news__item
+				    highlighted-news__item--items
+				    highlighted-news__item--automated-news">
+			  <div class="paragraph paragraph--type--automated-news automated-news automated-news--default paragraph--view-mode--default">
+			    <div class="views-element-container form__element">
+			      <div class="js-view-dom-id-809cfdd318697557d4f974f02835c5893321bc2293a986366dabb65556c16fe7 listing listing--news-highlight">
+
+				<div class="listing__grid listing__grid--count-4 listing__grid--align-horizontal">
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news
+							     news
+							     news--highlight syngap-bk"
+				       href="/misc/news.html" style="background-image:
+								     url('/images/icons/info_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title"><span class="extra_field extra_field__title">News</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news news news--highlight syngap-bk"
+				       href="/misc/FAQ.html"
+				       style="background-image:
+					      url('/images/icons/faq_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title">
+					  <span class="extra_field extra_field__title">FAQ</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news
+							     news
+							     news--highlight syngap-bk"
+				       href="/misc/citation.html" style="background-image:
+									 url('/images/icons/citation_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title"><span class="extra_field extra_field__title">Citation</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news
+							     news
+							     news--highlight syngap-bk"
+				       href="/misc/contact.html" style="background-image:
+									url('/images/icons/contact_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title"><span class="extra_field extra_field__title">Contact</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+				</div>
+
+				<div class="listing__grid listing__grid--count-4 listing__grid--align-horizontal">
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news news news--highlight syngap-bk"
+				       href="/misc/disclaimer.html"
+				       style="background-image:
+					      url('/images/icons/disclaimer_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title">
+					  <span class="extra_field extra_field__title">Disclaimer</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news
+							     news
+							     news--highlight syngap-bk"
+				       href="/misc/privacy.html" style="background-image:
+									url('/images/icons/privacy_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title"><span class="extra_field extra_field__title">Privacy</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+				  <div class="listing__cell">
+				    <a role="article" class="node
+							     node--type-news
+							     news
+							     news--highlight syngap-bk"
+				       href="/misc/download.html" style="background-image:
+									 url('/images/icons/download_final.png');">
+				      <div  class="news__text-wrapper">
+					<h3 class="news__title"><span class="extra_field extra_field__title">Downloads</span>
+					</h3>
+				      </div>
+				    </a>
+				  </div>
+				  <div class="listing__cell">
+				    <div role="article" class="node
+							       node--type-news
+							       news
+							       news--highlight"
+					 href="/misc/share.html" style="background-color:var(--color-white);">
+				      <div  class="news__text-wrapper" style="text-align:center">
+					<h3><span class="extra_field extra_field__title">
+					    <!-- AddToAny BEGIN -->
+					    <div class="a2a_kit a2a_kit_size_64 a2a_default_style"
+						 data-a2a-url="https://syngapmissenseserver.utu.fi/"
+						 data-a2a-title="SynGAP ">
+					      <a class="a2a_button_linkedin"></a>
+					      <a class="a2a_button_facebook"></a>
+					      <a class="a2a_button_whatsapp"></a>
+					      <a class="a2a_button_x"></a>
+					      <a class="a2a_button_email"></a>
+					      <a class="a2a_button_telegram"></a>
+					    </div>
+					    <script async src="https://static.addtoany.com/menu/page.js"></script>
+					    <!-- AddToAny END -->
+					  </span>
+					</h3>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+	      </div>
+
+	  </div>
+	</main>
+	<footer class="listing__footer">
+
+	<div class="page__item page__item--main-content page__item--free-text">
+	  <div class="paragraph paragraph--type--free-text free-text free-text--default paragraph--view-mode--default">
+            <div class="field field__field_item_text
+			    free-text__item-text" style="text-align:center">
+	      <hr>
+
+	      <a href="https://curesyngap1.org/"><img src="/misc/logos/syngap-research-fund-logo_horizontal.jpg"
+							style="height:96px;"/>
+	      </a>
+	      <br>
+	      <br>
+	      <a href="https://www.utu.fi/en/"><img src="/misc/logos/UTU.png" style="height:96px;"/></a>
+	      <a href="https://inflames.utu.fi/"><img src="/misc/logos/InFLAMES.jpg" style="height:90px;"/></a>
+	      <br>
+	      <a href="http://www.biocenter.fi/"><img src="/misc/logos/BF.png" style="height:75px;"/></a>
+	      <a href="https://www.abo.fi/en/"><img src="/misc/logos/AboAkademiUniversity.png" style="height:96px;"/></a>
+	      <a href="https://www.csc.fi/"><img src="/misc/logos/CSC.jpg" style="height:85px;"/></a>
+	      <a href="https://molstar.org/"><img src="/misc/logos/molstar-logo.png" style="height:75px;"/></a>
+	      <!--
+	      <img src="/misc/logos/Novo_nordisk_foundation_Logo.png" --
+		   --style="height:60px;">
+		-->
+	      <br>
+	      <hr>
+	      <script>
+		const event = new Date(document.lastModified);
+		document.write("This page was last modified: " + event.toISOString());
+	      </script>
+	    </div>
+	  </div>
+	</div>
+	</footer>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function seChange(selectObj) {
+	var idx = selectObj.selectedIndex;
+	var which = selectObj.options[idx].value;
+	var st = document.getElementById("query");
+	if ( "cdna" == which ) {
+	    st.placeholder = "Code (e.g. c.597C>A)";
+	} else {
+	    st.placeholder = "Name (e.g. N199K)";
+	}
+    }
+  </script>
+ </body>
+</html>
