@@ -1,0 +1,17 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: SynGAPMissenseServer website
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jukka V
+    family-names: Lehtonen
+    affiliation: Åbo Akademi University
+    orcid: 'https://orcid.org/0000-0003-0385-0636'
+repository-code: 'https://github.com/jvlehtonen/SGM_site'
+url: 'https://syngapmissenseserver.utu.fi/'
+license: GPL-3.0-or-later
