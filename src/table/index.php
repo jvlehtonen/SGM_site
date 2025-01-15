@@ -71,7 +71,7 @@ if ( $result = $stmt->get_result() ) {
     <title>Data | SynGAP Server</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/images/SynGAP.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/misc/titles/SynGAP.png" sizes="32x32" />
     <link rel="stylesheet" href="./css_final.css" />
     <link rel="stylesheet" href="/styles/fa.css" />
     <link rel="stylesheet" href="/styles/overlay.css" />
