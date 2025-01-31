@@ -365,15 +365,7 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index=\"6\">".$row["polyPhen2_HumVar_pph2_prob"]."</td>";
       echo "<td data-column-index=\"6\">".$row["polyPhen2_HumVar_predict"]."</td>";
       echo "<td data-column-index=\"10\" class=\"lb\">".$row["FATHMM_Diseasespecific_Nervous_System_Score"]."</td>";
-      if ( is_null($row['FATHMM_Diseasespecific_Nervous_System_Score']) ) {
-          echo "<td data-column-index=\"10\"></td>";
-      } else {
-          if ( $row['FATHMM_Diseasespecific_Nervous_System_Score'] < 2.5 ) {
-              echo "<td data-column-index=\"10\">Pathogenic</td>";
-          } else {
-              echo "<td data-column-index=\"10\">Benign</td>";
-          }
-      }
+      echo "<td data-column-index=\"10\">".$row["FATHMM_predict"]."</td>";
       echo "<td data-column-index=\"7\" class=\"lb\">".$row["SIFT_animal_Predict"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Warnings"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Conservation"]."</td>";

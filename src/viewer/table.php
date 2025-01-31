@@ -257,15 +257,7 @@ function drawTables($conn, $variant): int {
             echo "<td " . $style . ">" . $row['provean_score'] . "</td>\n";
             echo "<td " . $style . ">" . $row['provean_predict'] . "</td>\n";
             echo "<td " . $style . ">" . $row['FATHMM_Diseasespecific_Nervous_System_Score'] . "</td>\n";
-            if ( is_null($row['FATHMM_Diseasespecific_Nervous_System_Score']) ) {
-                echo "<td " . $style . "></td>";
-            } else {
-                if ( $row['FATHMM_Diseasespecific_Nervous_System_Score'] < 2.5 ) {
-                    echo "<td " . $style . ">Pathogenic</td>";
-                } else {
-                    echo "<td " . $style . ">Benign</td>";
-                }
-            }
+            echo "<td " . $style . ">" . $row['FATHMM_predict'] . "</td>\n";
             echo "</tr>\n";
             echo "</tbody>
     </table>\n\n";
