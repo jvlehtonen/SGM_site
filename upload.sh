@@ -29,4 +29,4 @@ done
 # Must have URL
 [[ -n "${URL}" ]] || usage_and_exit
 
-rsync -aiv --stats --chmod=D2775,F664 --chown=:www-data --delete build/ ${URL}/
+rsync -aivC --stats --chmod=D2775,F664 --chown=:www-data --delete build/* ${URL}/

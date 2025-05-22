@@ -9,6 +9,7 @@ function usage_and_exit ()
     echo "Options:"
     echo "-d data,             Path to data files"
     echo "-m misc,             Path to misc pages"
+    echo "-b bench,            Path to benchmark pages"
     echo "-v molstar,          Path to Mol* files"
     echo "-n dbname,           Name of SQL database"
     echo "-u dbuser,           SQL username"
@@ -17,12 +18,13 @@ function usage_and_exit ()
     exit 1
 }
 
-TEMP=$(getopt -o d:m:v:n:u:p:h -l help -n 'build.sh' -- "$@")
+TEMP=$(getopt -o d:m:b:v:n:u:p:h -l help -n 'build.sh' -- "$@")
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 eval set -- "$TEMP"
 
 DATAPATH=""
 MISCPATH=""
+BMPATH=""
 MOLSTAR=""
 DBNAME="syngap"
 DBUSER=""
@@ -31,6 +33,7 @@ while true ; do
         case "$1" in
                 -d) DATAPATH="$2" ; shift 2 ;;
                 -m) MISCPATH="$2" ; shift 2 ;;
+                -b) BMPATH="$2"   ; shift 2 ;;
                 -v) MOLSTAR="$2"  ; shift 2 ;;
                 -n) DBNAME="$2"   ; shift 2 ;;
                 -u) DBUSER="$2"   ; shift 2 ;;
@@ -55,6 +58,8 @@ sed "{s/DBNAME/${DBNAME}/; s/DBUSER/${DBUSER}/; s/DBPW/${DBPW}/}" src/sql/connec
 
 rsync -a --stats --exclude=/mutations.csv ${DATAPATH}/ build/data/
 rsync -a --stats ${MISCPATH}/ build/misc/
+
+[[ -n "${BMPATH}" ]] && rsync -a --stats ${BMPATH}/ build/benchmark/
 
 # mutations.csv has been created with query:
 # SELECT DISTINCT point_mutation(variant) FROM syngap ORDER BY point_mutation(variant);

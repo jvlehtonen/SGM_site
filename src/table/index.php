@@ -51,7 +51,7 @@ $column = isset($_GET['column']) && in_array($_GET['column'], $columns ) ? $_GET
 $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
 
 $sql = "SELECT * FROM for_datatable";
-$sqlwhere = " WHERE ".$scol." LIKE ?";
+$sqlwhere = " WHERE ".$scol." LIKE ? AND (clinvar_uid IS NOT NULL OR gnomAD_id IS NOT NULL)";
 if ( isset($_GET['subset']) && $_GET['subset'] == 'structure' ) $sqlwhere = $sqlwhere." AND 0 < structure";
 if ( isset($_GET['subset']) && $_GET['subset'] == 'mdstructure' ) $sqlwhere = $sqlwhere." AND 2 = structure";
 $sqlorder = " ORDER BY ".$column.' '.$sort_order;
