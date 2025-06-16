@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+$results_per_page = 200;
 
 function sortURL($column, $order, $sortCol, $text) {
     $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $order);
@@ -14,11 +15,21 @@ function sortURL($column, $order, $sortCol, $text) {
     echo "\"></b></a>";
 }
 
+function pageURL($pc, $text) {
+    echo " <a href=\"?page=$pc";
+    if ( isset($_GET['column']) ) echo '&column='.$_GET['column'];
+    if ( isset($_GET['order']) ) echo '&order='.$_GET['order'];
+    if ( isset($_GET['subset']) ) echo '&subset='.$_GET['subset'];
+    if ( isset($_GET['sengines']) ) echo '&sengines='.$_GET['sengines'];
+    if ( isset($_GET['q']) ) echo '&q='.$_GET['q'];
+    echo "\">".$text."</a>";
+}
+
 function radioBut($group, $val, $title) {
     echo "<input type=\"radio\" id=\"sub".$val."\" name=\"".$group."\" value=\"".$val."\"";
     echo " onclick=\"handleClick(this);\"";
     if ( isset($_GET[$group]) && $_GET[$group] == $val) echo ' checked';
-    if ( ! isset($_GET[$group]) && $val == 'all' ) echo ' checked';
+    if ( ! isset($_GET[$group]) && $val == 'clinical' ) echo ' checked';
     echo "><label for=\"sub".$val."\">".$title."</label>\n";
 }
 
@@ -51,13 +62,21 @@ $column = isset($_GET['column']) && in_array($_GET['column'], $columns ) ? $_GET
 $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
 
 $sql = "SELECT * FROM for_datatable";
-$sqlwhere = " WHERE ".$scol." LIKE ? AND (clinvar_uid IS NOT NULL OR gnomAD_id IS NOT NULL)";
-if ( isset($_GET['subset']) && $_GET['subset'] == 'structure' ) $sqlwhere = $sqlwhere." AND 0 < structure";
-if ( isset($_GET['subset']) && $_GET['subset'] == 'mdstructure' ) $sqlwhere = $sqlwhere." AND 2 = structure";
+$sqlwhere = " WHERE ".$scol." LIKE ?";
+$subset = $_GET['subset'] ?? 'clinical';
+if ( $subset == 'clinical' ) $sqlwhere = $sqlwhere." AND clinvar_uid IS NOT NULL";
+if ( $subset == 'structure' ) $sqlwhere = $sqlwhere." AND 0 < structure";
+if ( $subset == 'mdstructure' ) $sqlwhere = $sqlwhere." AND 2 = structure";
+
 $sqlorder = " ORDER BY ".$column.' '.$sort_order;
 
+if (isset($_GET["page"])) { $page = $_GET["page"]; } else { $page=1; };
+$start_from = ($page-1) * $results_per_page;
+$sqlsubset = " LIMIT $start_from, ".$results_per_page;
+// $sqlsubset = "";
+
 $stmt = $conn->stmt_init();
-$stmt->prepare($sql . $sqlwhere . $sqlorder);
+$stmt->prepare($sql . $sqlwhere . $sqlorder . $sqlsubset);
 
 $search = isset($_GET['q']) ? '%'.$_GET['q'].'%' : '%';
 $stmt->bind_param("s", $search);
@@ -65,7 +84,6 @@ $stmt->execute();
 
 if ( $result = $stmt->get_result() ) {
 	$add_class_name = 'highlight';
-    $subset = $_GET['subset'] ?? 'all';
     ?>
   <head>
     <title>Data | SynGAP Server</title>
@@ -133,9 +151,10 @@ if ( $result = $stmt->get_result() ) {
       </button>
       <input type="button" id="reset" style="cursor:pointer;" value="&#xF0E2;" onclick="show_all()" />
       <label><b>Rows:</b></label>
-      <?php radioBut('subset', 'all', 'All'); ?>
+      <?php radioBut('subset', 'clinical', 'In ClinVar'); ?>
       <?php radioBut('subset', 'structure', 'Structures only'); ?>
       <?php radioBut('subset', 'mdstructure', 'MD-structures only'); ?>
+      <?php radioBut('subset', 'all', 'All'); ?>
       <label style="margin-left:10px;">|</label>
       <input type="button" id="showhide" style="width:200px;text-align:center;" value="Show/Hide columns" onclick="sgmshowhide()" />
      </form>
@@ -397,6 +416,30 @@ if ( $result = $stmt->get_result() ) {
         </table>
       </div>
     </div>
+<?php
+$sqlcount = "SELECT COUNT(cdna) AS total FROM for_datatable".$sqlwhere;
+$stmt2 = $conn->stmt_init();
+$stmt2->prepare($sqlcount);
+$stmt2->bind_param("s", $search);
+$stmt2->execute();
+if ( $res = $stmt2->get_result() )
+{
+    $row = $res->fetch_assoc();
+    echo "<p>Found ".$row["total"]." rows.";
+    $total_pages = ceil($row["total"] / $results_per_page); // calculate total pages with results
+    $previous = $page -1;
+    $next = $page +1;
+    echo " Page ".$page."/".$total_pages." ";
+    if ($page>1) {
+        pageURL( $previous, '<- Previous' );
+    }
+    echo " |";
+    if ($page<$total_pages) {
+        pageURL( $next, 'Next ->' );
+    }
+    echo "</p>";
+}
+?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
