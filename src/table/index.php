@@ -15,14 +15,14 @@ function sortURL($column, $order, $sortCol, $text) {
     echo "\"></b></a>";
 }
 
-function pageURL($pc, $text) {
+function pageURL($pc, $class, $text) {
     echo " <a href=\"?page=$pc";
     if ( isset($_GET['column']) ) echo '&column='.$_GET['column'];
     if ( isset($_GET['order']) ) echo '&order='.$_GET['order'];
     if ( isset($_GET['subset']) ) echo '&subset='.$_GET['subset'];
     if ( isset($_GET['sengines']) ) echo '&sengines='.$_GET['sengines'];
     if ( isset($_GET['q']) ) echo '&q='.$_GET['q'];
-    echo "\">".$text."</a>";
+    echo "\" class=\"".$class."\">".$text."</a>";
 }
 
 function radioBut($group, $val, $title) {
@@ -435,11 +435,11 @@ if ( $res = $stmt2->get_result() )
     $next = $page +1;
     echo " Page ".$page."/".$total_pages." ";
     if ($page>1) {
-        pageURL( $previous, '<- Previous' );
+        pageURL( $previous, 'previous', '&laquo; Previous' );
     }
     echo " |";
     if ($page<$total_pages) {
-        pageURL( $next, 'Next ->' );
+        pageURL( $next, 'next', 'Next &raquo;' );
     }
     echo "</p>";
 }

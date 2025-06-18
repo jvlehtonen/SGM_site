@@ -265,3 +265,19 @@ li {
     float: left;
     margin-right: 10px;
 }
+
+.previous {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #00B4CC;
+  color: white;
+  border-radius: 6px;
+}
+
+.next {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #00B4CC;
+  color: white;
+  border-radius: 6px;
+}
