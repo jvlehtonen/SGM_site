@@ -5,7 +5,7 @@ include("../sql/connect.php");
 function pointImage($str): void {
     $src = mb_substr($str, 0, 1);
     $dst = mb_substr($str, -1);
-    echo "<tr><td colspan=5><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
+    echo "<tr><td colspan=6><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
 }
 
 function drawTables($conn, $variant): int {
@@ -20,15 +20,17 @@ function drawTables($conn, $variant): int {
         if ( $row = $result->fetch_assoc() ) {
             $strtype = $row["structure"];
             $style = "";
-            if ( 2 == $strtype ) {
-                $clin_status = $row["verdictID"];
-                if ( $clin_status == 2 ) {
+            if ( !is_null($row['consensus']) ) {
+                $clin_status = $row['consensus'];
+                if ( $clin_status == "Pathogenic" ) {
                     $style = "class=\"table-danger\"";
                 }
-                elseif ( $clin_status == 1 ) {
+                elseif ( $clin_status == "Benign" ) {
                     $style = "class=\"table-success\"";
                 }
+            }
 
+            if ( 2 == $strtype ) {
                 echo "<p class=\"myjust\"><b>Variant " . $variant . "</b>: " . $row['description'];
                 echo "</p>\n";
             } else {
@@ -43,6 +45,7 @@ function drawTables($conn, $variant): int {
 	<th>Domain</th>
 	<th>Clinical Status</th>
 	<th>gnomAD</th>
+	<th>SGM Consensus</th>
       </tr>\n";
             echo "</thead>
 <tbody>\n";
@@ -68,6 +71,12 @@ function drawTables($conn, $variant): int {
             }
             else {
                 echo "<td " . $style . "><a href=\"https://gnomad.broadinstitute.org/variant/".$row["gnomAD_id"]."?dataset=gnomad_r4\" target=\"_blank\">" . $row['gnomAD_id'] . "</td>";
+            }
+            if ( is_null($row["consensus"]) ) {
+                echo "<td " . $style . "></td>";
+            }
+            else {
+                echo "<td " . $style . ">" . $row["consensus"] . "</td>";
             }
             echo "</tr>\n";
             pointImage($row["variant"]);
@@ -109,7 +118,7 @@ function drawTables($conn, $variant): int {
             echo "<thead class=\"thead-light\">\n";
             echo "<tr>
 	<th>MD Alert</th>
-	<th>SGM Verdict</th>\n";
+	<th>SGM MD-based Verdict</th>\n";
             echo "</tr>\n";
             echo "</thead>
 <tbody>\n";
