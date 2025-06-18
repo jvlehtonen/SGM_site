@@ -53,7 +53,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'AlphaMissense_Pathogenicity', 'AlphaMissense_Class', 'clinvar_uid',
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
-                 'allele_freq', 'cdna', 'revel_score');
+                 'allele_freq', 'cdna', 'revel_score', 'consensus');
 $searchcols = array('variant', 'cdna');
 
 $scol = isset($_GET['sengines']) && in_array($_GET['sengines'], $searchcols ) ? $_GET['sengines'] : 'cdna';
@@ -65,6 +65,7 @@ $sql = "SELECT * FROM for_datatable";
 $sqlwhere = " WHERE ".$scol." LIKE ?";
 $subset = $_GET['subset'] ?? 'clinical';
 if ( $subset == 'clinical' ) $sqlwhere = $sqlwhere." AND clinvar_uid IS NOT NULL";
+if ( $subset == 'gnomad' ) $sqlwhere = $sqlwhere." AND gnomad_id IS NOT NULL";
 if ( $subset == 'structure' ) $sqlwhere = $sqlwhere." AND 0 < structure";
 if ( $subset == 'mdstructure' ) $sqlwhere = $sqlwhere." AND 2 = structure";
 
@@ -152,8 +153,9 @@ if ( $result = $stmt->get_result() ) {
       <input type="button" id="reset" style="cursor:pointer;" value="&#xF0E2;" onclick="show_all()" />
       <label><b>Rows:</b></label>
       <?php radioBut('subset', 'clinical', 'In ClinVar'); ?>
-      <?php radioBut('subset', 'structure', 'Structures only'); ?>
-      <?php radioBut('subset', 'mdstructure', 'MD-structures only'); ?>
+      <?php radioBut('subset', 'gnomad', 'In gnomAD'); ?>
+      <?php radioBut('subset', 'structure', 'With 3D model'); ?>
+      <?php radioBut('subset', 'mdstructure', 'With 3D and MD data'); ?>
       <?php radioBut('subset', 'all', 'All'); ?>
       <label style="margin-left:10px;">|</label>
       <input type="button" id="showhide" style="width:200px;text-align:center;" value="Show/Hide columns" onclick="sgmshowhide()" />
@@ -161,6 +163,7 @@ if ( $result = $stmt->get_result() ) {
    </div>
       <div class="container">
         <ul id="shmenu" class="container__menu container__menu--hidden">
+          <li><label> <input type="checkbox" data-column-index="21"/>SGM Consensus</label></li>
           <li><label> <input type="checkbox" data-column-index="16"/>Domain</label></li>
           <li><label> <input type="checkbox" data-column-index="1"/>ClinVar</label></li>
           <li><label> <input type="checkbox" data-column-index="13"/>gnomAD</label></li>
@@ -191,6 +194,7 @@ if ( $result = $stmt->get_result() ) {
   <tr>
 	<th rowspan=2 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
     <th rowspan=2 style="z-index:2;"><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
+	<th rowspan=2 data-column-index="21"><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
 	<th rowspan=2 data-column-index="16">Domain</th>
 	<th colspan=3 data-column-index="1">ClinVar</th>
 	<th colspan=3 data-column-index="13">gnomAD</th>
@@ -299,11 +303,10 @@ if ( $result = $stmt->get_result() ) {
     8 => "table-normal"
 );
     while($row = $result->fetch_assoc() ):
-      $verdict_status = $row["verdictID"];
       $stylename = "table-normal";
-      if ( $row["verdictID"] ) {
-          if ( $verdict_status == 1 ) { $stylename = $clinvarstyles[1];}
-          elseif ( $verdict_status == 2 ) { $stylename = $clinvarstyles[4];}
+      if ( !is_null($row['consensus']) ) {
+          if ( $row['consensus'] == "Likely Benign" ) { $stylename = $clinvarstyles[1];}
+          elseif ( $row['consensus'] == "Likely Pathogenic" ) { $stylename = $clinvarstyles[4];}
       }
       $style = "class=\"" . $stylename . "\"";
 
@@ -318,6 +321,7 @@ if ( $result = $stmt->get_result() ) {
       }
       pointImage($row["variant"]);
       echo "</td>";
+      echo "<td data-column-index=\"21\">".$row["consensus"]."</td>";
       echo "<td data-column-index=\"16\">".$row["domain"]."</td>";
 
       // ClinVar

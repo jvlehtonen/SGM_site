@@ -22,10 +22,10 @@ function drawTables($conn, $variant): int {
             $style = "";
             if ( !is_null($row['consensus']) ) {
                 $clin_status = $row['consensus'];
-                if ( $clin_status == "Pathogenic" ) {
+                if ( $clin_status == "Likely Pathogenic" ) {
                     $style = "class=\"table-danger\"";
                 }
-                elseif ( $clin_status == "Benign" ) {
+                elseif ( $clin_status == "Likely Benign" ) {
                     $style = "class=\"table-success\"";
                 }
             }
