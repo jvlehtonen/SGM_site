@@ -429,7 +429,7 @@ $stmt2->execute();
 if ( $res = $stmt2->get_result() )
 {
     $row = $res->fetch_assoc();
-    echo "<p>Found ".$row["total"]." rows.";
+    echo "<p>Found ".$row["total"]." rows. Show ".$results_per_page." rows per page.";
     $total_pages = ceil($row["total"] / $results_per_page); // calculate total pages with results
     $previous = $page -1;
     $next = $page +1;
@@ -453,7 +453,8 @@ if ( $res = $stmt2->get_result() )
     <footer>
       <script>
 	const event = new Date(document.lastModified);
-	document.write("This page was last modified: " + event.toISOString());
+    document.write("The ClinVar data retrieved 2025-08-07. The gnomAD data retrieved 2025-05-09.");
+    //document.write("This page was last modified: " + event.toISOString());
       </script>
     </footer>
     <script>
