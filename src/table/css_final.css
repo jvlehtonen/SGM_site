@@ -183,6 +183,10 @@ tr.table-success:hover {
     position: relative;
 }
 
+.myparentCell3 {
+    position: relative;
+}
+
 .mytooltip {
     display: none;
     position: absolute;
@@ -194,6 +198,23 @@ tr.table-success:hover {
     color: green;
     top: -100px;
     left: 100%;
+}
+
+.mytooltip3 {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    border: 1px;
+    background-color: #555;
+    border: 1px solid green;
+    padding: 3px;
+    color: white;
+    top:   -50px;
+    left:  100%;
+    width: 60em;
+    /* min-height: 200px; */
+    text-align: justify;
 }
 
 .mytooltip2 {
@@ -215,6 +236,10 @@ tr.table-success:hover {
 
 .myparentCell2:hover span.mytooltip2 {
     display:block;
+}
+
+.myparentCell3:hover span.mytooltip3 {
+    visibility: visible;
 }
 
 .mytooltip img {

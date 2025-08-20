@@ -103,28 +103,29 @@ if ( $result = $stmt->get_result() ) {
     <div w3-include-html="/sites/overlay.html"></div>
     <h1><a href="/index.html"><span><img src="/misc/titles/sgm_table.png" alt="SynGap Missense Server" style="height:64px;"></span></a></h1>
     <nav style="margin-bottom:15px">
-       <div style="display:flex;">
-       <div class="topnav fa-icon" w3-include-html="/sites/hamburger.html"></div>
-       <script>w3.includeHTML();</script>
-       <a class="fa-icon" href="/index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
-       <div class="infotooltip fa-icon">
-       <a href="/sql/export_csv.php"><i class='fa fa-download' style='font-size:36px;color:#00B4CC;'></i></a>
-       <span class="infotooltiptext w120 mycenter">
-       The table is downloadable as a semicolon (;) separated CSV file
-       </span>
-       </div>
-       <div class="infotooltip fa-icon">
-       <a href="metrics.html"><i class='fa fa-info-circle' style='font-size:36px;color:#00B4CC;'></i></a>
-       <span class="infotooltiptext w200 myjust">
-       Description of table metrics (columns)
-       </span>
-       </div>
-       <div class="infotooltip fa-icon">
-        <i class='fa fa-question-circle' style='font-size:36px;color:#00B4CC;'></i>
-        <span class="infotooltiptext w600 myjust">
-          <b>Data Table</b> includes various sequence-, structure-, evolution- and/or physics-based pathogenicity predictions (e.g., SIFT, PolyPhen-2, ESMb1, AlphaMissense) for the missense variants. The structural modelling is provided for all missense variants within the scope of the SynGAP model (res. 198-730). The structural annotation and molecular dynamics (MD) simulation metrics (e.g., SASA, B-factor) are provided for those missense variants that have been studied using SynGAP-solvent MD simulations. Column Variant shows change in residue as tooltip and has link to 3D Viewer if there is a structure to show.
-        </span>
-      </div>
+      <div style="display:flex;">
+        <div class="topnav fa-icon" w3-include-html="/sites/hamburger.html">
+        </div>
+        <script>w3.includeHTML();</script>
+        <a class="fa-icon" href="/index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
+        <div class="infotooltip fa-icon">
+          <a href="/sql/export_csv.php"><i class='fa fa-download' style='font-size:36px;color:#00B4CC;'></i></a>
+          <span class="infotooltiptext w120 mycenter">
+            The table is downloadable as a semicolon (;) separated CSV file
+          </span>
+        </div>
+        <div class="infotooltip fa-icon">
+          <a href="metrics.html"><i class='fa fa-info-circle' style='font-size:36px;color:#00B4CC;'></i></a>
+          <span class="infotooltiptext w200 myjust">
+            Description of table metrics (columns)
+          </span>
+        </div>
+        <div class="infotooltip fa-icon">
+          <i class='fa fa-question-circle' style='font-size:36px;color:#00B4CC;'></i>
+          <span class="infotooltiptext w600 myjust">
+            <b>Data Table</b> includes various sequence-, structure-, evolution- and/or physics-based pathogenicity predictions (e.g., SIFT, PolyPhen-2, ESMb1, AlphaMissense) for the missense variants. The structural modelling is provided for all missense variants within the scope of the SynGAP model (res. 198-730). The structural annotation and molecular dynamics (MD) simulation metrics (e.g., SASA, B-factor) are provided for those missense variants that have been studied using SynGAP-solvent MD simulations. Column Variant shows change in residue as tooltip and has link to 3D Viewer if there is a structure to show.
+          </span>
+        </div>
       </div>
     </nav>
 
@@ -321,7 +322,14 @@ if ( $result = $stmt->get_result() ) {
       }
       pointImage($row["variant"]);
       echo "</td>";
-      echo "<td data-column-index=\"21\">".$row["consensus"]."</td>";
+      echo "<td data-column-index='21'><div style='display:flex;justify-content:space-around;'><div>".$row["consensus"]."</div>";
+      if ( !is_null($row['summary']) ) {
+          echo "<div class='myparentCell3'>";
+          echo "<i class='fa fa-info-circle' style='color:#00B4CC;'></i>";
+          echo "<span class='mytooltip3'>".$row['summary']."<br><br><em>Disclaimer: This summary was generated using AI and should be interpreted alongside expert review.</em></span>";
+          echo "</div>";
+      }
+      echo "</div></td>";
       echo "<td data-column-index=\"16\">".$row["domain"]."</td>";
 
       // ClinVar

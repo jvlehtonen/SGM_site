@@ -35,7 +35,12 @@ function drawTables($conn, $variant): int {
                 echo "</p>\n";
             } else {
                 echo "<p class=\"myjust\"><b>Variant " . $variant . "</b>: ";
-                echo "No MD-based annotation or description available</p>\n";
+                if ( !is_null($row['summary']) ) {
+                    $summary = $row['summary'];
+                     echo $summary . "</p><p><em>Disclaimer: This summary was generated using AI and should be interpreted alongside expert review.</em></p>\n";
+                } else {
+                    echo "No MD-based annotation or description available</p>\n";
+                }
             }
 
             echo "<table class=\"table table-bordered table-sm text-center\">
