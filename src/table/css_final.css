@@ -175,20 +175,21 @@ tr.table-success:hover {
     border-left: 2px solid black;
 }
 
-.myparentCell {
+.myparent2D {
     position: relative;
 }
 
-.myparentCell2 {
+.myparent3D {
     position: relative;
 }
 
-.myparentCell3 {
+.myparentAI {
     position: relative;
 }
 
-.mytooltip {
-    display: none;
+.mytooltip2D {
+    visibility: hidden;
+    display: block;
     position: absolute;
     z-index: 100;
     border: 1px;
@@ -196,11 +197,27 @@ tr.table-success:hover {
     border: 1px solid green;
     padding: 3px;
     color: green;
-    top: -100px;
-    left: 100%;
+    top:  -50px;
+    left: 300%;
 }
 
-.mytooltip3 {
+.mytooltip3D {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    border: 1px;
+    background-color: #555;
+    border: 1px solid green;
+    padding: 3px;
+    color: white;
+    top:   -50px;
+    left:  200%;
+    text-align: left;
+    width: 10em;
+}
+
+.mytooltipAI {
     visibility: hidden;
     display: block;
     position: absolute;
@@ -213,44 +230,24 @@ tr.table-success:hover {
     top:   -50px;
     left:  100%;
     width: 60em;
-    /* min-height: 200px; */
     text-align: justify;
 }
 
-.mytooltip2 {
-    display: none;
-    position: absolute;
-    z-index: 120;
-    border: 1px;
-    background-color: white;
-    border: 1px solid green;
-    padding: 3px;
-    color: green;
-    top: -100px;
-    left: 500px;
+.myparent2D:hover span.mytooltip2D {
+    visibility: visible;
 }
 
-.myparentCell:hover span.mytooltip {
-    display:block;
+.myparent3D:hover span.mytooltip3D {
+    visibility: visible;
 }
 
-.myparentCell2:hover span.mytooltip2 {
-    display:block;
-}
-
-.myparentCell3:hover span.mytooltip3 {
+.myparentAI:hover span.mytooltipAI {
     visibility: visible;
 }
 
 .mytooltip img {
     width: 400px;
     height: 200px;
-    object-fit: contain;
-}
-
-.mytooltip2 img {
-    width: 200px;
-    /* height: 713px; */
     object-fit: contain;
 }
 
@@ -305,4 +302,22 @@ li {
   background-color: #00B4CC;
   color: white;
   border-radius: 6px;
+}
+
+.popupcontainer {
+    display: inline-block;
+}
+
+.popupcontainer i {
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #00B4CC;
+    /*background-color: #00B4CC;*/
+    background-color: white;
+    /* color: black; */
+    /* font-size: 36px; */
+    font-size: 15px;
+    padding: 3px 3px;
+    margin: 3px 3px;
+    font-style: normal;
 }

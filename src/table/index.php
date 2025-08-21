@@ -36,7 +36,7 @@ function radioBut($group, $val, $title) {
 function pointImage($str) {
     $src = mb_substr($str, 0, 1);
     $dst = mb_substr($str, -1);
-    echo "<span class=\"mytooltip\"><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></span>";
+    echo "<span class='mytooltip2D'><img src='/images/amino_acids_mutants/".$src.$dst.".png'></span>";
 }
 ?>
 <!DOCTYPE html>
@@ -313,23 +313,27 @@ if ( $result = $stmt->get_result() ) {
 
       echo "<tr ". $style .">";
       echo "<td>".$row["cdna"]."</td>";
-      echo "<td class=\"myparentCell " . $stylename . ($column == 'resnum' ? ' '.$add_class_name : '') ."\">".$row["variant"];
-      if ( 0 < $row["structure"] ) {
-          // echo "<div class=\"myparentCell2\">";
-          echo "<br><a href=\"https://syngapmissenseserver.utu.fi/viewer/index.php?q=".$row["variant"]."\">(3D Viewer)</a>";
-          // echo "<span class=\"mytooltip2\"><img src=\"/images/structure/".$row["variant"].".png\"/></span>";
-          // echo "</div>";
-      }
+      echo "<td class='". $stylename . ($column == 'resnum' ? ' '.$add_class_name : '') ."'>";
+      echo "<div style='display:flex;flex-direction:column;justify-content:space-around;'>";
+      echo "<div style='padding:3px;'>".$row["variant"]."</div>";
+      echo "<div style='padding:3px;display:flex;justify-content:space-around;'>";
+      echo "<div class='popupcontainer myparent2D'><i>2D</i>";
       pointImage($row["variant"]);
-      echo "</td>";
-      echo "<td data-column-index='21'><div style='display:flex;justify-content:space-around;'><div>".$row["consensus"]."</div>";
-      if ( !is_null($row['summary']) ) {
-          echo "<div class='myparentCell3'>";
-          echo "<i class='fa fa-info-circle' style='color:#00B4CC;'></i>";
-          echo "<span class='mytooltip3'>".$row['summary']."<br><br><em>Disclaimer: This summary was generated using AI and should be interpreted alongside expert review.</em></span>";
+      echo "</div>";
+      if ( 0 < $row["structure"] ) {
+          echo "<div class='popupcontainer myparent3D'>";
+          echo "<a style='text-decoration:none;' href='https://syngapmissenseserver.utu.fi/viewer/index.php?q=".$row["variant"]."'><i>3D</i></a>";
+          echo "<span class='mytooltip3D'>Click to see structure in 3D Viewer</span>";
           echo "</div>";
       }
-      echo "</div></td>";
+      if ( !is_null($row['summary']) ) {
+          echo "<div class='popupcontainer myparentAI'><i>AI</i>";
+          echo "<span class='mytooltipAI'>".$row['summary']."<br><br><em>Disclaimer: This summary was generated using AI and should be interpreted alongside expert review.</em></span></div>";
+      }
+      echo "</div>";
+      echo "</div>";
+      echo "</td>";
+      echo "<td data-column-index='21'>".$row["consensus"]."</td>";
       echo "<td data-column-index=\"16\">".$row["domain"]."</td>";
 
       // ClinVar

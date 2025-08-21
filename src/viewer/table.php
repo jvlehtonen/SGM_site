@@ -30,20 +30,42 @@ function drawTables($conn, $variant): int {
                 }
             }
 
+            echo "<p><b>Variant " . $variant . "</b></p>\n";
+            echo "<!-- Tab links -->
+<div class='tab'>
+  <button class='tablinks' onclick=\"showSummary(event, 'MD')\" id='defaultOpen'>MD</button>
+  <button class='tablinks' onclick=\"showSummary(event, 'AI')\">AI</button>
+</div>";
+
+            echo "<!-- Tab content -->
+<div id='MD' class='tabcontent'>\n";
             if ( 2 == $strtype ) {
-                echo "<p class=\"myjust\"><b>Variant " . $variant . "</b>: " . $row['description'];
-                echo "</p>\n";
+                echo "<p><em>Interpretation based on the MD results:</em></p>\n";
+                echo "<p class='myjust'>".$row['description']."</p>\n";
             } else {
-                echo "<p class=\"myjust\"><b>Variant " . $variant . "</b>: ";
-                if ( !is_null($row['summary']) ) {
-                    $summary = $row['summary'];
-                     echo $summary . "</p><p><em>Disclaimer: This summary was generated using AI and should be interpreted alongside expert review.</em></p>\n";
-                } else {
-                    echo "No MD-based annotation or description available</p>\n";
-                }
+                echo "<p><em>No MD-based annotation or description available</em></p>\n";
             }
+            echo "</div>\n";
+
+            echo "<div id='AI' class='tabcontent'>\n";
+            if ( !is_null($row['summary']) ) {
+                echo "<p><b>Disclaimer:</b> <em>A summary generated with AI and should be interpreted alongside expert review:</em></p>\n";
+                $summary = $row['summary'];
+                echo "<p class='myjust'>".$summary."</p>\n";
+            } else {
+                echo "<p><em>No AI summary available</em></p>\n";
+            }
+            echo "</div>\n";
+
+            echo "<script>
+// Get the element with id='defaultOpen' and click on it
+document.getElementById(\"defaultOpen\").click();
+</script>\n";
+
+            echo "<hr>\n";
 
             echo "<table class=\"table table-bordered table-sm text-center\">
+<caption class=\"oldcap\">Information</caption>
 <thead class=\"thead-light\">\n";
             echo "<tr><th>c.dna</th>
     <th>Variant</th>
@@ -383,11 +405,74 @@ width:2421px;
      color: white;
      font-size: 16px;
      cursor: pointer;
- } </style>
+ }
+
+ /* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-style: none none solid none;
+    /* background-color: #e9ecef; */
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: #e9ecef;
+    /* background-color: inherit; */
+    float: left;
+    border: none;
+    border-bottom-style: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 36px;
+    transition: 0.3s;
+    border-radius: 16px 16px 0px 0px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #bbb;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link rel="stylesheet" href="/styles/fa.css" />
 </head>
 <body style="padding: 10px;">
+<script>
+function showSummary(evt, name) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class='tabcontent' and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class='tablinks' and remove the class 'active'
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an 'active' class to the button that opened the tab
+  document.getElementById(name).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 <h4>Description</h4>
 <?php
          if ( ! isset($_GET['q']) ) {
@@ -555,6 +640,7 @@ echo "<hr>
       indexrama = imagesrama.length - 1;
       imgrama.src = imagesrama[indexrama];
   }
+
 </script>\n";
 }
 $conn->close();
