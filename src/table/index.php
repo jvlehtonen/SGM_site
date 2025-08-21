@@ -123,7 +123,7 @@ if ( $result = $stmt->get_result() ) {
         <div class="infotooltip fa-icon">
           <i class='fa fa-question-circle' style='font-size:36px;color:#00B4CC;'></i>
           <span class="infotooltiptext w600 myjust">
-            <b>Data Table</b> includes various sequence-, structure-, evolution- and/or physics-based pathogenicity predictions (e.g., SIFT, PolyPhen-2, ESMb1, AlphaMissense) for the missense variants. The structural modelling is provided for all missense variants within the scope of the SynGAP model (res. 198-730). The structural annotation and molecular dynamics (MD) simulation metrics (e.g., SASA, B-factor) are provided for those missense variants that have been studied using SynGAP-solvent MD simulations. Column Variant shows change in residue as tooltip and has link to 3D Viewer if there is a structure to show.
+            <b>Data Table</b> includes various sequence-, structure-, evolution- and/or physics-based pathogenicity predictions (e.g., SIFT, PolyPhen-2, ESMb1, AlphaMissense) for the missense variants. The structural modelling is provided for all missense variants within the scope of the SynGAP model (res. 198-730). The structural annotation and molecular dynamics (MD) simulation metrics (e.g., SASA, B-factor) are provided for those missense variants that have been studied using SynGAP-solvent MD simulations. Color of rows is based on value of SGM Consensus. Column Variant shows change in residue as tooltip and has link to 3D Viewer if there is a structure to show.
           </span>
         </div>
       </div>
