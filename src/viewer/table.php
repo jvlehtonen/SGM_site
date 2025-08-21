@@ -5,7 +5,7 @@ include("../sql/connect.php");
 function pointImage($str): void {
     $src = mb_substr($str, 0, 1);
     $dst = mb_substr($str, -1);
-    echo "<tr><td colspan=6><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
+    echo "<tr><td colspan=5><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
 }
 
 function drawTables($conn, $variant): int {
@@ -72,7 +72,6 @@ document.getElementById(\"defaultOpen\").click();
 	<th>Domain</th>
 	<th>Clinical Status</th>
 	<th>gnomAD</th>
-	<th>SGM Consensus</th>
       </tr>\n";
             echo "</thead>
 <tbody>\n";
@@ -99,6 +98,28 @@ document.getElementById(\"defaultOpen\").click();
             else {
                 echo "<td " . $style . "><a href=\"https://gnomad.broadinstitute.org/variant/".$row["gnomAD_id"]."?dataset=gnomad_r4\" target=\"_blank\">" . $row['gnomAD_id'] . "</td>";
             }
+            echo "</tr>\n";
+            pointImage($row["variant"]);
+
+            echo "</tbody>
+    </table>\n\n";
+
+            echo "<table class=\"table table-bordered table-sm text-center\">\n";
+            echo "<caption class=\"oldcap\">Consensus predictions</caption>\n";
+            echo "<thead class=\"thead-light\">\n";
+            echo "<tr>
+	<th colspan=2>REVEL</th>
+	<th>SGM</th>
+      </tr><tr>
+	<th>Score</th>
+	<th>Prediction</th>
+	<th>Consensus</th>\n";
+            echo "</tr>\n";
+            echo "</thead>
+<tbody>\n";
+            echo "<tr>\n";
+            echo "<td " . $style . ">" . $row['revel_score'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['revel_predict'] . "</td>\n";
             if ( is_null($row["consensus"]) ) {
                 echo "<td " . $style . "></td>";
             }
@@ -106,10 +127,8 @@ document.getElementById(\"defaultOpen\").click();
                 echo "<td " . $style . ">" . $row["consensus"] . "</td>";
             }
             echo "</tr>\n";
-            pointImage($row["variant"]);
-
-            echo "</tbody>
-    </table>\n\n";
+            echo "</tbody>\n";
+            echo "</table>\n\n";
 
             if ( 2 == $strtype ) {
             echo "<table class=\"table table-bordered table-sm text-center\">
