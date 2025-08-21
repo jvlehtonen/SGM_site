@@ -187,7 +187,7 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="15"/>DOI</label></li>
         </ul>
       </div>
-    <p style="margin-top: 5px; margin-left: 10px;"><b>Table of SynGAP1 Isoform &alpha;2 (UniProt Q96PV0-1) Missense Variants.</b></p>
+    <p style="margin-top: 5px; margin-left: 10px;"><b>Table of SynGAP1 Isoform &alpha;2 (UniProt <a href="https://www.uniprot.org/uniprotkb/Q96PV0/entry" target="_blank">Q96PV0-1</a>) Missense Variants.</b></p>
     <div class="outer-wrapper">
       <div class="table-wrapper">
         <table id="mainTable" class="table table-bordered table-hover table-sm">
