@@ -90,26 +90,26 @@ if ( $result = $stmt->get_result() ) {
     <title>Data | SynGAP Server</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/misc/titles/SynGAP.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../misc/titles/SynGAP.png" sizes="32x32" />
     <link rel="stylesheet" href="./css_final.css" />
-    <link rel="stylesheet" href="/styles/fa.css" />
-    <link rel="stylesheet" href="/styles/overlay.css" />
-    <link rel="stylesheet" href="/styles/topnav.css" />
-    <link rel="stylesheet" href="/styles/infotooltip.css" />
-    <script type="text/javascript" src="/sites/w3.js"></script>
-    <script type="text/javascript" src="/sites/overlay.js"></script>
+    <link rel="stylesheet" href="../styles/fa.css" />
+    <link rel="stylesheet" href="../styles/overlay.css" />
+    <link rel="stylesheet" href="../styles/topnav.css" />
+    <link rel="stylesheet" href="../styles/infotooltip.css" />
+    <script type="text/javascript" src="../sites/w3.js"></script>
+    <script type="text/javascript" src="../sites/overlay.js"></script>
   </head>
   <body>
-    <div w3-include-html="/sites/overlay.html"></div>
-    <h1><a href="/index.html"><span><img src="/misc/titles/sgm_table.png" alt="SynGap Missense Server" style="height:64px;"></span></a></h1>
+    <div w3-include-html="../sites/overlay_d1.html"></div>
+    <h1><a href="../index.html"><span><img src="../misc/titles/sgm_table.png" alt="SynGap Missense Server" style="height:64px;"></span></a></h1>
     <nav style="margin-bottom:15px">
       <div style="display:flex;">
-        <div class="topnav fa-icon" w3-include-html="/sites/hamburger.html">
+        <div class="topnav fa-icon" w3-include-html="../sites/hamburger.html">
         </div>
         <script>w3.includeHTML();</script>
-        <a class="fa-icon" href="/index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
+        <a class="fa-icon" href="../index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
         <div class="infotooltip fa-icon">
-          <a href="/sql/export_csv.php"><i class='fa fa-download' style='font-size:36px;color:#00B4CC;'></i></a>
+          <a href="../sql/export_csv.php"><i class='fa fa-download' style='font-size:36px;color:#00B4CC;'></i></a>
           <span class="infotooltiptext w120 mycenter">
             The table is downloadable as a semicolon (;) separated CSV file
           </span>
@@ -130,7 +130,7 @@ if ( $result = $stmt->get_result() ) {
     </nav>
 
    <div class="topnav">
-     <form action="/table/index.php" id="filters" method="GET">
+     <form action="../table/index.php" id="filters" method="GET">
       <label style="margin-left: 10px;">Search:</label>
       <select name="sengines" onchange="seChange(this);">
 <?php if ( "cdna" == $scol) {
@@ -322,7 +322,7 @@ if ( $result = $stmt->get_result() ) {
       echo "</div>";
       if ( 0 < $row["structure"] ) {
           echo "<div class='popupcontainer myparent3D'>";
-          echo "<a style='text-decoration:none;' href='https://syngapmissenseserver.utu.fi/viewer/index.php?q=".$row["variant"]."'><i>3D</i></a>";
+          echo "<a style='text-decoration:none;' href='../viewer/index.php?q=".$row["variant"]."'><i>3D</i></a>";
           echo "<span class='mytooltip3D'>Click to see structure in 3D Viewer</span>";
           echo "</div>";
       }

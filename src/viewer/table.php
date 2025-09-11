@@ -5,7 +5,7 @@ include("../sql/connect.php");
 function pointImage($str): void {
     $src = mb_substr($str, 0, 1);
     $dst = mb_substr($str, -1);
-    echo "<tr><td colspan=5><img src=\"/images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
+    echo "<tr><td colspan=5><img src=\"../images/amino_acids_mutants/".$src.$dst.".png\"></td></tr>";
 }
 
 function drawTables($conn, $variant): int {
@@ -467,7 +467,7 @@ width:2421px;
 }
 </style>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- <link rel="stylesheet" href="/styles/fa.css" />
+ <link rel="stylesheet" href="../styles/fa.css" />
 </head>
 <body style="padding: 10px;">
 <script>
@@ -515,14 +515,14 @@ echo "<hr>
 <h4>Secondary structure topology at 150 ns with B-factor coloring</h4>
 
 <div id=\"topologycont\">
-<img id=\"topology\" src=\"/data/images/topology/".$variant.".png\" alt=\"Topology schema for ".$variant." NOT AVAILABLE\"/>
+<img id=\"topology\" src=\"../data/images/topology/".$variant.".png\" alt=\"Topology schema for ".$variant." NOT AVAILABLE\"/>
 </div>
 
 <hr>
 
 <h4>Changes in root mean squared deviation (RMSD) during simulations</h4>
 <div id=\"containerx\">
-  <img id=\"imagermsd\" src=\"/data/rmsd_sims/".$variant.".png\" alt=\"RMSD simulation for ".$variant." NOT AVAILABLE\">
+  <img id=\"imagermsd\" src=\"../data/rmsd_sims/".$variant.".png\" alt=\"RMSD simulation for ".$variant." NOT AVAILABLE\">
   <div id=\"buttonsx\">
     <button onclick=\"firstImagermsd()\">|<</button>
     <button onclick=\"previousImagermsd()\"><</button>
@@ -534,7 +534,7 @@ echo "<hr>
 <hr>
 <h4>Ramachandran plots</h4>
 <div id=\"containerx\">
-  <img style='height: 600px; width: auto' id=\"imagerama\" src=\"/data/ramaplots/sim-1/0ns/".$variant.".png\">
+  <img style='height: 600px; width: auto' id=\"imagerama\" src=\"../data/ramaplots/sim-1/0ns/".$variant.".png\">
   <div id=\"buttonsx\">
     <button onclick=\"firstImagerama()\">|<</button>
     <button onclick=\"previousImagerama()\"><</button>
@@ -546,7 +546,7 @@ echo "<hr>
 <hr>
 <h4>Normalized B-factor during simulations</h4>
 <div id=\"containerx\">
-  <img id=\"imagemin\" src=\"/data/rmsf/rmsf_min/sim-1/".$variant.".png\">
+  <img id=\"imagemin\" src=\"../data/rmsf/rmsf_min/sim-1/".$variant.".png\">
   <div id=\"buttonsx\">
     <button onclick=\"firstImagemin()\">|<</button>
     <button onclick=\"previousImagemin()\"><</button>
@@ -556,32 +556,32 @@ echo "<hr>
 </div>
 
 <script>
-  var imagesrmsd = [\"/data/rmsd_sims/".$variant.".png\",
-  \"/data/rmsd_loop/sim-1/".$variant.".png\", \"/data/rmsd_loop/sim-2/".$variant.".png\", \"/data/rmsd_loop/sim-3/".$variant.".png\" ];
+  var imagesrmsd = [\"../data/rmsd_sims/".$variant.".png\",
+  \"../data/rmsd_loop/sim-1/".$variant.".png\", \"../data/rmsd_loop/sim-2/".$variant.".png\", \"../data/rmsd_loop/sim-3/".$variant.".png\" ];
   var indexrmsd = 0;
   var imgrmsd = document.getElementById(\"imagermsd\");
 
   var imagesrama = [
-   \"/data/ramaplots/sim-1/0ns/".$variant.".png\",
-   \"/data/ramaplots/sim-1/50ns/".$variant.".png\",
-   \"/data/ramaplots/sim-1/100ns/".$variant.".png\",
-   \"/data/ramaplots/sim-1/150ns/".$variant.".png\",
-   \"/data/ramaplots/sim-2/0ns/".$variant.".png\",
-   \"/data/ramaplots/sim-2/50ns/".$variant.".png\",
-   \"/data/ramaplots/sim-2/100ns/".$variant.".png\",
-   \"/data/ramaplots/sim-2/150ns/".$variant.".png\",
-   \"/data/ramaplots/sim-3/0ns/".$variant.".png\",
-   \"/data/ramaplots/sim-3/50ns/".$variant.".png\",
-   \"/data/ramaplots/sim-3/100ns/".$variant.".png\",
-   \"/data/ramaplots/sim-3/150ns/".$variant.".png\"
+   \"../data/ramaplots/sim-1/0ns/".$variant.".png\",
+   \"../data/ramaplots/sim-1/50ns/".$variant.".png\",
+   \"../data/ramaplots/sim-1/100ns/".$variant.".png\",
+   \"../data/ramaplots/sim-1/150ns/".$variant.".png\",
+   \"../data/ramaplots/sim-2/0ns/".$variant.".png\",
+   \"../data/ramaplots/sim-2/50ns/".$variant.".png\",
+   \"../data/ramaplots/sim-2/100ns/".$variant.".png\",
+   \"../data/ramaplots/sim-2/150ns/".$variant.".png\",
+   \"../data/ramaplots/sim-3/0ns/".$variant.".png\",
+   \"../data/ramaplots/sim-3/50ns/".$variant.".png\",
+   \"../data/ramaplots/sim-3/100ns/".$variant.".png\",
+   \"../data/ramaplots/sim-3/150ns/".$variant.".png\"
   ];
   var indexrama = 0;
   var imgrama = document.getElementById(\"imagerama\");
 
-  var imagesmin = [\"/data/rmsf/rmsf_min/sim-1/".$variant.".png\",
-  \"/data/rmsf/rmsf_min/sim-2/".$variant.".png\", \"/data/rmsf/rmsf_min/sim-3/".$variant.".png\",
-  \"/data/rmsf/rmsf_max/sim-1/".$variant.".png\", \"/data/rmsf/rmsf_max/sim-2/".$variant.".png\",
-  \"/data/rmsf/rmsf_max/sim-3/".$variant.".png\"];
+  var imagesmin = [\"../data/rmsf/rmsf_min/sim-1/".$variant.".png\",
+  \"../data/rmsf/rmsf_min/sim-2/".$variant.".png\", \"../data/rmsf/rmsf_min/sim-3/".$variant.".png\",
+  \"../data/rmsf/rmsf_max/sim-1/".$variant.".png\", \"../data/rmsf/rmsf_max/sim-2/".$variant.".png\",
+  \"../data/rmsf/rmsf_max/sim-3/".$variant.".png\"];
   var indexmin = 0;
   var imgmin = document.getElementById(\"imagemin\");
 
