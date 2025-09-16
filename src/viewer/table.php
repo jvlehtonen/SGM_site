@@ -100,11 +100,46 @@ document.getElementById(\"defaultOpen\").click();
             }
             echo "</tr>\n";
             pointImage($row["variant"]);
+            if ( 2 == $strtype ) {
+            echo "<tr><td colspan=5>\n";
+            echo "<!-- Tab links -->
+<div class='tab'>
+  <button class='liglinks' onclick=\"showLigplot(event, 'initial')\" id='defaultLigplot'>initial</button>
+  <button class='liglinks' onclick=\"showLigplot(event, 't0ns')\">0ns</button>
+  <button class='liglinks' onclick=\"showLigplot(event, 't50ns')\">50ns</button>
+  <button class='liglinks' onclick=\"showLigplot(event, 't100ns')\">100ns</button>
+  <button class='liglinks' onclick=\"showLigplot(event, 't150ns')\">150ns</button>
+</div>";
+            echo "<!-- Tab content -->
+<div id='initial' class='ligcontent'>\n";
+            echo "<img src='../data/ligplot/".$row["variant"]."_initial.png'>";
+            echo "</div>\n";
 
+            echo "<div id='t0ns' class='ligcontent'>\n";
+            echo "<img src='../data/ligplot/".$row["variant"]."_0ns.png'>";
+            echo "</div>\n";
+
+            echo "<div id='t50ns' class='ligcontent'>\n";
+            echo "<img src='../data/ligplot/".$row["variant"]."_50ns.png'>";
+            echo "</div>\n";
+
+            echo "<div id='t100ns' class='ligcontent'>\n";
+            echo "<img src='../data/ligplot/".$row["variant"]."_100ns.png'>";
+            echo "</div>\n";
+
+            echo "<div id='t150ns' class='ligcontent'>\n";
+            echo "<img src='../data/ligplot/".$row["variant"]."_150ns.png'>";
+            echo "</div>\n";
+            echo "</td></tr>\n";
+
+            echo "<tr><td colspan=5><img src='../data/ligplot/key.png'></td></tr>";
+            }
             echo "</tbody>
-    </table>\n\n";
-
-            echo "<table class=\"table table-bordered table-sm text-center\">\n";
+    </table>\n";
+            if ( 2 == $strtype ) {
+            echo "<script>document.getElementById(\"defaultLigplot\").click();</script>\n";
+            }
+            echo "\n<table class=\"table table-bordered table-sm text-center\">\n";
             echo "<caption class=\"oldcap\">Consensus predictions</caption>\n";
             echo "<thead class=\"thead-light\">\n";
             echo "<tr>
@@ -465,6 +500,12 @@ width:2421px;
   border: 1px solid #ccc;
   border-top: none;
 }
+.ligcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
 </style>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link rel="stylesheet" href="../styles/fa.css" />
@@ -483,6 +524,26 @@ function showSummary(evt, name) {
 
   // Get all elements with class='tablinks' and remove the class 'active'
   tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an 'active' class to the button that opened the tab
+  document.getElementById(name).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+function showLigplot(evt, name) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class='tabcontent' and hide them
+  tabcontent = document.getElementsByClassName("ligcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class='tablinks' and remove the class 'active'
+  tablinks = document.getElementsByClassName("liglinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
