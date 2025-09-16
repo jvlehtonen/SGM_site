@@ -50,8 +50,8 @@ done
 rsync -av src/{index.html,styles,sites,table} build/
 
 rsync -av --exclude=index.html ${MOLSTAR}/build/examples/basic-wrapper/ build/viewer/
-rsync -av ${MOLSTAR}/build/examples/basic-wrapper/index.html build/viewer/index.php
-cp src/viewer/table.php build/viewer/table.php
+# rsync -av ${MOLSTAR}/build/examples/basic-wrapper/index.html build/viewer/index.php
+rsync -av src/viewer/ build/viewer/
 
 rsync -av src/sql/export_csv.php build/sql/
 sed "{s/DBNAME/${DBNAME}/; s/DBUSER/${DBUSER}/; s/DBPW/${DBPW}/}" src/sql/connect.php > build/sql/connect.php
