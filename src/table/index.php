@@ -53,7 +53,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'AlphaMissense_Pathogenicity', 'AlphaMissense_Class', 'clinvar_uid',
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
-                 'allele_freq', 'cdna', 'revel_score', 'consensus');
+                 'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
 
 $scol = isset($_GET['sengines']) && in_array($_GET['sengines'], $searchcols ) ? $_GET['sengines'] : 'cdna';
@@ -179,6 +179,8 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="6"/>PolyPhen-2</label></li>
           <li><label> <input type="checkbox" data-column-index="10"/>FATHMM</label></li>
           <li><label> <input type="checkbox" data-column-index="7"/>SIFT</label></li>
+          <li><label> <input type="checkbox" data-column-index="22"/>Varity</label></li>
+          <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
           <li><label> <input type="checkbox" data-column-index="8"/>PAM</label></li>
           <li><label> <input type="checkbox" data-column-index="14"/>Physical</label></li>
           <li><label> <input type="checkbox" data-column-index="4"/>SASA</label></li>
@@ -211,6 +213,8 @@ if ( $result = $stmt->get_result() ) {
 	<th colspan=2 data-column-index="6"><?php sortURL($column, $sort_order, 'polyPhen2_HumVar_pph2_prob', "PolyPhen-2 HumVar") ?></th>
 	<th colspan=2 data-column-index="10">FATHMM</th>
 	<th colspan=4 data-column-index="7">SIFT</th>
+	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'IUPred', "IUPred") ?></th>
+	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR") ?></th>
 	<th colspan=2 data-column-index="8">PAM</th>
 	<th colspan=2 data-column-index="14">Physical</th>
 	<th colspan=2 data-column-index="4">SASA</th>
@@ -267,7 +271,14 @@ if ( $result = $stmt->get_result() ) {
 	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Conservation', "Conservation") ?></th>
 	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Sequences', "Sequences") ?></th>
 
-	<th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM250', "PAM250") ?></th>
+    <!-- IUPred -->
+	<th data-column-index="23">Score</th>
+	<th data-column-index="23">Prediction</th>
+    <!-- ANCHOR -->
+	<th data-column-index="23">Score</th>
+	<th data-column-index="23">Prediction</th>
+
+    <th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM250', "PAM250") ?></th>
 	<th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM120', "PAM120") ?></th>
 
 	<th data-column-index="14"><?php sortURL($column, $sort_order, 'deltaHydropathy', "Hydropathy &Delta;") ?></a></th>
@@ -405,6 +416,10 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Warnings"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Conservation"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Sequences"]."</td>";
+      echo "<td data-column-index='23'>".$row["IUPred"]."</td>";
+      echo "<td data-column-index='23'>".$row["IUPred_predict"]."</td>";
+      echo "<td data-column-index='23'>".$row["ANCHOR"]."</td>";
+      echo "<td data-column-index='23'>".$row["ANCHOR_predict"]."</td>";
       echo "<td data-column-index=\"8\" class=\"lb\">".$row["PAM250"]."</td>";
       echo "<td data-column-index=\"8\">".$row["PAM120"]."</td>";
       echo "<td data-column-index=\"14\" class=\"lb\">".$row["deltaHydropathy"]."</td>";
