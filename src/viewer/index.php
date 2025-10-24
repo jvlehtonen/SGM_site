@@ -174,20 +174,20 @@ function printOptions($text, $seek): void {
     <script type="text/javascript" src="../sites/overlay.js"></script>
   </head>
   <body>
-      <div w3-include-html="/sites/overlay.html"></div>
-      <a href="/index.html"><span><img src="/misc/titles/sgm_viewer.png"
+      <div w3-include-html="../sites/overlay_d1.html"></div>
+      <a href="../index.html"><span><img src="../misc/titles/sgm_viewer.png"
       alt="SynGap Missense Server" style="padding-top:1em; padding-left:1em;"/></span></a>
 
       <nav style="margin-bottom:15px">
        <div style="display:flex;">
-          <div class="topnav fa-icon" w3-include-html="/sites/hamburger.html"></div>
+          <div class="topnav fa-icon" w3-include-html="../sites/hamburger.html"></div>
           <script>w3.includeHTML();</script>
-          <a class="fa-icon" href="/index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
+          <a class="fa-icon" href="../index.html"><i class='fa fa-home' style='font-size:36px;color:#00B4CC;'></i></a>
           <div class="fa-icon">
-            <a href="/table/index.php"><i class='fa fa-table' style='font-size:36px;color:#00B4CC;'></i></a>
+            <a href="../table/index.php"><i class='fa fa-table' style='font-size:36px;color:#00B4CC;'></i></a>
           </div>
           <div class="infotooltip fa-icon">
-            <a href="/table/metrics.html"><i class='fa fa-info-circle' style='font-size:36px;color:#00B4CC;'></i></a>
+            <a href="../table/metrics.html"><i class='fa fa-info-circle' style='font-size:36px;color:#00B4CC;'></i></a>
             <span class="infotooltiptext w200 myjust">
               Description of table metrics (columns)
             </span>
