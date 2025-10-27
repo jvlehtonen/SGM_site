@@ -478,11 +478,25 @@ if ( $res = $stmt2->get_result() )
 	    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	    crossorigin="anonymous"></script>
     <footer>
-      <script>
-	const event = new Date(document.lastModified);
-    document.write("The ClinVar data retrieved 2025-08-07. The gnomAD data retrieved 2025-05-09.");
-    //document.write("This page was last modified: " + event.toISOString());
-      </script>
+<?php
+    $sql2 = "SELECT last FROM updated WHERE repo = 'clinvar'";
+    $stmt2 = $conn->stmt_init();
+    $stmt2->prepare($sql2);
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+    $last = $result2->fetch_row()[0] ?? false;
+    if ($last) echo "The ClinVar data retrieved " . $last . ".\n";
+    else echo "The ClinVar data retrieved 2025-08-07.\n";
+
+    $sql2 = "SELECT last FROM updated WHERE repo = 'gnomad'";
+    $stmt2 = $conn->stmt_init();
+    $stmt2->prepare($sql2);
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+    $last = $result2->fetch_row()[0] ?? false;
+    if ($last) echo "The gnomAD v4.1.0 data retrieved " . $last . ".\n";
+    else echo "The gnomAD v4.1.0 data retrieved 2025-05-09.\n";
+?>
     </footer>
     <script>
     function $(id) { return document.getElementById(id); }
