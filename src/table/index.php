@@ -479,23 +479,26 @@ if ( $res = $stmt2->get_result() )
 	    crossorigin="anonymous"></script>
     <footer>
 <?php
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+try {
     $sql2 = "SELECT last FROM updated WHERE repo = 'clinvar'";
-    $stmt2 = $conn->stmt_init();
-    $stmt2->prepare($sql2);
-    $stmt2->execute();
-    $result2 = $stmt2->get_result();
+    $result2 = $conn->query($sql2);
     $last = $result2->fetch_row()[0] ?? false;
     if ($last) echo "The ClinVar data retrieved " . $last . ".\n";
     else echo "The ClinVar data retrieved 2025-08-07.\n";
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "<br>\n";
+}
 
+try {
     $sql2 = "SELECT last FROM updated WHERE repo = 'gnomad'";
-    $stmt2 = $conn->stmt_init();
-    $stmt2->prepare($sql2);
-    $stmt2->execute();
-    $result2 = $stmt2->get_result();
+    $result2 = $conn->query($sql2);
     $last = $result2->fetch_row()[0] ?? false;
     if ($last) echo "The gnomAD v4.1.0 data retrieved " . $last . ".\n";
     else echo "The gnomAD v4.1.0 data retrieved 2025-05-09.\n";
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "<br>\n";
+}
 ?>
     </footer>
     <script>
