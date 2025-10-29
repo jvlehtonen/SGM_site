@@ -166,6 +166,7 @@ if ( $result = $stmt->get_result() ) {
         <ul id="shmenu" class="container__menu container__menu--hidden">
           <li><label> <input type="checkbox" data-column-index="21"/>SGM Consensus</label></li>
           <li><label> <input type="checkbox" data-column-index="16"/>Domain</label></li>
+          <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
           <li><label> <input type="checkbox" data-column-index="1"/>ClinVar</label></li>
           <li><label> <input type="checkbox" data-column-index="13"/>gnomAD</label></li>
           <li><label> <input type="checkbox" data-column-index="9"/>ESM1b</label></li>
@@ -179,7 +180,6 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="6"/>PolyPhen-2</label></li>
           <li><label> <input type="checkbox" data-column-index="10"/>FATHMM</label></li>
           <li><label> <input type="checkbox" data-column-index="7"/>SIFT</label></li>
-          <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
           <li><label> <input type="checkbox" data-column-index="8"/>PAM</label></li>
           <li><label> <input type="checkbox" data-column-index="14"/>Physical</label></li>
           <li><label> <input type="checkbox" data-column-index="4"/>SASA</label></li>
@@ -198,6 +198,8 @@ if ( $result = $stmt->get_result() ) {
     <th rowspan=2 style="z-index:2;"><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
 	<th rowspan=2 data-column-index="21"><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
 	<th rowspan=2 data-column-index="16">Domain</th>
+	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'IUPred', "IUPred2") ?></th>
+	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR2") ?></th>
 	<th colspan=3 data-column-index="1">ClinVar</th>
 	<th colspan=3 data-column-index="13">gnomAD</th>
 	<th colspan=2 data-column-index="9"><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
@@ -212,8 +214,6 @@ if ( $result = $stmt->get_result() ) {
 	<th colspan=2 data-column-index="6"><?php sortURL($column, $sort_order, 'polyPhen2_HumVar_pph2_prob', "PolyPhen-2 HumVar") ?></th>
 	<th colspan=2 data-column-index="10">FATHMM</th>
 	<th colspan=4 data-column-index="7">SIFT</th>
-	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'IUPred', "IUPred") ?></th>
-	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR") ?></th>
 	<th colspan=2 data-column-index="8">PAM</th>
 	<th colspan=2 data-column-index="14">Physical</th>
 	<th colspan=2 data-column-index="4">SASA</th>
@@ -223,6 +223,13 @@ if ( $result = $stmt->get_result() ) {
 	<th rowspan=2 data-column-index="15">DOI</th>
   </tr>
   <tr>
+    <!-- IUPred -->
+	<th data-column-index="23">Score</th>
+	<th data-column-index="23">Prediction</th>
+    <!-- ANCHOR -->
+	<th data-column-index="23">Score</th>
+	<th data-column-index="23">Prediction</th>
+
     <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_rank', "Clinical Status") ?></th>
     <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_review', "Review") ?></th>
     <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_submissions', "Subm.") ?></th>
@@ -269,13 +276,6 @@ if ( $result = $stmt->get_result() ) {
 	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Warnings', "Status") ?></th>
 	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Conservation', "Conservation") ?></th>
 	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Sequences', "Sequences") ?></th>
-
-    <!-- IUPred -->
-	<th data-column-index="23">Score</th>
-	<th data-column-index="23">Prediction</th>
-    <!-- ANCHOR -->
-	<th data-column-index="23">Score</th>
-	<th data-column-index="23">Prediction</th>
 
     <th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM250', "PAM250") ?></th>
 	<th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM120', "PAM120") ?></th>
@@ -344,7 +344,11 @@ if ( $result = $stmt->get_result() ) {
       echo "</div>";
       echo "</td>";
       echo "<td data-column-index='21'>".$row["consensus"]."</td>";
-      echo "<td data-column-index=\"16\">".$row["domain"]."</td>";
+      echo "<td data-column-index='16' class='lb'>".$row["domain"]."</td>";
+      echo "<td data-column-index='23'>".$row["IUPred"]."</td>";
+      echo "<td data-column-index='23'>".$row["IUPred_predict"]."</td>";
+      echo "<td data-column-index='23'>".$row["ANCHOR"]."</td>";
+      echo "<td data-column-index='23'>".$row["ANCHOR_predict"]."</td>";
 
       // ClinVar
       echo "<td data-column-index=\"1\" ". ($column == 'statusID' ? 'class="lb '.$add_class_name.'"' : 'class="lb"') .">";
@@ -415,10 +419,6 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Warnings"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Conservation"]."</td>";
       echo "<td data-column-index=\"7\">".$row["SIFT_animal_Sequences"]."</td>";
-      echo "<td data-column-index='23'>".$row["IUPred"]."</td>";
-      echo "<td data-column-index='23'>".$row["IUPred_predict"]."</td>";
-      echo "<td data-column-index='23'>".$row["ANCHOR"]."</td>";
-      echo "<td data-column-index='23'>".$row["ANCHOR_predict"]."</td>";
       echo "<td data-column-index=\"8\" class=\"lb\">".$row["PAM250"]."</td>";
       echo "<td data-column-index=\"8\">".$row["PAM120"]."</td>";
       echo "<td data-column-index=\"14\" class=\"lb\">".$row["deltaHydropathy"]."</td>";
