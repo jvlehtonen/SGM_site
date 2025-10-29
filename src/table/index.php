@@ -179,7 +179,6 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="6"/>PolyPhen-2</label></li>
           <li><label> <input type="checkbox" data-column-index="10"/>FATHMM</label></li>
           <li><label> <input type="checkbox" data-column-index="7"/>SIFT</label></li>
-          <li><label> <input type="checkbox" data-column-index="22"/>Varity</label></li>
           <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
           <li><label> <input type="checkbox" data-column-index="8"/>PAM</label></li>
           <li><label> <input type="checkbox" data-column-index="14"/>Physical</label></li>
