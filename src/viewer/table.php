@@ -101,6 +101,7 @@ document.getElementById(\"defaultOpen\").click();
             echo "</tr>\n";
             pointImage($row["variant"]);
             if ( 2 == $strtype ) {
+            echo "<tr><td colspan=5>Contacts</td></tr>";
             echo "<tr><td colspan=5>\n";
             echo "<!-- Tab links -->
 <div class='tab'>
@@ -132,6 +133,10 @@ document.getElementById(\"defaultOpen\").click();
             echo "</div>\n";
             echo "</td></tr>\n";
 
+            echo "<tr><td colspan=5><img src='../data/ligplot/key.png'></td></tr>";
+            } elseif ( 1 == $strtype ) {
+            echo "<tr><td colspan=5>Contacts</td></tr>";
+            echo "<tr><td colspan=5><img src='../data/ligplot/".$row["variant"].".png'></td></tr>\n";
             echo "<tr><td colspan=5><img src='../data/ligplot/key.png'></td></tr>";
             }
             echo "</tbody>
