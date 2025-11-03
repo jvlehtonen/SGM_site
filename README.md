@@ -1,6 +1,11 @@
 # SGM_site
 Website to show pathogenicity predictions and 3D structures for SynGAP1 protein
 
+## Dependencies
+
+* [SGM_molstar](https://github.com/jvlehtonen/SGM_molstar): Mol* code, v4.10.0-2
+* [SGM_schema](https://github.com/jvlehtonen/SGM_schema): Database, v1.3.0
+
 ## Installation
 
 * Script `build.sh` gathers content for website into directory `build`
