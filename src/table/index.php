@@ -406,8 +406,8 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index=\"11\" class=\"lb\">".$row["AlphaMissense_Pathogenicity"]."</td>";
       echo "<td data-column-index=\"11\">".$row["AlphaMissense_Class"]."</td>";
       echo "<td data-column-index=\"11\">".$row["alphamissense_predict"]."</td>";
-      echo "<td data-column-index=\"20\" class=\"lb\">".$row["revel_score"]."</td>";
-      echo "<td data-column-index=\"20\" class=\"lb\">".$row["revel_predict"]."</td>";
+      echo "<td data-column-index='20' class='lb'>".$row["revel_score"]."</td>";
+      echo "<td data-column-index='20'>".$row["revel_predict"]."</td>";
       echo "<td data-column-index='24' class='lb'>".$row["psmutpred_score_ip_rf"]."</td>";
       echo "<td data-column-index='24'>".$row["psmutpred_ip"]."</td>";
       echo "<td data-column-index='24'>".$row["psmutpred_score_sp_rf"]."</td>";
