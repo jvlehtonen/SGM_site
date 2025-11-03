@@ -53,6 +53,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'AlphaMissense_Pathogenicity', 'AlphaMissense_Class', 'clinvar_uid',
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
+                 'psmutpred_score_ip_rf', 'psmutpred_score_sp_rf',
                  'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
 
@@ -172,6 +173,7 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="9"/>ESM1b</label></li>
           <li><label> <input type="checkbox" data-column-index="11"/>AlphaMissense</label></li>
           <li><label> <input type="checkbox" data-column-index="20"/>REVEL</label></li>
+          <li><label> <input type="checkbox" data-column-index="24"/>PSMutPred</label></li>
           <li><label> <input type="checkbox" data-column-index="2"/>FoldX</label></li>
           <li><label> <input type="checkbox" data-column-index="17"/>Rosetta</label></li>
           <li><label> <input type="checkbox" data-column-index="18"/>Foldetta</label></li>
@@ -205,6 +207,8 @@ if ( $result = $stmt->get_result() ) {
 	<th colspan=2 data-column-index="9"><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
 	<th colspan=3 data-column-index="11"><?php sortURL($column, $sort_order, 'AlphaMissense_Pathogenicity', "AlphaMissense") ?></th>
 	<th colspan=2 data-column-index="20"><?php sortURL($column, $sort_order, 'revel_score', "REVEL") ?></th>
+	<th colspan=2 data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_ip_rf', 'PSMutPred IP RF') ?></th>
+	<th colspan=2 data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_sp_rf', 'PSMutPred SP RF') ?></th>
 	<th colspan=3 data-column-index="2"><?php sortURL($column, $sort_order, 'foldx_avg_ddG', 'FoldX') ?></th>
 	<th colspan=2 data-column-index="17"><?php sortURL($column, $sort_order, 'rosetta_ddG', 'Rosetta') ?></th>
 	<th colspan=2 data-column-index="18"><?php sortURL($column, $sort_order, 'foldetta_ddG', 'Foldetta') ?></th>
@@ -246,6 +250,12 @@ if ( $result = $stmt->get_result() ) {
     <!-- REVEL -->
 	    <th data-column-index="20">Score</th>
 	    <th data-column-index="20">Prediction</th>
+    <!-- PSMutPred IP RF -->
+	<th data-column-index="24">Score</th>
+	<th data-column-index="24">Prediction</th>
+    <!-- PSMutPred SP RF -->
+	<th data-column-index="24">Score</th>
+	<th data-column-index="24">Prediction</th>
     <!-- FoldX -->
 	<th data-column-index="2">Average &Delta;&Delta;G</th>
     <th data-column-index="2">Prediction</th>
@@ -398,6 +408,10 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index=\"11\">".$row["alphamissense_predict"]."</td>";
       echo "<td data-column-index=\"20\" class=\"lb\">".$row["revel_score"]."</td>";
       echo "<td data-column-index=\"20\" class=\"lb\">".$row["revel_predict"]."</td>";
+      echo "<td data-column-index='24' class='lb'>".$row["psmutpred_score_ip_rf"]."</td>";
+      echo "<td data-column-index='24'>".$row["psmutpred_ip"]."</td>";
+      echo "<td data-column-index='24'>".$row["psmutpred_score_sp_rf"]."</td>";
+      echo "<td data-column-index='24'>".$row["psmutpred_sp"]."</td>";
       echo "<td data-column-index=\"2\" class=\"lb\">".$row["foldx_avg_ddG"]."</td>";
       echo "<td data-column-index=\"2\">".$row["foldx_predict"]."</td>";
       echo "<td data-column-index=\"2\">".$row["foldx_stddev"]."</td>";
