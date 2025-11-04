@@ -54,6 +54,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
                  'psmutpred_score_ip_rf', 'psmutpred_score_sp_rf',
+                 'af_disorder', 'af_plddt', 'mobidb_lite_disorder',
                  'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
 
@@ -168,6 +169,7 @@ if ( $result = $stmt->get_result() ) {
           <li><label> <input type="checkbox" data-column-index="21"/>SGM Consensus</label></li>
           <li><label> <input type="checkbox" data-column-index="16"/>Domain</label></li>
           <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
+          <li><label> <input type="checkbox" data-column-index="25"/>AF/MobiDB</label></li>
           <li><label> <input type="checkbox" data-column-index="1"/>ClinVar</label></li>
           <li><label> <input type="checkbox" data-column-index="13"/>gnomAD</label></li>
           <li><label> <input type="checkbox" data-column-index="9"/>ESM1b</label></li>
@@ -202,6 +204,8 @@ if ( $result = $stmt->get_result() ) {
 	<th rowspan=2 data-column-index="16">Domain</th>
 	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'IUPred', "IUPred2") ?></th>
 	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR2") ?></th>
+	<th colspan=2 data-column-index="25">AlphaFold</th>
+	<th data-column-index="25">MobiDB</th>
 	<th colspan=3 data-column-index="1">ClinVar</th>
 	<th colspan=3 data-column-index="13">gnomAD</th>
 	<th colspan=2 data-column-index="9"><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
@@ -233,6 +237,9 @@ if ( $result = $stmt->get_result() ) {
     <!-- ANCHOR -->
 	<th data-column-index="23">Score</th>
 	<th data-column-index="23">Prediction</th>
+	<th data-column-index="25"><?php sortURL($column, $sort_order, 'af_plddt', "pLDDT") ?></th>
+	<th data-column-index="25"><?php sortURL($column, $sort_order, 'af_disorder', "disorder") ?></th>
+	<th data-column-index="25"><?php sortURL($column, $sort_order, 'mobidb_lite_disorder', "disorder") ?></th>
 
     <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_rank', "Clinical Status") ?></th>
     <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_review', "Review") ?></th>
@@ -359,6 +366,9 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index='23'>".$row["IUPred_predict"]."</td>";
       echo "<td data-column-index='23'>".$row["ANCHOR"]."</td>";
       echo "<td data-column-index='23'>".$row["ANCHOR_predict"]."</td>";
+      echo "<td data-column-index='25'>".$row["af_plddt"]."</td>";
+      echo "<td data-column-index='25'>".$row["af_disorder"]."</td>";
+      echo "<td data-column-index='25'>".$row["mobidb_lite_disorder"]."</td>";
 
       // ClinVar
       echo "<td data-column-index=\"1\" ". ($column == 'statusID' ? 'class="lb '.$add_class_name.'"' : 'class="lb"') .">";
