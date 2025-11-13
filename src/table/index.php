@@ -136,8 +136,8 @@ if ( $result = $stmt->get_result() ) {
       <label style="margin-left: 10px;">Search:</label>
       <select name="sengines" onchange="seChange(this);">
 <?php if ( "cdna" == $scol) {
-  echo "<option value=\"cdna\" selected>c.dna</option>
-<option value=\"variant\">Variant</option>
+  echo "<option value='cdna'>c.dna</option>
+<option value='variant' selected>Variant</option>
 </select>
 <label>For:</label>
 <input type=\"search\" placeholder=\"Name (e.g. c.597C>A)\" style=\"margin-left: 10px;\"
