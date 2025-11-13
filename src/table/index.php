@@ -58,7 +58,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
 
-$scol = isset($_GET['sengines']) && in_array($_GET['sengines'], $searchcols ) ? $_GET['sengines'] : 'cdna';
+$scol = isset($_GET['sengines']) && in_array($_GET['sengines'], $searchcols ) ? $_GET['sengines'] : 'variant';
 
 $column = isset($_GET['column']) && in_array($_GET['column'], $columns ) ? $_GET['column'] : 'basenum';
 $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
@@ -135,16 +135,17 @@ if ( $result = $stmt->get_result() ) {
      <form action="../table/index.php" id="filters" method="GET">
       <label style="margin-left: 10px;">Search:</label>
       <select name="sengines" onchange="seChange(this);">
-<?php if ( "cdna" == $scol) {
-  echo "<option value='cdna'>c.dna</option>
-<option value='variant' selected>Variant</option>
+<?php
+if ( "cdna" == $scol) {
+  echo "<option value='cdna' selected>c.dna</option>
+<option value='variant'>Variant</option>
 </select>
 <label>For:</label>
 <input type=\"search\" placeholder=\"Name (e.g. c.597C>A)\" style=\"margin-left: 10px;\"
  aria-label=\"Search variant\" id=\"q\" name=\"q\" maxlength=\"9\" value=\"". htmlspecialchars($_GET['q']) ."\"/>";
 } else {
-  echo "<option value=\"cdna\" selected>c.dna</option>
-<option value=\"variant\" selected>Variant</option>
+  echo "<option value='cdna'>c.dna</option>
+<option value='variant' selected>Variant</option>
 </select>
 <label>For:</label>
 <input type=\"search\" placeholder=\"Name (e.g. N199K)\" style=\"margin-left: 10px;\"
