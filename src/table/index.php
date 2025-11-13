@@ -15,21 +15,25 @@ function sortURL($column, $order, $sortCol, $text) {
     echo "\"></b></a>";
 }
 
-function pageURL($pc, $class, $text) {
-    echo " <a href=\"?page=$pc";
+function pageURL($pc, $text, $enabled) {
+    if ( $enabled ) {
+    echo " <a href='?page=$pc";
     if ( isset($_GET['column']) ) echo '&column='.$_GET['column'];
     if ( isset($_GET['order']) ) echo '&order='.$_GET['order'];
     if ( isset($_GET['subset']) ) echo '&subset='.$_GET['subset'];
     if ( isset($_GET['sengines']) ) echo '&sengines='.$_GET['sengines'];
     if ( isset($_GET['q']) ) echo '&q='.$_GET['q'];
-    echo "\" class=\"".$class."\">".$text."</a>";
+    echo "' class='pnbutton pnyes'>$text</a>";
+    } else {
+        echo "<span class='pnbutton pnno'><s>$text</s></span>";
+    }
 }
 
 function radioBut($group, $val, $title) {
     echo "<input type=\"radio\" id=\"sub".$val."\" name=\"".$group."\" value=\"".$val."\"";
     echo " onclick=\"handleClick(this);\"";
     if ( isset($_GET[$group]) && $_GET[$group] == $val) echo ' checked';
-    if ( ! isset($_GET[$group]) && $val == 'clinical' ) echo ' checked';
+    if ( ! isset($_GET[$group]) && $val == 'all' ) echo ' checked';
     echo "><label for=\"sub".$val."\">".$title."</label>\n";
 }
 
@@ -485,13 +489,9 @@ if ( $res = $stmt2->get_result() )
     $previous = $page -1;
     $next = $page +1;
     echo " Page ".$page."/".$total_pages." ";
-    if ($page>1) {
-        pageURL( $previous, 'previous', '&laquo; Previous' );
-    }
-    echo " |";
-    if ($page<$total_pages) {
-        pageURL( $next, 'next', 'Next &raquo;' );
-    }
+    pageURL( $previous, '&laquo; Previous', $page>1 );
+    echo " | ";
+    pageURL( $next, 'Next &raquo;', $page<$total_pages );
     echo "</p>";
 }
 ?>

@@ -288,20 +288,19 @@ li {
     margin-right: 10px;
 }
 
-.previous {
+.pnbutton {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #00B4CC;
   color: white;
   border-radius: 6px;
 }
 
-.next {
-  display: inline-block;
-  padding: 8px 16px;
+.pnyes {
   background-color: #00B4CC;
-  color: white;
-  border-radius: 6px;
+}
+
+.pnno {
+  background-color: #cbd5e0;
 }
 
 .popupcontainer {
