@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-$results_per_page = 200;
+$results_per_page = 800;
 
 function sortURL($column, $order, $sortCol, $text) {
     $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $order);
@@ -65,7 +65,7 @@ $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'D
 
 $sql = "SELECT * FROM for_datatable";
 $sqlwhere = " WHERE ".$scol." LIKE ?";
-$subset = $_GET['subset'] ?? 'clinical';
+$subset = $_GET['subset'] ?? 'all';
 if ( $subset == 'clinical' ) $sqlwhere = $sqlwhere." AND clinvar_uid IS NOT NULL";
 if ( $subset == 'gnomad' ) $sqlwhere = $sqlwhere." AND gnomad_id IS NOT NULL";
 if ( $subset == 'structure' ) $sqlwhere = $sqlwhere." AND 0 < structure";
