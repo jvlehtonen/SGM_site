@@ -211,8 +211,7 @@ if ( $result = $stmt->get_result() ) {
 	<th colspan=2 data-column-index="9"><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
 	<th colspan=3 data-column-index="11"><?php sortURL($column, $sort_order, 'AlphaMissense_Pathogenicity', "AlphaMissense") ?></th>
 	<th colspan=2 data-column-index="20"><?php sortURL($column, $sort_order, 'revel_score', "REVEL") ?></th>
-	<th colspan=2 data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_ip_rf', 'PSMutPred IP RF') ?></th>
-	<th colspan=2 data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_sp_rf', 'PSMutPred SP RF') ?></th>
+	<th colspan=3 data-column-index="24">PSMutPred</th>
 	<th colspan=3 data-column-index="2"><?php sortURL($column, $sort_order, 'foldx_avg_ddG', 'FoldX') ?></th>
 	<th colspan=2 data-column-index="17"><?php sortURL($column, $sort_order, 'rosetta_ddG', 'Rosetta') ?></th>
 	<th colspan=2 data-column-index="18"><?php sortURL($column, $sort_order, 'foldetta_ddG', 'Foldetta') ?></th>
@@ -257,11 +256,9 @@ if ( $result = $stmt->get_result() ) {
     <!-- REVEL -->
 	    <th data-column-index="20">Score</th>
 	    <th data-column-index="20">Prediction</th>
-    <!-- PSMutPred IP RF -->
-	<th data-column-index="24">Score</th>
-	<th data-column-index="24">Prediction</th>
-    <!-- PSMutPred SP RF -->
-	<th data-column-index="24">Score</th>
+    <!-- PSMutPred -->
+	<th data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_ip_rf', 'IP RF') ?></th>
+	<th data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_sp_rf', 'SP RF') ?></th>
 	<th data-column-index="24">Prediction</th>
     <!-- FoldX -->
 	<th data-column-index="2">Average &Delta;&Delta;G</th>
@@ -419,9 +416,12 @@ if ( $result = $stmt->get_result() ) {
       echo "<td data-column-index='20' class='lb'>".$row["revel_score"]."</td>";
       echo "<td data-column-index='20'>".$row["revel_predict"]."</td>";
       echo "<td data-column-index='24' class='lb'>".$row["psmutpred_score_ip_rf"]."</td>";
-      echo "<td data-column-index='24'>".$row["psmutpred_ip"]."</td>";
       echo "<td data-column-index='24'>".$row["psmutpred_score_sp_rf"]."</td>";
-      echo "<td data-column-index='24'>".$row["psmutpred_sp"]."</td>";
+      if ( is_null($row["psmutpred_score_ip_rf"]) || $row["psmutpred_score_ip_rf"] < 0.5 ) {
+          echo "<td data-column-index='24'></td>";
+      } else {
+          echo "<td data-column-index='24'>".$row["psmutpred_sp"]."</td>";
+      }
       echo "<td data-column-index=\"2\" class=\"lb\">".$row["foldx_avg_ddG"]."</td>";
       echo "<td data-column-index=\"2\">".$row["foldx_predict"]."</td>";
       echo "<td data-column-index=\"2\">".$row["foldx_stddev"]."</td>";
