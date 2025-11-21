@@ -171,30 +171,16 @@ if ( "cdna" == $scol) {
    </div>
       <div class="container">
         <ul id="shmenu" class="container__menu container__menu--hidden">
-          <li><label> <input type="checkbox" data-column-index="21"/>SGM Consensus</label></li>
-          <li><label> <input type="checkbox" data-column-index="16"/>Domain</label></li>
-          <li><label> <input type="checkbox" data-column-index="23"/>IUPred2A</label></li>
-          <li><label> <input type="checkbox" data-column-index="25"/>AF/MobiDB</label></li>
-          <li><label> <input type="checkbox" data-column-index="1"/>ClinVar</label></li>
-          <li><label> <input type="checkbox" data-column-index="13"/>gnomAD</label></li>
-          <li><label> <input type="checkbox" data-column-index="9"/>ESM1b</label></li>
-          <li><label> <input type="checkbox" data-column-index="11"/>AlphaMissense</label></li>
-          <li><label> <input type="checkbox" data-column-index="20"/>REVEL</label></li>
-          <li><label> <input type="checkbox" data-column-index="24"/>PSMutPred</label></li>
-          <li><label> <input type="checkbox" data-column-index="2"/>FoldX</label></li>
-          <li><label> <input type="checkbox" data-column-index="17"/>Rosetta</label></li>
-          <li><label> <input type="checkbox" data-column-index="18"/>Foldetta</label></li>
-          <li><label> <input type="checkbox" data-column-index="3"/>PremPS</label></li>
-          <li><label> <input type="checkbox" data-column-index="19"/>PROVEAN</label></li>
-          <li><label> <input type="checkbox" data-column-index="6"/>PolyPhen-2</label></li>
-          <li><label> <input type="checkbox" data-column-index="10"/>FATHMM</label></li>
-          <li><label> <input type="checkbox" data-column-index="7"/>SIFT</label></li>
-          <li><label> <input type="checkbox" data-column-index="8"/>PAM</label></li>
-          <li><label> <input type="checkbox" data-column-index="14"/>Physical</label></li>
-          <li><label> <input type="checkbox" data-column-index="4"/>SASA</label></li>
-          <li><label> <input type="checkbox" data-column-index="5"/>Normalized B-factor</label></li>
-          <li><label> <input type="checkbox" data-column-index="12"/>SynGAP Structural Annotation</label></li>
-          <li><label> <input type="checkbox" data-column-index="15"/>DOI</label></li>
+          <li><label> <input type="checkbox" data-column-index='21'/>SGM Consensus</label></li>
+          <li><label> <input type="checkbox" data-column-index='16'/>SSC</label></li>
+          <li><label> <input type="checkbox" data-column-index='1'/>Annotated databases</label></li>
+          <li><label> <input type="checkbox" data-column-index='9'/>VPP: Deep learning</label></li>
+          <li><label> <input type="checkbox" data-column-index='11'/>VPP: Folding stability</label></li>
+          <li><label> <input type="checkbox" data-column-index='25'/>VPP: Sequence/structure</label></li>
+          <li><label> <input type="checkbox" data-column-index='24'/>Phase Separation</label></li>
+          <li><label> <input type="checkbox" data-column-index='26'/>Structural/physical properties</label></li>
+          <li><label> <input type="checkbox" data-column-index='12'/>SynGAP Structural Annotation</label></li>
+          <li><label> <input type="checkbox" data-column-index='15'/>DOI</label></li>
         </ul>
       </div>
     <p style="margin-top: 5px; margin-left: 10px;"><b>Table of SynGAP1 Isoform &alpha;2 (UniProt <a href="https://www.uniprot.org/uniprotkb/Q96PV0/entry" target="_blank">Q96PV0-1</a>) Missense Variants.</b></p>
@@ -203,111 +189,120 @@ if ( "cdna" == $scol) {
         <table id="mainTable" class="table table-bordered table-hover table-sm">
         <thead class="thead-light">
   <tr>
-	<th rowspan=2 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
-    <th rowspan=2 style="z-index:2;"><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
-	<th rowspan=2 data-column-index="21"><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
-	<th rowspan=2 data-column-index="16">Domain</th>
-	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'IUPred', "IUPred2") ?></th>
-	<th colspan=2 data-column-index="23"><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR2") ?></th>
-	<th colspan=2 data-column-index="25">AlphaFold</th>
-	<th data-column-index="25">MobiDB</th>
-	<th colspan=3 data-column-index="1">ClinVar</th>
-	<th colspan=3 data-column-index="13">gnomAD</th>
-	<th colspan=2 data-column-index="9"><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
-	<th colspan=3 data-column-index="11"><?php sortURL($column, $sort_order, 'AlphaMissense_Pathogenicity', "AlphaMissense") ?></th>
-	<th colspan=2 data-column-index="20"><?php sortURL($column, $sort_order, 'revel_score', "REVEL") ?></th>
-	<th colspan=3 data-column-index="24">PSMutPred</th>
-	<th colspan=3 data-column-index="2"><?php sortURL($column, $sort_order, 'foldx_avg_ddG', 'FoldX') ?></th>
-	<th colspan=2 data-column-index="17"><?php sortURL($column, $sort_order, 'rosetta_ddG', 'Rosetta') ?></th>
-	<th colspan=2 data-column-index="18"><?php sortURL($column, $sort_order, 'foldetta_ddG', 'Foldetta') ?></th>
-	<th colspan=2 data-column-index="3"><?php sortURL($column, $sort_order, 'premPS_ddG', 'PremPS') ?></th>
-	<th colspan=2 data-column-index="19"><?php sortURL($column, $sort_order, 'provean_score', 'PROVEAN') ?></th>
-	<th colspan=2 data-column-index="6"><?php sortURL($column, $sort_order, 'polyPhen2_HumDiv_pph2_prob', "PolyPhen-2 HumDiv") ?></th>
-	<th colspan=2 data-column-index="6"><?php sortURL($column, $sort_order, 'polyPhen2_HumVar_pph2_prob', "PolyPhen-2 HumVar") ?></th>
-	<th colspan=2 data-column-index="10">FATHMM</th>
-	<th colspan=4 data-column-index="7">SIFT</th>
-	<th colspan=2 data-column-index="8">PAM</th>
-	<th colspan=2 data-column-index="14">Physical</th>
-	<th colspan=2 data-column-index="4">SASA</th>
-	<th colspan=2 data-column-index="5">Normalized B-factor backbone</th>
-	<th colspan=2 data-column-index="5">Normalized B-factor sidechain</th>
-	<th colspan=9 data-column-index="12">SynGAP Structural Annotation</th>
-	<th rowspan=2 data-column-index="15">DOI</th>
+	<th rowspan=3 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
+    <th rowspan=3 style='z-index:2;'><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
+	<th rowspan=3 data-column-index='21'><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
+    <th colspan=8 data-column-index='16'>SSC: based on WT protein</th>
+    <th colspan=6 data-column-index='1'>Annotated databases</th>
+    <th colspan=5 data-column-index='9'>VPP: Deep learning</th>
+    <th colspan=9 data-column-index='11'>VPP: Folding stability</th>
+    <th colspan=14 data-column-index='25'>VPP: Sequence/structure</th>
+	<th colspan=3 data-column-index='24'>Phase Separation</th>
+    <th colspan=10 data-column-index='26'>Structural/physical properties</th>
+	<th colspan=9 rowspan=2 data-column-index='12'>SynGAP Structural Annotation</th>
+	<th rowspan=3 data-column-index='15'>DOI</th>
+  </tr>
+  <tr>
+	<th rowspan=2 data-column-index='16'>Domain</th>
+	<th colspan=2 data-column-index='16'><?php sortURL($column, $sort_order, 'IUPred', "IUPred2") ?></th>
+	<th colspan=2 data-column-index='16'><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR2") ?></th>
+	<th colspan=2 data-column-index='16'>AlphaFold</th>
+	<th data-column-index='16'>MobiDB</th>
+	<th colspan=3 data-column-index='1'>ClinVar</th>
+	<th colspan=3 data-column-index='1'>gnomAD</th>
+	<th colspan=2 data-column-index='9'><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
+	<th colspan=3 data-column-index='9'><?php sortURL($column, $sort_order, 'AlphaMissense_Pathogenicity', "AlphaMissense") ?></th>
+	<th colspan=3 data-column-index='11'><?php sortURL($column, $sort_order, 'foldx_avg_ddG', 'FoldX') ?></th>
+	<th colspan=2 data-column-index='11'><?php sortURL($column, $sort_order, 'rosetta_ddG', 'Rosetta') ?></th>
+	<th colspan=2 data-column-index='11'><?php sortURL($column, $sort_order, 'foldetta_ddG', 'Foldetta') ?></th>
+	<th colspan=2 data-column-index='11'><?php sortURL($column, $sort_order, 'premPS_ddG', 'PremPS') ?></th>
+	<th colspan=2 data-column-index='25'><?php sortURL($column, $sort_order, 'revel_score', "REVEL") ?></th>
+	<th colspan=2 data-column-index='25'><?php sortURL($column, $sort_order, 'provean_score', 'PROVEAN') ?></th>
+	<th colspan=2 data-column-index='25'><?php sortURL($column, $sort_order, 'polyPhen2_HumDiv_pph2_prob', "PolyPhen-2 HumDiv") ?></th>
+	<th colspan=2 data-column-index='25'><?php sortURL($column, $sort_order, 'polyPhen2_HumVar_pph2_prob', "PolyPhen-2 HumVar") ?></th>
+	<th colspan=2 data-column-index='25'>FATHMM</th>
+	<th colspan=4 data-column-index='25'>SIFT</th>
+	<th colspan=3 data-column-index='24'>PSMutPred</th>
+	<th colspan=2 data-column-index='26'>PAM</th>
+	<th colspan=2 data-column-index='26'>Physical</th>
+	<th colspan=2 data-column-index='26'>SASA</th>
+	<th colspan=2 data-column-index='26'>Normalized B-factor backbone</th>
+	<th colspan=2 data-column-index='26'>Normalized B-factor sidechain</th>
   </tr>
   <tr>
     <!-- IUPred -->
-	<th data-column-index="23">Score</th>
-	<th data-column-index="23">Prediction</th>
+	<th data-column-index='16'>Score</th>
+	<th data-column-index='16'>Prediction</th>
     <!-- ANCHOR -->
-	<th data-column-index="23">Score</th>
-	<th data-column-index="23">Prediction</th>
-	<th data-column-index="25"><?php sortURL($column, $sort_order, 'af_plddt', "pLDDT") ?></th>
-	<th data-column-index="25"><?php sortURL($column, $sort_order, 'af_disorder', "disorder") ?></th>
-	<th data-column-index="25"><?php sortURL($column, $sort_order, 'mobidb_lite_disorder', "disorder") ?></th>
+	<th data-column-index='16'>Score</th>
+	<th data-column-index='16'>Prediction</th>
+	<th data-column-index='16'><?php sortURL($column, $sort_order, 'af_plddt', "pLDDT") ?></th>
+	<th data-column-index='16'><?php sortURL($column, $sort_order, 'af_disorder', "disorder") ?></th>
+	<th data-column-index='16'><?php sortURL($column, $sort_order, 'mobidb_lite_disorder', "disorder") ?></th>
 
-    <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_rank', "Clinical Status") ?></th>
-    <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_review', "Review") ?></th>
-    <th data-column-index="1"><?php sortURL($column, $sort_order, 'cv_submissions', "Subm.") ?></th>
-    <th data-column-index="13"><?php sortURL($column, $sort_order, 'gnomAD_id', "ID") ?></th>
-    <th data-column-index="13"><?php sortURL($column, $sort_order, 'allele_count', "Allele count") ?></th>
-    <th data-column-index="13"><?php sortURL($column, $sort_order, 'allele_freq', "Allele freq.") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'cv_rank', "Clinical Status") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'cv_review', "Review") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'cv_submissions', "Subm.") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'gnomAD_id', "ID") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'allele_count', "Allele count") ?></th>
+    <th data-column-index='1'><?php sortURL($column, $sort_order, 'allele_freq', "Allele freq.") ?></th>
     <!-- ESM1b -->
-	    <th data-column-index="9">LLR score</th>
-	    <th data-column-index="9">Prediction</th>
+	    <th data-column-index='9'>LLR score</th>
+	    <th data-column-index='9'>Prediction</th>
     <!-- AlphaMissense -->
-	    <th data-column-index="11">Pathogenicity</th>
-	    <th data-column-index="11">Class</th>
-	    <th data-column-index="11">Optimized</th>
-    <!-- REVEL -->
-	    <th data-column-index="20">Score</th>
-	    <th data-column-index="20">Prediction</th>
-    <!-- PSMutPred -->
-	<th data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_ip_rf', 'IP RF') ?></th>
-	<th data-column-index="24"><?php sortURL($column, $sort_order, 'psmutpred_score_sp_rf', 'SP RF') ?></th>
-	<th data-column-index="24">Prediction</th>
+	    <th data-column-index='9'>Pathogenicity</th>
+	    <th data-column-index='9'>Class</th>
+	    <th data-column-index='9'>Optimized</th>
     <!-- FoldX -->
-	<th data-column-index="2">Average &Delta;&Delta;G</th>
-    <th data-column-index="2">Prediction</th>
-	<th data-column-index="2">StdDev</th>
+	<th data-column-index='11'>Average &Delta;&Delta;G</th>
+    <th data-column-index='11'>Prediction</th>
+	<th data-column-index='11'>StdDev</th>
     <!-- Rosetta -->
-	<th data-column-index="17">&Delta;&Delta;G</th>
-	<th data-column-index="17">Prediction</th>
+	<th data-column-index='11'>&Delta;&Delta;G</th>
+	<th data-column-index='11'>Prediction</th>
     <!-- Foldetta -->
-	<th data-column-index="18">&Delta;&Delta;G</th>
-	<th data-column-index="18">Prediction</th>
+	<th data-column-index='11'>&Delta;&Delta;G</th>
+	<th data-column-index='11'>Prediction</th>
     <!-- PremPS -->
-	<th data-column-index="3">&Delta;&Delta;G</th>
-	<th data-column-index="3">Prediction</th>
+	<th data-column-index='11'>&Delta;&Delta;G</th>
+	<th data-column-index='11'>Prediction</th>
+    <!-- REVEL -->
+	    <th data-column-index='25'>Score</th>
+	    <th data-column-index='25'>Prediction</th>
     <!-- PROVEAN -->
-	<th data-column-index="19">Score</th>
-	<th data-column-index="19">Prediction</th>
+	<th data-column-index='25'>Score</th>
+	<th data-column-index='25'>Prediction</th>
     <!-- pph2 HumDiv -->
-	<th data-column-index="6">pph2_prob</th>
-	<th data-column-index="6">Prediction</th>
+	<th data-column-index='25'>pph2_prob</th>
+	<th data-column-index='25'>Prediction</th>
     <!-- pph2 HumVar -->
-	<th data-column-index="6">pph2_prob</th>
-	<th data-column-index="6">Prediction</th>
+	<th data-column-index='25'>pph2_prob</th>
+	<th data-column-index='25'>Prediction</th>
 
-	<th data-column-index="10"><?php sortURL($column, $sort_order, 'FATHMM_Diseasespecific_Nervous_System_Score', "Nervous System Score") ?></th>
-	<th data-column-index="10">Prediction</th>
+	<th data-column-index='25'><?php sortURL($column, $sort_order, 'FATHMM_Diseasespecific_Nervous_System_Score', "Nervous System Score") ?></th>
+	<th data-column-index='25'>Prediction</th>
 
-    <th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Predict', "Prediction") ?></th>
-	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Warnings', "Status") ?></th>
-	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Conservation', "Conservation") ?></th>
-	<th data-column-index="7"><?php sortURL($column, $sort_order, 'SIFT_animal_Sequences', "Sequences") ?></th>
+    <th data-column-index='25'><?php sortURL($column, $sort_order, 'SIFT_animal_Predict', "Prediction") ?></th>
+	<th data-column-index='25'><?php sortURL($column, $sort_order, 'SIFT_animal_Warnings', "Status") ?></th>
+	<th data-column-index='25'><?php sortURL($column, $sort_order, 'SIFT_animal_Conservation', "Conservation") ?></th>
+	<th data-column-index='25'><?php sortURL($column, $sort_order, 'SIFT_animal_Sequences', "Sequences") ?></th>
+    <!-- PSMutPred -->
+	<th data-column-index='24'><?php sortURL($column, $sort_order, 'psmutpred_score_ip_rf', 'IP RF') ?></th>
+	<th data-column-index='24'><?php sortURL($column, $sort_order, 'psmutpred_score_sp_rf', 'SP RF') ?></th>
+	<th data-column-index='24'>Prediction</th>
+    <!-- PAM -->
+    <th data-column-index='26'><?php sortURL($column, $sort_order, 'PAM250', "PAM250") ?></th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'PAM120', "PAM120") ?></th>
 
-    <th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM250', "PAM250") ?></th>
-	<th data-column-index="8"><?php sortURL($column, $sort_order, 'PAM120', "PAM120") ?></th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'deltaHydropathy', "Hydropathy &Delta;") ?></a></th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'deltaMW', "MW &Delta;") ?></th>
 
-	<th data-column-index="14"><?php sortURL($column, $sort_order, 'deltaHydropathy', "Hydropathy &Delta;") ?></a></th>
-	<th data-column-index="14"><?php sortURL($column, $sort_order, 'deltaMW', "MW &Delta;") ?></th>
-
-	<th data-column-index="4"><?php sortURL($column, $sort_order, 'sasa_average', 'Average') ?></th>
-	<th data-column-index="4"><?php sortURL($column, $sort_order, 'sasa_delta', '&Delta;') ?></th>
-	<th data-column-index="5"><?php sortURL($column, $sort_order, 'Bfactor_backbone_delta', '&Delta;') ?></th>
-	<th data-column-index="5">StdDev</th>
-	<th data-column-index="5"><?php sortURL($column, $sort_order, 'Bfactor_sidechain_delta', '&Delta;') ?></th>
-	<th data-column-index="5">StdDev</th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'sasa_average', 'Average') ?></th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'sasa_delta', '&Delta;') ?></th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'Bfactor_backbone_delta', '&Delta;') ?></th>
+	<th data-column-index='26'>StdDev</th>
+	<th data-column-index='26'><?php sortURL($column, $sort_order, 'Bfactor_sidechain_delta', '&Delta;') ?></th>
+	<th data-column-index='26'>StdDev</th>
 	<th data-column-index="12">Secondary</th>
 	<th data-column-index="12">Tertiary bonds</th>
 	<th data-column-index="12">Inside out</th>
@@ -364,62 +359,83 @@ if ( "cdna" == $scol) {
       echo "</td>";
       echo "<td data-column-index='21'>".$row["consensus"]."</td>";
       echo "<td data-column-index='16' class='lb'>".$row["domain"]."</td>";
-      echo "<td data-column-index='23'>".$row["IUPred"]."</td>";
-      echo "<td data-column-index='23'>".$row["IUPred_predict"]."</td>";
-      echo "<td data-column-index='23'>".$row["ANCHOR"]."</td>";
-      echo "<td data-column-index='23'>".$row["ANCHOR_predict"]."</td>";
-      echo "<td data-column-index='25'>".$row["af_plddt"]."</td>";
-      echo "<td data-column-index='25'>".$row["af_disorder"]."</td>";
-      echo "<td data-column-index='25'>".$row["mobidb_lite_disorder"]."</td>";
+      echo "<td data-column-index='16'>".$row["IUPred"]."</td>";
+      echo "<td data-column-index='16'>".$row["IUPred_predict"]."</td>";
+      echo "<td data-column-index='16'>".$row["ANCHOR"]."</td>";
+      echo "<td data-column-index='16'>".$row["ANCHOR_predict"]."</td>";
+      echo "<td data-column-index='16'>".$row["af_plddt"]."</td>";
+      echo "<td data-column-index='16'>".$row["af_disorder"]."</td>";
+      echo "<td data-column-index='16'>".$row["mobidb_lite_disorder"]."</td>";
 
       // ClinVar
-      echo "<td data-column-index=\"1\" ". ($column == 'statusID' ? 'class="lb '.$add_class_name.'"' : 'class="lb"') .">";
+      echo "<td data-column-index='1' ". ($column == 'statusID' ? 'class="lb '.$add_class_name.'"' : 'class="lb"') .">";
       if ( is_null($row["clinvar_uid"]) ) {
           echo "</td>";
       }
       else {
-          echo "<a href=\"https://www.ncbi.nlm.nih.gov/clinvar/variation/".$row["clinvar_uid"]."\" target=\"_blank\">".$row["cv_status"]."</a></td>";
+          echo "<a href='https://www.ncbi.nlm.nih.gov/clinvar/variation/".$row["clinvar_uid"]."' target='_blank'>".$row["cv_status"]."</a></td>";
       }
 
-      echo "<td data-column-index=\"1\">";
+      echo "<td data-column-index='1'>";
       if ( $row["cv_review"] ) {
           for ($x = 0; $x < $row["cv_review"]; $x++) {
-              echo "<span class=\"fas fa-star\"></span> ";
+              echo "<span class='fas fa-star'></span> ";
           }
       }
       echo "</td>";
 
-      echo "<td data-column-index=\"1\">".$row["cv_submissions"]."</td>";
+      echo "<td data-column-index='1'>".$row["cv_submissions"]."</td>";
 
       // gnomAD
       if ( is_null($row["gnomAD_id"]) ) {
-          echo "<td data-column-index=\"13\" class=\"lb\"></td>";
-          echo "<td data-column-index=\"13\"></td>";
-          echo "<td data-column-index=\"13\"></td>";
+          echo "<td data-column-index='1' class='lb'></td>";
+          echo "<td data-column-index='1'></td>";
+          echo "<td data-column-index='1'></td>";
       }
       else {
-          echo "<td data-column-index=\"13\" class=\"lb\"><a href=\"https://gnomad.broadinstitute.org/variant/".$row["gnomAD_id"]."?dataset=gnomad_r4\" target=\"_blank\">".$row["gnomAD_id"]."</a></td>";
+          echo "<td data-column-index='1' class='lb'><a href='https://gnomad.broadinstitute.org/variant/".$row["gnomAD_id"]."?dataset=gnomad_r4' target='_blank'>".$row["gnomAD_id"]."</a></td>";
           if ( is_null($row["allele_count"]) ) {
-              echo "<td data-column-index=\"13\"></td>";
-              echo "<td data-column-index=\"13\"></td>";
+              echo "<td data-column-index='1'></td>";
+              echo "<td data-column-index='1'></td>";
           }
           else {
-              printf("<td data-column-index=\"13\">%d</td>", $row["allele_count"] );
+              printf("<td data-column-index='1'>%d</td>", $row["allele_count"] );
               if ( $row["allele_count"] == 0 ) {
-                  echo "<td data-column-index=\"13\">0</td>";
+                  echo "<td data-column-index='1'>0</td>";
               }
               else {
-                  printf("<td data-column-index=\"13\">%.2e</td>", $row["allele_freq"] );
+                  printf("<td data-column-index='1'>%.2e</td>", $row["allele_freq"] );
               }
           }
       }
-      echo "<td data-column-index=\"9\" class=\"lb\">".$row["ESM1b_Q96PV0_LLRscore"]."</td>";
-      echo "<td data-column-index=\"9\">".$row["ESM1b_Q96PV0_Prediction"]."</td>";
-      echo "<td data-column-index=\"11\" class=\"lb\">".$row["AlphaMissense_Pathogenicity"]."</td>";
-      echo "<td data-column-index=\"11\">".$row["AlphaMissense_Class"]."</td>";
-      echo "<td data-column-index=\"11\">".$row["alphamissense_predict"]."</td>";
-      echo "<td data-column-index='20' class='lb'>".$row["revel_score"]."</td>";
-      echo "<td data-column-index='20'>".$row["revel_predict"]."</td>";
+      echo "<td data-column-index='9' class='lb'>".$row["ESM1b_Q96PV0_LLRscore"]."</td>";
+      echo "<td data-column-index='9'>".$row["ESM1b_Q96PV0_Prediction"]."</td>";
+      echo "<td data-column-index='9' class='lb'>".$row["AlphaMissense_Pathogenicity"]."</td>";
+      echo "<td data-column-index='9'>".$row["AlphaMissense_Class"]."</td>";
+      echo "<td data-column-index='9'>".$row["alphamissense_predict"]."</td>";
+      echo "<td data-column-index='11' class='lb'>".$row["foldx_avg_ddG"]."</td>";
+      echo "<td data-column-index='11'>".$row["foldx_predict"]."</td>";
+      echo "<td data-column-index='11'>".$row["foldx_stddev"]."</td>";
+      echo "<td data-column-index='11' class='lb'>".$row["rosetta_ddG"]."</td>";
+      echo "<td data-column-index='11'>".$row["rosetta_predict"]."</td>";
+      echo "<td data-column-index='11' class='lb'>".$row["foldetta_ddG"]."</td>";
+      echo "<td data-column-index='11'>".$row["foldetta_predict"]."</td>";
+      echo "<td data-column-index='11' class='lb'>".$row["premPS_ddG"]."</td>";
+      echo "<td data-column-index='11'>".$row["premPS_predict"]."</td>";
+      echo "<td data-column-index='25' class='lb'>".$row["revel_score"]."</td>";
+      echo "<td data-column-index='25'>".$row["revel_predict"]."</td>";
+      echo "<td data-column-index='25' class='lb'>".$row["provean_score"]."</td>";
+      echo "<td data-column-index='25'>".$row["provean_predict"]."</td>";
+      echo "<td data-column-index='25' class='lb'>".$row["polyPhen2_HumDiv_pph2_prob"]."</td>";
+      echo "<td data-column-index='25'>".$row["polyPhen2_HumDiv_predict"]."</td>";
+      echo "<td data-column-index='25'>".$row["polyPhen2_HumVar_pph2_prob"]."</td>";
+      echo "<td data-column-index='25'>".$row["polyPhen2_HumVar_predict"]."</td>";
+      echo "<td data-column-index='25' class='lb'>".$row["FATHMM_Diseasespecific_Nervous_System_Score"]."</td>";
+      echo "<td data-column-index='25'>".$row["FATHMM_predict"]."</td>";
+      echo "<td data-column-index='25' class='lb'>".$row["SIFT_animal_Predict"]."</td>";
+      echo "<td data-column-index='25'>".$row["SIFT_animal_Warnings"]."</td>";
+      echo "<td data-column-index='25'>".$row["SIFT_animal_Conservation"]."</td>";
+      echo "<td data-column-index='25'>".$row["SIFT_animal_Sequences"]."</td>";
       echo "<td data-column-index='24' class='lb'>".$row["psmutpred_score_ip_rf"]."</td>";
       echo "<td data-column-index='24'>".$row["psmutpred_score_sp_rf"]."</td>";
       if ( is_null($row["psmutpred_score_ip_rf"]) || $row["psmutpred_score_ip_rf"] < 0.5 ) {
@@ -427,47 +443,26 @@ if ( "cdna" == $scol) {
       } else {
           echo "<td data-column-index='24'>".$row["psmutpred_sp"]."</td>";
       }
-      echo "<td data-column-index=\"2\" class=\"lb\">".$row["foldx_avg_ddG"]."</td>";
-      echo "<td data-column-index=\"2\">".$row["foldx_predict"]."</td>";
-      echo "<td data-column-index=\"2\">".$row["foldx_stddev"]."</td>";
-      echo "<td data-column-index=\"17\" class=\"lb\">".$row["rosetta_ddG"]."</td>";
-      echo "<td data-column-index=\"17\">".$row["rosetta_predict"]."</td>";
-      echo "<td data-column-index=\"18\" class=\"lb\">".$row["foldetta_ddG"]."</td>";
-      echo "<td data-column-index=\"18\">".$row["foldetta_predict"]."</td>";
-      echo "<td data-column-index=\"3\" class=\"lb\">".$row["premPS_ddG"]."</td>";
-      echo "<td data-column-index=\"3\">".$row["premPS_predict"]."</td>";
-      echo "<td data-column-index=\"19\" class=\"lb\">".$row["provean_score"]."</td>";
-      echo "<td data-column-index=\"19\">".$row["provean_predict"]."</td>";
-      echo "<td data-column-index=\"6\" class=\"lb\">".$row["polyPhen2_HumDiv_pph2_prob"]."</td>";
-      echo "<td data-column-index=\"6\">".$row["polyPhen2_HumDiv_predict"]."</td>";
-      echo "<td data-column-index=\"6\">".$row["polyPhen2_HumVar_pph2_prob"]."</td>";
-      echo "<td data-column-index=\"6\">".$row["polyPhen2_HumVar_predict"]."</td>";
-      echo "<td data-column-index=\"10\" class=\"lb\">".$row["FATHMM_Diseasespecific_Nervous_System_Score"]."</td>";
-      echo "<td data-column-index=\"10\">".$row["FATHMM_predict"]."</td>";
-      echo "<td data-column-index=\"7\" class=\"lb\">".$row["SIFT_animal_Predict"]."</td>";
-      echo "<td data-column-index=\"7\">".$row["SIFT_animal_Warnings"]."</td>";
-      echo "<td data-column-index=\"7\">".$row["SIFT_animal_Conservation"]."</td>";
-      echo "<td data-column-index=\"7\">".$row["SIFT_animal_Sequences"]."</td>";
-      echo "<td data-column-index=\"8\" class=\"lb\">".$row["PAM250"]."</td>";
-      echo "<td data-column-index=\"8\">".$row["PAM120"]."</td>";
-      echo "<td data-column-index=\"14\" class=\"lb\">".$row["deltaHydropathy"]."</td>";
-      echo "<td data-column-index=\"14\">".$row["deltaMW"]."</td>";
-      echo "<td data-column-index=\"4\" class=\"lb\">".$row["sasa_average"]."</td>";
-      echo "<td data-column-index=\"4\">".$row["sasa_delta"]."</td>";
-      echo "<td data-column-index=\"5\" class=\"lb\">".$row["Bfactor_backbone_delta"]."</td>";
-      echo "<td data-column-index=\"5\">".$row["Bfactor_backbone_stddev"]."</td>";
-      echo "<td data-column-index=\"5\">".$row["Bfactor_sidechain_delta"]."</td>";
-      echo "<td data-column-index=\"5\">".$row["Bfactor_sidechain_stddev"]."</td>";
-      echo "<td data-column-index=\"12\" class=\"lb\">". ($row["SA_Secondary"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["SA_Tertiary"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["SA_Buried"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["SA_GAP_Ras_interface"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["SA_Membrane_interface"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["SA_Benign"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">". ($row["Alert"] ? 'X' : '') ."</td>";
-      echo "<td data-column-index=\"12\">".$row["verdict"]."</td>";
-      echo "<td data-column-index=\"12\" class=\"description_column ".$stylename."\">".$row["description"]."</td>";
-      echo "<td data-column-index=\"15\"><a href=\"https://doi.org/".$row["doi"]."\" target=\"_blank\">".$row["doi"]."</a></td>";
+      echo "<td data-column-index='26' class='lb'>".$row["PAM250"]."</td>";
+      echo "<td data-column-index='26'>".$row["PAM120"]."</td>";
+      echo "<td data-column-index='26' class='lb'>".$row["deltaHydropathy"]."</td>";
+      echo "<td data-column-index='26'>".$row["deltaMW"]."</td>";
+      echo "<td data-column-index='26' class='lb'>".$row["sasa_average"]."</td>";
+      echo "<td data-column-index='26'>".$row["sasa_delta"]."</td>";
+      echo "<td data-column-index='26' class='lb'>".$row["Bfactor_backbone_delta"]."</td>";
+      echo "<td data-column-index='26'>".$row["Bfactor_backbone_stddev"]."</td>";
+      echo "<td data-column-index='26'>".$row["Bfactor_sidechain_delta"]."</td>";
+      echo "<td data-column-index='26'>".$row["Bfactor_sidechain_stddev"]."</td>";
+      echo "<td data-column-index='12' class='lb'>". ($row["SA_Secondary"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["SA_Tertiary"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["SA_Buried"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["SA_GAP_Ras_interface"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["SA_Membrane_interface"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["SA_Benign"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>". ($row["Alert"] ? 'X' : '') ."</td>";
+      echo "<td data-column-index='12'>".$row["verdict"]."</td>";
+      echo "<td data-column-index='12' class='description_column ".$stylename."'>".$row["description"]."</td>";
+      echo "<td data-column-index='15'><a href='https://doi.org/".$row["doi"]."' target='_blank'>".$row["doi"]."</a></td>";
       echo "</tr>\n";
       endwhile;
       ?>

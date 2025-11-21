@@ -57,41 +57,17 @@
 	  </nav>
 		<h1><span>Data Metrics</span></h1>
 
-	  <h2>Molecular dynamics (MD) analysis metrics</h2>
+<h2>Summary of the variant</h2>
 
-<p class="myjust"><i><b>SASA &Delta;</b></i> value indicates the SASA
-  (Solvent Accessibility Surface Area) change (&Delta;) between the WT
-  and mutated residue between molecular dynamics simulations. Note
-  that the value provides the absolute SASA difference and, thus, both
-  the side chain positioning and intrinsic properties of the swapped
-  residues affect the reported value.  Negative values and positive
-  values indicate an increase or decrease in water exposure,
-  respectively.</p>
+<p class="myjust"><i><b>c.dna</b></i> or HGVSc (Human Genome Variation Society)
+  nucleotide code (e.g., c.1205T&gt;G) is given in the c.dna
+  column. The MANE (Matched Annotation from NCBI and EMBL-EBI)
+  transcripts, which have the GenBank accession number NM_006772.3 are
+  the same as used in ClinVar. These SYNGAP1 transcripts match with
+  the Ensembl Transcript ID ENST00000646630.1 used in gnomAD.
+</p>
 
-<p class="myjust"><i><b>Normalized B-factor &Delta;</b></i> values are
-  calculated as an average of triplicate 150 ns simulations for the
-  sidechain atoms between the WT and the variant systems. The change
-  (&Delta;) between the residue bfactor in the WT and the variant is
-  reported. B-factor is the RMSF (Root Mean Square Fluctuation)
-  squared and weight by 8/3&pi;2. The normalized B-factor utilizes the
-  mass-weighted side chain &beta;-factors of unrestrained simulations
-  of isolated amino acids as normalization factors to adjust for the
-  difference in residues’ connectivities and sizes giving a
-  dimensionless relative local side-chain flexibility of 1.0 ( Fuchs
-  et al., 2015). All calculations were carried out by CTRAJ and
-  CPPTRAJ (DOI: <a href="https://doi.org/10.1021/ct500633u">10.1021/ct500633u</a>)</p>
-
-
-<h2>Status supported by evidence</h2>
-
-<p><i><b>c.dna</b></i> or HGVSc (Human Genome Variation Society) nucleotide code (e.g.,
-c.1205T&gt;G) is given in the c.dna column. The MANE (Matched
-Annotation from NCBI and EMBL-EBI) transcripts, which have the GenBank
-accession number  NM_006772.3 are the same as used in ClinVar. These
-SYNGAP1 transcripts match with the Ensembl Transcript ID
-ENST00000646630.1 used in gnomAD.</p>
-
-<p><i><b>Variant</b></i> name for missense variant, descriping the
+<p class="myjust"><i><b>Variant</b></i> name for missense variant, descriping the
   protein change, is provided using the single letter amino acid code
   and residue numbering. Image of the two amino acid 2D structures is
   present either on the page or as tooltip on "2D" icon. "3D" icon on
@@ -107,84 +83,79 @@ ENST00000646630.1 used in gnomAD.</p>
   perspective on potential variant status.
 </p>
 
-<p class="myjust"><a href="https://www.ncbi.nlm.nih.gov/clinvar/"><i><b>ClinVar</b></i></a>,
-  which is a free and public archive of reports of the relationships
-  among human variations and phenotypes, provides the publically
-  available variant status (<i>benign, pathogenic, likely benign, likely
-  pathogenic, VUS</i>) with supporting evidence. Column <em>Clinical Status</em> has links to corresponding entries on <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ClinVar site</a>. ClinVar data on the table was last retrieved 2024-01-04.</p>
+<p class="myjust"><i><b>SGM Consensus</b></i> shows <i>likely pathogenic</i>
+  or <i>likely benign</i> if three out of four prediction methods (ESM1b, AlphaMissense,
+  PROVEAN, and FATHMM) do agree in their predictions.
+</p>
 
-<p class="myjust"><a href="https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/"><i><b>gnomAD</b></i></a>
-(Genome Aggregation Database) encompasses a comprehensive collection
-of both exome and genome sequencing data. The gnomAD v4 data set
-information for relevant missense variants, is readily
-accessible. (DOI  <a href="https://doi.org/10.1038/s41586-020-2308-7">10.1038/s41586-020-2308-7</a>)</p>
+<h2>Structural and Sequence Context (SSC)</h2>
+
+<p class="myjust">These methods are based on the properties of the
+  wildtype (WT) protein and are thus not about variants.
+</p>
 
 <p class="myjust"><i><b>Domain</b></i> is part of protein that has
   well-defined secondary structure. <b>Motifs</b> are short sequences
   that are regognized by other proteins.
-
-<h3>Physical metrics</h3>
-
-<p class="myjust"><i><b>MW &Delta;</b></i> indicates the change (&Delta;) in
-molecular weight (mol/g) due to the side chain swap between the WT and
-mutated residue. Negative values and positive values indicate increase
-or decrease in the molecular weight due to the mutation,
-respectively.</p>
-
-<p class="myjust"><i><b>Hydropathy &Delta;</b></i> compares the change (&Delta;) in
-the hydropathy index number, which represents the hydrophobic or
-hydrophilic properties of the residue side chain, due to the missense
-mutation. The larger or smaller the change, the more hydrophobic or
-hydrophilic, respectively, the mutated residue is in comparison to the
-WT residue.</p>
-
-<h2>Evolutionary substitution metrics</h2>
-
-<p class="myjust"><i><b>PAM120</b></i> matrix is designed to compare two sequences
-which are ~120 mutations in 100 amino acids apart. PAM (Point Accepted
-Mutation) substitution matrices, which are traditionally used in
-sequence alignment, encode the expected evolutionary change. Smaller
-(even negative) and larger values indicate an increase or decrease,
-respectively, in the favorability of the residue swap.</p>
-
-<p class="myjust"><i><b>PAM250</b></i> matrix is designed to compare two sequences
-which are ~250 mutations in 100 amino acids apart. PAM (Point Accepted
-Mutation) substitution matrices, which are traditionally used in
-sequence alignment, encode the expected evolutionary change. Smaller
-(even negative) and larger values indicate an increase or decrease,
-respectively, in the favorability of the residue swap.</p>
-
-<h2>Sequence- and structure-based pathogenicity predictions</h2>
-
-<p class="myjust"><a href="https://sift.bii.a-star.edu.sg/"><i><b>SIFT</b></i></a>
-(Sorting Intolerant From Tolerant)predicts whether an amino acid
-substitution affects protein function based on sequence homology and
-the physical properties of amino acids. The default Single protein and
-SIFT sequence options, that provide automatic sequence alignment, were
-used when making the predictions.
-  (DOI: <a href="https://doi.org/10.1093/nar/gks539">10.1093/nar/gks539</a>)
 </p>
 
-<p class="myjust"><a href="http://genetics.bwh.harvard.edu/pph2/"><i><b>PolyPhen-2</b></i></a>
-  (Polymorphism Phenotyping v2)
-predicts the possible impact of an amino acid substitution on the
-structure and function of protein based of physical and comparative
-  consideration. (DOI: <a href="https://doi.org/10.1002/0471142905.hg0720s76">10.1002/0471142905.hg0720s76</a>)
+<p class="myjust">Intrinsically Disordered Protein (IDP) is a protein
+  -- or part of protein -- that lacks secondary or tertiary structure
+  and is thus more flexible. Typically contact with macromolecular
+  interaction partners can stabilize IDP.
 </p>
 
-<ul>
-  <li class="myjust"><b>HumDiv</b>: It is compiled using the differences between all
-	damaging alleles causing Mendelian diseases, and the
-	non-damaging ones present between human and mammalian
-	orthologues. Recognizes mutations with drastic effects from
-	normal human variation and can be used for the diagnosis of
-	Mendelian diseases
-  <li class="myjust"><b>HumVar</b>: It is trained using the differences between human
-	disease-causing mutations in UniProtKB and common human nsSNPs
-	with (MAF&gt;1%) with no disease-associated
-	annotation. Identify variants where mildly deleterious alleles
-	are treated as damaging.
-</ul>
+<p class="myjust"><i><b>IUPred2 and ANCHOR2</b></i> predictions are
+  from <a href="https://iupred2a.elte.hu/">IUPred2A</a> server.
+  IUPred2A is a combined web interface that allows to identify
+  disordered protein regions using IUPred2 and disordered binding
+  regions using ANCHOR2.  The IUPred2 predicts here whether some part
+  of the WT protein is likely to be disordered. The ANCHOR2 predicts
+  whether some disordered parts are likely to bind other proteins to
+  form more stable complexes.
+  (DOI: <a href="https://doi.org/10.1093/nar/gky384">10.1093/nar/gky384</a>)
+</p>
+
+<p class="myjust"><a href="https://mobidb.org/Q96PV0"><i><b>MobiDB</b></i></a>
+  aims to provide structural and functional information about
+  intrinsic protein disorder. <b>AlphaFold pLDDT</b> (predicted local
+  distance difference test) is per-residue measures confidence by
+  AlphaFold. Higher scores indicate higher confidence. <b>AlphaFold
+  disorder</b> predicts disorder from pLDDT and relative solvent
+  accessibility. <b>MobiDB disorder</b> is prediction of disorder by
+  MobiDB-lite algorithm.
+  (DOI: <a href="https://doi.org/10.1093/nar/gkae969">10.1093/nar/gkae969</a>)
+</p>
+
+<h2>Annotated databases</h2>
+
+<p class="myjust">Data about variants that have been observed.
+</p>
+
+<p class="myjust"><a href="https://www.ncbi.nlm.nih.gov/clinvar/"><i><b>ClinVar</b></i></a>,
+  which is a free and public archive of reports of the relationships
+  among human variations and phenotypes, provides the publically
+  available variant status (<i>benign, pathogenic, likely benign,
+  likely pathogenic, VUS</i>) with supporting
+  evidence. Column <em>Clinical Status</em> has links to corresponding
+  entries on <a href="https://www.ncbi.nlm.nih.gov/clinvar/"
+  target="_blank">ClinVar site</a>.
+</p>
+
+<p class="myjust"><a href="https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/"><i><b>gnomAD</b></i></a>
+  (Genome Aggregation Database) encompasses a comprehensive collection
+  of both exome and genome sequencing data. The gnomAD v4 data set
+  information for relevant missense variants, is readily
+  accessible.
+  (DOI <a href="https://doi.org/10.1038/s41586-020-2308-7">10.1038/s41586-020-2308-7</a>)
+</p>
+
+<h2>Variant Pathogenicity Predictions (VPP)</h2>
+
+<h3>Deep learning based predictions</h3>
+
+<p class="myjust">AI-driven pathogenicity scoring.
+</p>
 
 <p class="myjust"><a href="https://huggingface.co/spaces/ntranoslab/esm_variants"><i><b>ESM1b</b></i></a>
 (Evolutionary Scale Modelling) is a protein language model that
@@ -211,28 +182,9 @@ insights into the potential pathogenicity of genetic variants (DOI:
   performance in calculating balanced accuracy.
 </p>
 
-<p class="myjust"><a href="https://fathmm.biocompute.org.uk/"><i><b>FATHMM</b></i></a>
-  (Functional Analysis through Hidden Markov Models) is a
-  species-independent method with optional species-specific weightings
-  for the prediction of the functional effects of protein missense
-  variants. The coding variants were analyzed using the
-  disease-specific option: Nervous
-  System. (DOI: <a href="https://doi.org/10.1002/humu.22225">10.1002/humu.22225</a>)
-</p>
+<h3>Folding based predictions</h3>
 
-<p class="myjust"><a href="https://lilab.jysw.suda.edu.cn/research/PremPS/"><i><b>PremPS</b></i></a>
-  is a computational method that evaluates the effect of a missense
-  mutation on protein stability. PremPS utilizes evolutionary- and
-  structure-based features, and it is parameterized on a balanced
-  dataset with an equal number of stabilizing and destabilizing
-  mutations. The 0 ns frame of the WT simulation was used as the
-  reference WT structure to calculate the Gibbs free energy
-  differences (&Delta;&Delta;G) values between the WT and missense variants. The
-  &Delta;&Delta;G cut-off was set to &ge;1.0 kcal for the destabilizing mutations
-  and &le;-1.0 kcal for the stabilizing mutations. Variants with &Delta;&Delta;G
-  values between -0.5 and 0.5 were considered neutral or likely
-  benign.
-  (DOI: <a href="https://doi.org/10.1371/journal.pcbi.1008543">10.1371/journal.pcbi.1008543</a>)
+<p class="myjust">Assess structural impact of missense mutations.
 </p>
 
 <p class="myjust"><a href="https://foldxsuite.crg.eu/"><i><b>FoldX</b></i></a>
@@ -291,6 +243,43 @@ insights into the potential pathogenicity of genetic variants (DOI:
   benign. (DOI: <a href="https://doi.org/10.1002/pro.4688">10.1002/pro.4688</a>)
 </p>
 
+<p class="myjust"><a href="https://lilab.jysw.suda.edu.cn/research/PremPS/"><i><b>PremPS</b></i></a>
+  is a computational method that evaluates the effect of a missense
+  mutation on protein stability. PremPS utilizes evolutionary- and
+  structure-based features, and it is parameterized on a balanced
+  dataset with an equal number of stabilizing and destabilizing
+  mutations. The 0 ns frame of the WT simulation was used as the
+  reference WT structure to calculate the Gibbs free energy
+  differences (&Delta;&Delta;G) values between the WT and missense
+  variants. The &Delta;&Delta;G cut-off was set to &ge;1.0 kcal for
+  the destabilizing mutations and &le;-1.0 kcal for the stabilizing
+  mutations. Variants with &Delta;&Delta;G values between -0.5 and 0.5
+  were considered neutral or likely benign.
+  (DOI: <a href="https://doi.org/10.1371/journal.pcbi.1008543">10.1371/journal.pcbi.1008543</a>)
+</p>
+
+<h3>Sequence and structure based predictions</h3>
+
+<p class="myjust">Traditional and hybrid approaches for variant
+  classification.
+</p>
+
+<p class="myjust"><a href="https://sites.google.com/site/revelgenomics/"><i><b>REVEL</b></i></a>
+  (Rare Exome Variant Ensemble Learner) is an ensemble-based method
+  for assessing the pathogenicity of missense variants. It is based on
+  a combination of scores from 13 prediction tools including SiPhy,
+  phyloP, and phastCons, MutPred, FATHMM v2.3, VEST 3.0, PolyPhen-2,
+  SIFT, PROVEAN, MutationAssessor, MutationTaster, LRT, and
+  GERP++. The score ranges from 0 to 1 and, here, any variant
+  acquiring a score of ≥0.5 was assigned pathogenic. The
+  pre-calculated predictions (v1.3 May 3, 2021) in REVEL are not
+  explicitly for the SynGAP1 isoform &alpha;2 (UniProt Q96PV0-1;
+  ENST00000646630), but of other transcripts of the SYNGAP1
+  gene. Predictions for missense mutations at equivalent GRCh38
+  positions are in our table.
+  (DOI: <a href="https://doi.org/10.1016/j.ajhg.2016.08.016">10.1016/j.ajhg.2016.08.016</a>)
+</p>
+
 <p class="myjust"><i><b>PROVEAN</b></i> (Protein Variation Effect
   Analyzer) v1.1 is designed to calculate a delta alignment score
   derived from the comparison between the reference WT and the variant
@@ -306,50 +295,46 @@ insights into the potential pathogenicity of genetic variants (DOI:
   neutral. (DOI: <a href="https://doi.org/10.1371/journal.pone.0046688">10.1371/journal.pone.0046688</a>)
 </p>
 
-<p class="myjust"><a href="https://sites.google.com/site/revelgenomics/"><i><b>REVEL</b></i></a>
-  (Rare Exome Variant Ensemble Learner) is an ensemble-based method
-  for assessing the pathogenicity of missense variants. It is based on
-  a combination of scores from 13 prediction tools including SiPhy,
-  phyloP, and phastCons, MutPred, FATHMM v2.3, VEST 3.0, PolyPhen-2,
-  SIFT, PROVEAN, MutationAssessor, MutationTaster, LRT, and
-  GERP++. The score ranges from 0 to 1 and, here, any variant
-  acquiring a score of ≥0.5 was assigned pathogenic. The
-  pre-calculated predictions (v1.3 May 3, 2021) in REVEL are not
-  explicitly for the SynGAP1 isoform &alpha;2 (UniProt Q96PV0-1;
-  ENST00000646630), but of other transcripts of the SYNGAP1
-  gene. Predictions for missense mutations at equivalent GRCh38
-  positions are in our
-  table. (DOI: <a href="https://doi.org/10.1016/j.ajhg.2016.08.016">10.1016/j.ajhg.2016.08.016</a>)
+<p class="myjust"><a href="http://genetics.bwh.harvard.edu/pph2/"><i><b>PolyPhen-2</b></i></a>
+  (Polymorphism Phenotyping v2) predicts the possible impact of an
+  amino acid substitution on the structure and function of protein
+  based of physical and comparative consideration.
+  (DOI: <a href="https://doi.org/10.1002/0471142905.hg0720s76">10.1002/0471142905.hg0720s76</a>)
 </p>
 
-<p class="myjust"><i><b>DOI</b></i> link to relevant scientific
-  article.</p>
+<ul>
+  <li class="myjust"><b>HumDiv</b>: It is compiled using the
+	differences between all damaging alleles causing Mendelian
+	diseases, and the non-damaging ones present between human and
+	mammalian orthologues. Recognizes mutations with drastic
+	effects from normal human variation and can be used for the
+	diagnosis of Mendelian diseases
+  <li class="myjust"><b>HumVar</b>: It is trained using the
+	differences between human disease-causing mutations in
+	UniProtKB and common human nsSNPs with (MAF&gt;1%) with no
+	disease-associated annotation. Identify variants where mildly
+	deleterious alleles are treated as damaging.
+</ul>
 
-<h2>Disorder and phase separation prediction</h2>
-
-<p class="myjust">IDP is a protein -- or part of protein -- that lacks
-  secondary or tertiary structure and is thus more flexible. Typically
-  contact with macromolecular interaction partners can stabilize IDP.
+<p class="myjust"><a href="https://fathmm.biocompute.org.uk/"><i><b>FATHMM</b></i></a>
+  (Functional Analysis through Hidden Markov Models) is a
+  species-independent method with optional species-specific weightings
+  for the prediction of the functional effects of protein missense
+  variants. The coding variants were analyzed using the
+  disease-specific option: Nervous
+  System. (DOI: <a href="https://doi.org/10.1002/humu.22225">10.1002/humu.22225</a>)
 </p>
 
-<p class="myjust"><i><b>IUPred2 and ANCHOR2</b></i> predictions are
-  from <a href="https://iupred2a.elte.hu/">IUPred2A</a> server.
-  IUPred2A is a combined web interface that allows to identify
-  disordered protein regions using IUPred2 and disordered binding
-  regions using ANCHOR2.
-  (DOI: <a href="https://doi.org/10.1093/nar/gky384">10.1093/nar/gky384</a>)
+<p class="myjust"><a href="https://sift.bii.a-star.edu.sg/"><i><b>SIFT</b></i></a>
+  (Sorting Intolerant From Tolerant)predicts whether an amino acid
+  substitution affects protein function based on sequence homology and
+  the physical properties of amino acids. The default Single protein
+  and SIFT sequence options, that provide automatic sequence
+  alignment, were used when making the predictions.
+  (DOI: <a href="https://doi.org/10.1093/nar/gks539">10.1093/nar/gks539</a>)
 </p>
 
-<p class="myjust"><a href="https://mobidb.org/Q96PV0"><i><b>MobiDB</b></i></a>
-  aims to provide structural and functional information about
-  intrinsic protein disorder. <b>AlphaFold pLDDT</b> (predicted local
-  distance difference test) is per-residue measures confidence by
-  AlphaFold. Higher scores indicate higher confidence. <b>AlphaFold
-  disorder</b> predicts disorder from pLDDT and relative solvent
-  accessibility. <b>MobiDB disorder</b> is prediction of disorder by
-  MobiDB-lite algorithm.
-  (DOI: <a href="https://doi.org/10.1093/nar/gkae969">10.1093/nar/gkae969</a>)
-</p>
+<h2>Effect of variant on Phase Separation</h2>
 
 <p class="myjust"><a href="https://github.com/Morvan98/PSMutPred"><i><b>PSMutPred</b></i></a>
   is a model for the prediction of phase separation impact of human
@@ -365,32 +350,150 @@ insights into the potential pathogenicity of genetic variants (DOI:
   (DOI: <a href="https://doi.org/10.1038/s41467-024-52580-3">10.1038/s41467-024-52580-3</a>)
 </p>
 
-<h2>SGM Consensus</h2>
+<h2>Structural Metrics and Physical Properties</h2>
 
-<p class="myjust"><i><b>SGM Consensus</b></i> shows <i>likely pathogenic</i>
-  or <i>likely benign</i> if three out of four methods (ESM1b, AlphaMissense,
-  PROVEAN, and FATHMM) do agree in their predictions.
+<p class="myjust">Quantify residue-level effects on structure and
+  dynamics.
 </p>
 
-  <h2>SynGAP Structural Annotation</h2>
+<h3>Evolutionary substitution metrics</h3>
 
-<p class="myjust"><i><b>Structural assessment</b></i> of missense mutations was done on those segments of the SynGAP protein that are covered by the N-terminal model. These evaluations are derived from a meticulous manual inspection of the in silico variant molecular dynamics simulations. While a missense mutation may align with multiple categories (X) within the structural annotation classification each variant ultimately receives a single status, categorizing it as <i>potentially pathogenic</i>, <i>potentially benign</i>, or <i>uncertain</i>. The variant was given an uncertain status, if the mutation was introduced at the truncated ends of the model. No variant was assigned pathogenic based on its placement at the C2-membrane or GAP-Ras interfaces, unless the mutation had an effect otherwise.</i>.
+<p class="myjust"><i><b>PAM120</b></i> matrix is designed to compare
+  two sequences which are ~120 mutations in 100 amino acids apart. PAM
+  (Point Accepted Mutation) substitution matrices, which are
+  traditionally used in sequence alignment, encode the expected
+  evolutionary change. Smaller (even negative) and larger values
+  indicate an increase or decrease, respectively, in the favorability
+  of the residue swap.
+</p>
 
+<p class="myjust"><i><b>PAM250</b></i> matrix is designed to compare
+  two sequences which are ~250 mutations in 100 amino acids apart. PAM
+  (Point Accepted Mutation) substitution matrices, which are
+  traditionally used in sequence alignment, encode the expected
+  evolutionary change. Smaller (even negative) and larger values
+  indicate an increase or decrease, respectively, in the favorability
+  of the residue swap.
+</p>
 
-  <ol>
-<li><i>Secondary</i>: Missense mutations that lead to changes or disruptions in secondary structure elements are potentially pathogenic. The β-hairpins are considered here as secondary structure elements in addition to β sheets, α helices and loops/turns.</li>
-<li><i>Tertiary Bonds</i>: Missense mutations that result in alterations to tertiary structure bonding, particularly the disruption or formation of hydrogen bonds or salt bridges between different secondary structure elements, are potentially pathogenic.</li>
-<li><i>Inside-Out</i>: Missense mutations that cause buried residues to become solvent-exposed and/or misplaced, also known as inside-out effects, are potentially pathogenic.</li>
-<li><i>GAP-Ras Interface</i>: Missense mutations that may alter or disrupt the association between the GAP domain and RasGTPase are noted but without using it as criterion for assigning pathogenicity.</li>
-<li><i>At Membrane</i>: Missense mutations that may alter or disrupt the association between the C2 domain and the membrane are noted but without using it as criterion for assigning pathogenicity.</li>
-<li><i>No Effect</i>: Missense mutations, that are not causing or are unlikely to cause detrimental effects on the protein structure based on the variant simulations, are potentially benign.</li>
+<h3>Physical metrics</h3>
+
+<p class="myjust"><i><b>MW &Delta;</b></i> indicates the change
+  (&Delta;) in molecular weight (mol/g) due to the side chain swap
+  between the WT and mutated residue. Negative values and positive
+  values indicate increase or decrease in the molecular weight due to
+  the mutation, respectively.
+</p>
+
+<p class="myjust"><i><b>Hydropathy &Delta;</b></i> compares the change
+  (&Delta;) in the hydropathy index number, which represents the
+  hydrophobic or hydrophilic properties of the residue side chain, due
+  to the missense mutation. The larger or smaller the change, the more
+  hydrophobic or hydrophilic, respectively, the mutated residue is in
+  comparison to the WT residue.
+</p>
+
+<h3>Molecular dynamics (MD) analysis metrics</h3>
+
+<p class="myjust"><i><b>SASA &Delta;</b></i> value indicates the SASA
+  (Solvent Accessibility Surface Area) change (&Delta;) between the WT
+  and mutated residue between molecular dynamics simulations. Note
+  that the value provides the absolute SASA difference and, thus, both
+  the side chain positioning and intrinsic properties of the swapped
+  residues affect the reported value.  Negative values and positive
+  values indicate an increase or decrease in water exposure,
+  respectively.
+</p>
+
+<p class="myjust"><i><b>Normalized B-factor &Delta;</b></i> values are
+  calculated as an average of triplicate 150 ns simulations for the
+  sidechain atoms between the WT and the variant systems. The change
+  (&Delta;) between the residue bfactor in the WT and the variant is
+  reported. B-factor is the RMSF (Root Mean Square Fluctuation)
+  squared and weight by 8/3&pi;2. The normalized B-factor utilizes the
+  mass-weighted side chain &beta;-factors of unrestrained simulations
+  of isolated amino acids as normalization factors to adjust for the
+  difference in residues’ connectivities and sizes giving a
+  dimensionless relative local side-chain flexibility of 1.0 ( Fuchs
+  et al., 2015). All calculations were carried out by CTRAJ and
+  CPPTRAJ
+  (DOI: <a href="https://doi.org/10.1021/ct500633u">10.1021/ct500633u</a>)
+</p>
+
+<h2>SynGAP Structural Annotation</h2>
+
+<p class="myjust"><i><b>Structural assessment</b></i> of missense
+  mutations was done on those segments of the SynGAP protein that are
+  covered by the N-terminal model. These evaluations are derived from
+  a meticulous manual inspection of the in silico variant molecular
+  dynamics simulations. While a missense mutation may align with
+  multiple categories (X) within the structural annotation
+  classification each variant ultimately receives a single status,
+  categorizing it as <i>potentially pathogenic</i>, <i>potentially
+  benign</i>, or <i>uncertain</i>. The variant was given an uncertain
+  status, if the mutation was introduced at the truncated ends of the
+  model. No variant was assigned pathogenic based on its placement at
+  the C2-membrane or GAP-Ras interfaces, unless the mutation had an
+  effect otherwise.</i>.
+</p>
+
+<ol>
+  <li><i>Secondary</i>: Missense mutations that lead to changes or
+    disruptions in secondary structure elements are potentially
+    pathogenic. The β-hairpins are considered here as secondary
+    structure elements in addition to β sheets, α helices and
+    loops/turns.</li>
+  <li><i>Tertiary Bonds</i>: Missense mutations that result in
+    alterations to tertiary structure bonding, particularly the
+    disruption or formation of hydrogen bonds or salt bridges between
+    different secondary structure elements, are potentially
+    pathogenic.</li>
+  <li><i>Inside-Out</i>: Missense mutations that cause buried residues
+    to become solvent-exposed and/or misplaced, also known as
+    inside-out effects, are potentially pathogenic.</li>
+  <li><i>GAP-Ras Interface</i>: Missense mutations that may alter or
+    disrupt the association between the GAP domain and RasGTPase are
+    noted but without using it as criterion for assigning
+    pathogenicity.</li>
+  <li><i>At Membrane</i>: Missense mutations that may alter or disrupt
+    the association between the C2 domain and the membrane are noted
+    but without using it as criterion for assigning
+    pathogenicity.</li>
+  <li><i>No Effect</i>: Missense mutations, that are not causing or
+    are unlikely to cause detrimental effects on the protein structure
+    based on the variant simulations, are potentially benign.</li>
 </ol>
 
-<p class="myjust"><i><b>MD alerts</b></i>: These alerts are given for those missense variants where molecular dynamics (MD) simulation results may not be entirely reliable. In these instances, the mutation shows clearly muted structural effect likely due to a fully folded starting conformation in the simulation.</p>
+<p class="myjust"><i><b>MD alerts</b></i>: These alerts are given for
+  those missense variants where molecular dynamics (MD) simulation
+  results may not be entirely reliable. In these instances, the
+  mutation shows clearly muted structural effect likely due to a fully
+  folded starting conformation in the simulation.
+</p>
 
-<p class="myjust"><i><b>Verdict</b></i>: The variants are categorized based on the structural effects of the missense mutations into: 1) Potentially Benign: if no apparent negative effect is observed on the structure or folding; 2) Potentially Pathogenic: if a negative effect is observed; and 3) Uncertain: due to the premature truncation of the model or due to their projected effect on the complex formation with either the membrane or Ras-GTPase.</p>
+<p class="myjust"><i><b>Verdict</b></i>: The variants are categorized
+  based on the structural effects of the missense mutations into: 1)
+  Potentially Benign: if no apparent negative effect is observed on
+  the structure or folding; 2) Potentially Pathogenic: if a negative
+  effect is observed; and 3) Uncertain: due to the premature
+  truncation of the model or due to their projected effect on the
+  complex formation with either the membrane or Ras-GTPase.
+</p>
 
-<p class="myjust"><i><b>Description of Structural Effects</b></i>: An exhaustive examination of the structural impacts of missense mutations on the 3D structure of SynGAP is presented. This analysis mainly focuses on observations from the SynGAP-solvent molecular dynamics simulation trajectories that aim to detect alterations in the folding stability or potential misfolding events. Notably, the simulations are not expected to result in a completely unfolded state, as they initiate with the protein in its fully folded form. Further insights are derived from the estimated proximity to the inner post-synaptic membrane and RasGTPase.</p>
+<p class="myjust"><i><b>Description of Structural Effects</b></i>: An
+  exhaustive examination of the structural impacts of missense
+  mutations on the 3D structure of SynGAP is presented. This analysis
+  mainly focuses on observations from the SynGAP-solvent molecular
+  dynamics simulation trajectories that aim to detect alterations in
+  the folding stability or potential misfolding events. Notably, the
+  simulations are not expected to result in a completely unfolded
+  state, as they initiate with the protein in its fully folded
+  form. Further insights are derived from the estimated proximity to
+  the inner post-synaptic membrane and RasGTPase.
+</p>
+
+<p class="myjust"><i><b>DOI</b></i> link to relevant scientific
+  article.</p>
 
 <hr>
 
