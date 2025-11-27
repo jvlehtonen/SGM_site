@@ -171,16 +171,16 @@ if ( "cdna" == $scol) {
    </div>
       <div class="container">
         <ul id="shmenu" class="container__menu container__menu--hidden">
-          <li><label> <input type="checkbox" data-column-index='21'/>SGM Consensus</label></li>
-          <li><label> <input type="checkbox" data-column-index='16'/>SSC</label></li>
-          <li><label> <input type="checkbox" data-column-index='1'/>Annotated databases</label></li>
-          <li><label> <input type="checkbox" data-column-index='9'/>VPP: Deep learning</label></li>
-          <li><label> <input type="checkbox" data-column-index='11'/>VPP: Folding stability</label></li>
-          <li><label> <input type="checkbox" data-column-index='25'/>VPP: Sequence/structure</label></li>
-          <li><label> <input type="checkbox" data-column-index='24'/>Phase Separation</label></li>
-          <li><label> <input type="checkbox" data-column-index='26'/>Structural/physical properties</label></li>
-          <li><label> <input type="checkbox" data-column-index='12'/>SynGAP Structural Annotation</label></li>
-          <li><label> <input type="checkbox" data-column-index='15'/>DOI</label></li>
+           <li><label> <input type="checkbox" data-column-index='21'/>SGM Consensus</label></li>
+           <li><label> <input type="checkbox" data-column-index='16'/>Structure/sequence context</label></li>
+           <li><label> <input type="checkbox" data-column-index='1'/>Annotated databases</label></li>
+           <li><label> <input type="checkbox" data-column-index='9'/>Variant: Deep learning</label></li>
+           <li><label> <input type="checkbox" data-column-index='11'/>Variant: Folding stability</label></li>
+           <li><label> <input type="checkbox" data-column-index='25'/>Variant: Sequence/structure</label></li>
+           <li><label> <input type="checkbox" data-column-index='24'/>Phase Separation</label></li>
+           <li><label> <input type="checkbox" data-column-index='26'/>Evolutionary/physical properties</label></li>
+           <li><label> <input type="checkbox" data-column-index='12'/>Molecular Dynamics</label></li>
+           <li><label> <input type="checkbox" data-column-index='15'/>DOI</label></li>
         </ul>
       </div>
     <p style="margin-top: 5px; margin-left: 10px;"><b>Table of SynGAP1 Isoform &alpha;2 (UniProt <a href="https://www.uniprot.org/uniprotkb/Q96PV0/entry" target="_blank">Q96PV0-1</a>) Missense Variants.</b></p>
@@ -192,14 +192,14 @@ if ( "cdna" == $scol) {
 	<th rowspan=3 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
     <th rowspan=3 style='z-index:2;'><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
 	<th rowspan=3 data-column-index='21'><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
-    <th colspan=8 data-column-index='16'>SSC: based on WT protein</th>
+    <th colspan=8 data-column-index='16'>Structure/sequence context: based on WT protein</th>
     <th colspan=6 data-column-index='1'>Annotated databases</th>
-    <th colspan=5 data-column-index='9'>VPP: Deep learning</th>
-    <th colspan=9 data-column-index='11'>VPP: Folding stability</th>
-    <th colspan=14 data-column-index='25'>VPP: Sequence/structure</th>
+    <th colspan=5 data-column-index='9'>Predictions for variant: Deep learning</th>
+    <th colspan=9 data-column-index='11'>Predictions for variant: Folding stability</th>
+    <th colspan=14 data-column-index='25'>Predictions for variant: Sequence/structure</th>
 	<th colspan=3 data-column-index='24'>Phase Separation</th>
-    <th colspan=10 data-column-index='26'>Structural/physical properties</th>
-	<th colspan=9 rowspan=2 data-column-index='12'>SynGAP Structural Annotation</th>
+    <th colspan=4 data-column-index='26'>Evolutionary/physical properties</th>
+	<th colspan=15 data-column-index='12'>Molecular Dynamics based analysis</th>
 	<th rowspan=3 data-column-index='15'>DOI</th>
   </tr>
   <tr>
@@ -225,9 +225,10 @@ if ( "cdna" == $scol) {
 	<th colspan=3 data-column-index='24'>PSMutPred</th>
 	<th colspan=2 data-column-index='26'>PAM</th>
 	<th colspan=2 data-column-index='26'>Physical</th>
-	<th colspan=2 data-column-index='26'>SASA</th>
-	<th colspan=2 data-column-index='26'>Normalized B-factor backbone</th>
-	<th colspan=2 data-column-index='26'>Normalized B-factor sidechain</th>
+	<th colspan=2 data-column-index='12'>SASA</th>
+	<th colspan=2 data-column-index='12'>Normalized B-factor backbone</th>
+	<th colspan=2 data-column-index='12'>Normalized B-factor sidechain</th>
+	<th colspan=9 data-column-index='12'>SynGAP Structural Annotation</th>
   </tr>
   <tr>
     <!-- IUPred -->
@@ -297,21 +298,21 @@ if ( "cdna" == $scol) {
 	<th data-column-index='26'><?php sortURL($column, $sort_order, 'deltaHydropathy', "Hydropathy &Delta;") ?></a></th>
 	<th data-column-index='26'><?php sortURL($column, $sort_order, 'deltaMW', "MW &Delta;") ?></th>
 
-	<th data-column-index='26'><?php sortURL($column, $sort_order, 'sasa_average', 'Average') ?></th>
-	<th data-column-index='26'><?php sortURL($column, $sort_order, 'sasa_delta', '&Delta;') ?></th>
-	<th data-column-index='26'><?php sortURL($column, $sort_order, 'Bfactor_backbone_delta', '&Delta;') ?></th>
-	<th data-column-index='26'>StdDev</th>
-	<th data-column-index='26'><?php sortURL($column, $sort_order, 'Bfactor_sidechain_delta', '&Delta;') ?></th>
-	<th data-column-index='26'>StdDev</th>
-	<th data-column-index="12">Secondary</th>
-	<th data-column-index="12">Tertiary bonds</th>
-	<th data-column-index="12">Inside out</th>
-	<th data-column-index="12">GAP-Ras interface</th>
-	<th data-column-index="12">At membrane</th>
-	<th data-column-index="12">No effect</th>
-	<th rowspan=2 data-column-index="12">MD Alert</th>
-    <th rowspan=2 data-column-index="12"><?php sortURL($column, $sort_order, 'verdictID', 'Verdict') ?></th>
-	<th rowspan=2 data-column-index="12">Description</th>
+	<th data-column-index='12'><?php sortURL($column, $sort_order, 'sasa_average', 'Average') ?></th>
+	<th data-column-index='12'><?php sortURL($column, $sort_order, 'sasa_delta', '&Delta;') ?></th>
+	<th data-column-index='12'><?php sortURL($column, $sort_order, 'Bfactor_backbone_delta', '&Delta;') ?></th>
+	<th data-column-index='12'>StdDev</th>
+	<th data-column-index='12'><?php sortURL($column, $sort_order, 'Bfactor_sidechain_delta', '&Delta;') ?></th>
+	<th data-column-index='12'>StdDev</th>
+	<th data-column-index='12'>Secondary</th>
+	<th data-column-index='12'>Tertiary bonds</th>
+	<th data-column-index='12'>Inside out</th>
+	<th data-column-index='12'>GAP-Ras interface</th>
+	<th data-column-index='12'>At membrane</th>
+	<th data-column-index='12'>No effect</th>
+	<th rowspan=2 data-column-index='12'>MD Alert</th>
+    <th rowspan=2 data-column-index='12'><?php sortURL($column, $sort_order, 'verdictID', 'Verdict') ?></th>
+	<th rowspan=2 data-column-index='12'>Description</th>
   </tr>
         </thead>
         <tbody>
@@ -447,12 +448,12 @@ if ( "cdna" == $scol) {
       echo "<td data-column-index='26'>".$row["PAM120"]."</td>";
       echo "<td data-column-index='26' class='lb'>".$row["deltaHydropathy"]."</td>";
       echo "<td data-column-index='26'>".$row["deltaMW"]."</td>";
-      echo "<td data-column-index='26' class='lb'>".$row["sasa_average"]."</td>";
-      echo "<td data-column-index='26'>".$row["sasa_delta"]."</td>";
-      echo "<td data-column-index='26' class='lb'>".$row["Bfactor_backbone_delta"]."</td>";
-      echo "<td data-column-index='26'>".$row["Bfactor_backbone_stddev"]."</td>";
-      echo "<td data-column-index='26'>".$row["Bfactor_sidechain_delta"]."</td>";
-      echo "<td data-column-index='26'>".$row["Bfactor_sidechain_stddev"]."</td>";
+      echo "<td data-column-index='12' class='lb'>".$row["sasa_average"]."</td>";
+      echo "<td data-column-index='12'>".$row["sasa_delta"]."</td>";
+      echo "<td data-column-index='12' class='lb'>".$row["Bfactor_backbone_delta"]."</td>";
+      echo "<td data-column-index='12'>".$row["Bfactor_backbone_stddev"]."</td>";
+      echo "<td data-column-index='12'>".$row["Bfactor_sidechain_delta"]."</td>";
+      echo "<td data-column-index='12'>".$row["Bfactor_sidechain_stddev"]."</td>";
       echo "<td data-column-index='12' class='lb'>". ($row["SA_Secondary"] ? 'X' : '') ."</td>";
       echo "<td data-column-index='12'>". ($row["SA_Tertiary"] ? 'X' : '') ."</td>";
       echo "<td data-column-index='12'>". ($row["SA_Buried"] ? 'X' : '') ."</td>";
