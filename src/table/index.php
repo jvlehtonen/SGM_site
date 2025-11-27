@@ -172,7 +172,7 @@ if ( "cdna" == $scol) {
       <div class="container">
         <ul id="shmenu" class="container__menu container__menu--hidden">
            <li><label> <input type="checkbox" data-column-index='21'/>SGM Consensus</label></li>
-           <li><label> <input type="checkbox" data-column-index='16'/>Structure/sequence context</label></li>
+           <li><label> <input type="checkbox" data-column-index='16'/>Domain and Structure</label></li>
            <li><label> <input type="checkbox" data-column-index='1'/>Annotated databases</label></li>
            <li><label> <input type="checkbox" data-column-index='9'/>Variant: Deep learning</label></li>
            <li><label> <input type="checkbox" data-column-index='11'/>Variant: Folding stability</label></li>
@@ -192,14 +192,14 @@ if ( "cdna" == $scol) {
 	<th rowspan=3 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
     <th rowspan=3 style='z-index:2;'><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
 	<th rowspan=3 data-column-index='21'><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
-    <th colspan=8 data-column-index='16'>Structure/sequence context: based on WT protein</th>
+    <th colspan=8 data-column-index='16'>Domain and Structure information: based on WT protein</th>
     <th colspan=6 data-column-index='1'>Annotated databases</th>
-    <th colspan=5 data-column-index='9'>Predictions for variant: Deep learning</th>
-    <th colspan=9 data-column-index='11'>Predictions for variant: Folding stability</th>
-    <th colspan=14 data-column-index='25'>Predictions for variant: Sequence/structure</th>
+    <th colspan=5 data-column-index='9'>Deep learning-based pathogenicity predictions</th>
+    <th colspan=9 data-column-index='11'>Folding stability-based pathogenicity predictions</th>
+    <th colspan=14 data-column-index='25'>Sequence/structure-based pathogenicity predictions</th>
 	<th colspan=3 data-column-index='24'>Phase Separation</th>
     <th colspan=4 data-column-index='26'>Evolutionary/physical properties</th>
-	<th colspan=15 data-column-index='12'>Molecular Dynamics based analysis</th>
+	<th colspan=15 data-column-index='12'>Molecular Dynamics-based analysis</th>
 	<th rowspan=3 data-column-index='15'>DOI</th>
   </tr>
   <tr>
