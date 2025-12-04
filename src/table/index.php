@@ -58,7 +58,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
                  'psmutpred_score_ip_rf', 'psmutpred_score_sp_rf',
-                 'af_disorder', 'af_plddt', 'mobidb_lite_disorder',
+                 'af_disorder', 'af_plddt', 'mobidb_lite_disorder', 'psp_htp',
                  'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
 
@@ -192,7 +192,7 @@ if ( "cdna" == $scol) {
 	<th rowspan=3 style="position:sticky; left:0px; top:0px; z-index:3;"><?php sortURL($column, $sort_order, 'basenum', "c.dna") ?></th>
     <th rowspan=3 style='z-index:2;'><?php sortURL($column, $sort_order, 'resnum', "Variant") ?></th>
 	<th rowspan=3 data-column-index='21'><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
-    <th colspan=8 data-column-index='16'>Domain and Structure information: based on WT protein</th>
+    <th colspan=12 data-column-index='16'>Domain and Structure information: based on WT protein</th>
     <th colspan=6 data-column-index='1'>Annotated databases</th>
     <th colspan=5 data-column-index='9'>Deep learning-based pathogenicity predictions</th>
     <th colspan=9 data-column-index='11'>Folding stability-based pathogenicity predictions</th>
@@ -207,7 +207,9 @@ if ( "cdna" == $scol) {
 	<th colspan=2 data-column-index='16'><?php sortURL($column, $sort_order, 'IUPred', "IUPred2") ?></th>
 	<th colspan=2 data-column-index='16'><?php sortURL($column, $sort_order, 'ANCHOR', "ANCHOR2") ?></th>
 	<th colspan=2 data-column-index='16'>AlphaFold</th>
-	<th data-column-index='16'>MobiDB</th>
+    <th data-column-index='16'>MobiDB</th>
+    <th colspan=4 data-column-index='16'><a href='https://www.phosphosite.org/uniprotAccAction?id=Q96PV0' target='_blank'><u>PhosphoSitePlus</u></a></th>
+	<th colspan=2 data-column-index='16'>AlphaFold</th>
 	<th colspan=3 data-column-index='1'>ClinVar</th>
 	<th colspan=3 data-column-index='1'>gnomAD</th>
 	<th colspan=2 data-column-index='9'><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
@@ -240,6 +242,11 @@ if ( "cdna" == $scol) {
 	<th data-column-index='16'><?php sortURL($column, $sort_order, 'af_plddt', "pLDDT") ?></th>
 	<th data-column-index='16'><?php sortURL($column, $sort_order, 'af_disorder', "disorder") ?></th>
 	<th data-column-index='16'><?php sortURL($column, $sort_order, 'mobidb_lite_disorder', "disorder") ?></th>
+    <!-- PSP -->
+	    <th data-column-index='16'>LTP</th>
+	    <th data-column-index='16'><?php sortURL($column, $sort_order, 'psp_htp', "HTP") ?></th>
+	    <th data-column-index='16'>KL</th>
+	    <th data-column-index='16'>PTM</th>
 
     <th data-column-index='1'><?php sortURL($column, $sort_order, 'cv_rank', "Clinical Status") ?></th>
     <th data-column-index='1'><?php sortURL($column, $sort_order, 'cv_review', "Review") ?></th>
@@ -367,6 +374,26 @@ if ( "cdna" == $scol) {
       echo "<td data-column-index='16'>".$row["af_plddt"]."</td>";
       echo "<td data-column-index='16'>".$row["af_disorder"]."</td>";
       echo "<td data-column-index='16'>".$row["mobidb_lite_disorder"]."</td>";
+
+      // PhosphoSitePlus
+      echo "<td data-column-index='16'>";
+      if ( is_null($row["psp_ltp"]) ) { echo "</td>"; } else {
+              echo "<a href='https://www.phosphosite.org/siteGroupAction.action?id=".$row["psp_id"]."&protOrg=4698&showAllSites=true&showLTPRefsOnly=true' target='_blank'>".$row["psp_ltp"]."</a></td>"; }
+      echo "<td data-column-index='16'>";
+      if ( is_null($row["psp_htp"]) ){ echo "</td>"; } else {
+              echo "<a href='https://www.phosphosite.org/siteGroupAction.action?id=".$row["psp_id"]."&protOrg=4698&showAllSites=true&showHTPRefsOnly=true' target='_blank'>".$row["psp_htp"]."</a></td>"; }
+      echo "<td data-column-index='16'>";
+      if ( is_null($row["psp_kl"]) ) { echo "</td>"; } else {
+              echo "<a href='https://www.phosphosite.org/kinaseLibraryAction.action?siteId=".$row["psp_kl"]."' target='_blank'>KL</a></td>"; }
+      echo "<td data-column-index='16'>";
+      if ( !is_null($row["psp_ptm"]) ) {
+          if ( is_null($row["psp_kl"]) ) {
+              echo $row["psp_ptm"];
+          } else {
+              echo "<a href='https://www.phosphosite.org/siteAction.action?id=".$row["psp_kl"]."' target='_blank'>".$row["psp_ptm"]."</a>";
+          }
+      }
+      echo "</td>";
 
       // ClinVar
       echo "<td data-column-index='1' ". ($column == 'statusID' ? 'class="lb '.$add_class_name.'"' : 'class="lb"') .">";
