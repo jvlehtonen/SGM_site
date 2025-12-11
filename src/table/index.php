@@ -209,7 +209,6 @@ if ( "cdna" == $scol) {
 	<th colspan=2 data-column-index='16'>AlphaFold</th>
     <th data-column-index='16'>MobiDB</th>
     <th colspan=4 data-column-index='16'><a href='https://www.phosphosite.org/uniprotAccAction?id=Q96PV0' target='_blank'><u>PhosphoSitePlus</u></a></th>
-	<th colspan=2 data-column-index='16'>AlphaFold</th>
 	<th colspan=3 data-column-index='1'>ClinVar</th>
 	<th colspan=3 data-column-index='1'>gnomAD</th>
 	<th colspan=2 data-column-index='9'><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
