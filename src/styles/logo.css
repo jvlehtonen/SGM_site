@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    align-content: center;
+    font-family: 'Californian FB', 'Times New Roman', Times, serif;
+    line-height: 0.9;
+    color: #2f5597;
+    font-size: 4vw;
+    text-shadow: 0.02em 0.02em 0.03em #7e7e7e;
+}
+.flex-container div:first-child {
+    font-size: 5vw;
+    text-shadow: 0.02em 0.02em 0.03em #7e7e7e;
+}
+.flex-container div:nth-child(n+2) {
+    margin-left: 0.3em;
+    text-decoration: underline;
+}
+.flex-container div:nth-child(3) {
+    text-decoration-color: #672f97;
+}
+.flex-container div:nth-child(4) {
+    text-decoration-color: #3c972f;
+}
