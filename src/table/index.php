@@ -102,12 +102,16 @@ if ( $result = $stmt->get_result() ) {
     <link rel="stylesheet" href="../styles/overlay.css" />
     <link rel="stylesheet" href="../styles/topnav.css" />
     <link rel="stylesheet" href="../styles/infotooltip.css" />
+    <link rel="stylesheet" href="../styles/logo.css" />
     <script type="text/javascript" src="../sites/w3.js"></script>
     <script type="text/javascript" src="../sites/overlay.js"></script>
   </head>
   <body>
+    <div class="flex-container">
+      <div>SGM</div>
+      <div>Data Table</div>
+    </div>
     <div w3-include-html="../sites/overlay_d1.html"></div>
-    <h1><a href="../index.html"><span><img src="../misc/titles/sgm_table.png" alt="SynGap Missense Server" style="height:64px;"></span></a></h1>
     <nav style="margin-bottom:15px">
       <div style="display:flex;">
         <div class="topnav fa-icon" w3-include-html="../sites/hamburger.html">
