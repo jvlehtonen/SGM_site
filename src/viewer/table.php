@@ -390,12 +390,15 @@ document.getElementById(\"defaultOpen\").click();
 	<th colspan=2>ESM1b (Q96PV0)</th>
 	<th colspan=2>AlphaMissense</th>
 	<th colspan=2>MutPred2</th>
+	<th colspan=2>Varity R</th>
       </tr>
       <tr>
 	<th>LLR score</th>
 	<th>Prediction</th>
 	<th>Pathogenicity</th>
 	<th>Class</th>
+	<th>Score</th>
+	<th>Prediction</th>
 	<th>Score</th>
 	<th>Prediction</th>
       </tr>\n";
@@ -408,6 +411,8 @@ document.getElementById(\"defaultOpen\").click();
             echo "<td " . $style . ">" . $row['AlphaMissense_Class'] . "</td>\n";
             echo "<td " . $style . ">" . $row['MutPred2'] . "</td>\n";
             echo "<td " . $style . ">" . $row['MutPred2_predict'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['varity_R'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['varity_R_predict'] . "</td>\n";
             echo "</tr>\n";
             echo "</tbody>
     </table>\n\n";
