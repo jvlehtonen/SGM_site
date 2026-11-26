@@ -389,12 +389,15 @@ document.getElementById(\"defaultOpen\").click();
             echo "<tr>
 	<th colspan=2>ESM1b (Q96PV0)</th>
 	<th colspan=2>AlphaMissense</th>
+	<th colspan=2>MutPred2</th>
       </tr>
       <tr>
 	<th>LLR score</th>
 	<th>Prediction</th>
 	<th>Pathogenicity</th>
 	<th>Class</th>
+	<th>Score</th>
+	<th>Prediction</th>
       </tr>\n";
             echo "</thead>
 <tbody>\n";
@@ -403,6 +406,8 @@ document.getElementById(\"defaultOpen\").click();
             echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_Prediction'] . "</td>\n";
             echo "<td " . $style . ">" . $row['AlphaMissense_Pathogenicity'] . "</td>\n";
             echo "<td " . $style . ">" . $row['AlphaMissense_Class'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['MutPred2'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['MutPred2_predict'] . "</td>\n";
             echo "</tr>\n";
             echo "</tbody>
     </table>\n\n";

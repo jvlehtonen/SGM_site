@@ -57,7 +57,7 @@ $columns = array('basenum', 'resnum', 'cv_rank', 'verdictID', 'deltaMW', 'deltaH
                  'AlphaMissense_Pathogenicity', 'AlphaMissense_Class', 'clinvar_uid',
                  'cv_review', 'cv_submissions', 'gnomAD_id', 'structure', 'doi', 'HGVSc', 'allele_count',
                  'rosetta_predict', 'rosetta_ddG', 'foldetta_predict', 'foldetta_ddG',
-                 'psmutpred_score_ip_rf', 'psmutpred_score_sp_rf',
+                 'psmutpred_score_ip_rf', 'psmutpred_score_sp_rf', 'MutPred2',
                  'af_disorder', 'af_plddt', 'mobidb_lite_disorder',
                  'allele_freq', 'cdna', 'revel_score', 'consensus', 'IUPred', 'ANCHOR' );
 $searchcols = array('variant', 'cdna');
@@ -198,7 +198,7 @@ if ( "cdna" == $scol) {
 	<th rowspan=3 data-column-index='21'><?php sortURL($column, $sort_order, 'consensus', "SGM Consensus") ?></th>
     <th colspan=8 data-column-index='16'>Domain and Structure information: based on WT protein</th>
     <th colspan=6 data-column-index='1'>Annotated databases</th>
-    <th colspan=5 data-column-index='9'>Deep learning-based pathogenicity predictions</th>
+    <th colspan=7 data-column-index='9'>Deep learning-based pathogenicity predictions</th>
     <th colspan=9 data-column-index='11'>Folding stability-based pathogenicity predictions</th>
     <th colspan=14 data-column-index='25'>Sequence/structure-based pathogenicity predictions</th>
 	<th colspan=3 data-column-index='24'>Phase Separation</th>
@@ -216,6 +216,7 @@ if ( "cdna" == $scol) {
 	<th colspan=3 data-column-index='1'>gnomAD</th>
 	<th colspan=2 data-column-index='9'><?php sortURL($column, $sort_order, 'ESM1b_Q96PV0_LLRscore', "ESM1b") ?></th>
 	<th colspan=3 data-column-index='9'><?php sortURL($column, $sort_order, 'AlphaMissense_Pathogenicity', "AlphaMissense") ?></th>
+	<th colspan=2 data-column-index='9'><?php sortURL($column, $sort_order, 'MutPred2', "MutPred2") ?></th>
 	<th colspan=3 data-column-index='11'><?php sortURL($column, $sort_order, 'foldx_avg_ddG', 'FoldX') ?></th>
 	<th colspan=2 data-column-index='11'><?php sortURL($column, $sort_order, 'rosetta_ddG', 'Rosetta') ?></th>
 	<th colspan=2 data-column-index='11'><?php sortURL($column, $sort_order, 'foldetta_ddG', 'Foldetta') ?></th>
@@ -260,6 +261,9 @@ if ( "cdna" == $scol) {
 	    <th data-column-index='9'>Pathogenicity</th>
 	    <th data-column-index='9'>Class</th>
 	    <th data-column-index='9'>Optimized</th>
+    <!-- MutPred2 -->
+	    <th data-column-index='9'>MutPred2</th>
+	    <th data-column-index='9'>Prediction</th>
     <!-- FoldX -->
 	<th data-column-index='11'>Average &Delta;&Delta;G</th>
     <th data-column-index='11'>Prediction</th>
@@ -420,6 +424,8 @@ if ( "cdna" == $scol) {
       echo "<td data-column-index='9' class='lb'>".$row["AlphaMissense_Pathogenicity"]."</td>";
       echo "<td data-column-index='9'>".$row["AlphaMissense_Class"]."</td>";
       echo "<td data-column-index='9'>".$row["alphamissense_predict"]."</td>";
+      echo "<td data-column-index='9' class='lb'>".$row["MutPred2"]."</td>";
+      echo "<td data-column-index='9'>".$row["MutPred2_predict"]."</td>";
       echo "<td data-column-index='11' class='lb'>".$row["foldx_avg_ddG"]."</td>";
       echo "<td data-column-index='11'>".$row["foldx_predict"]."</td>";
       echo "<td data-column-index='11'>".$row["foldx_stddev"]."</td>";
