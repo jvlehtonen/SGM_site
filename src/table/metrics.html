@@ -7,13 +7,19 @@
 	sizes="32x32" />
   <link rel="stylesheet" media="all" href="../styles/utu_a_20240222.css" />
   <link rel="stylesheet" media="all" href="../styles/utu_b_20240222.css" />
-    <link rel="stylesheet" href="../styles/fa.css" />
-    <link rel="stylesheet" href="../styles/overlay.css" />
-    <link rel="stylesheet" href="../styles/topnav.css" />
-    <link rel="stylesheet" href="../styles/infotooltip.css" />
-    <link rel="stylesheet" href="../styles/logo.css" />
-    <script type="text/javascript" src="../sites/w3.js"></script>
-    <script type="text/javascript" src="../sites/overlay.js"></script>
+  <link rel="stylesheet" href="../styles/fa.css" />
+  <link rel="stylesheet" href="../styles/overlay.css" />
+  <link rel="stylesheet" href="../styles/topnav.css" />
+  <link rel="stylesheet" href="../styles/infotooltip.css" />
+  <link rel="stylesheet" href="../styles/logo.css" />
+  <script type="text/javascript" src="../sites/w3.js"></script>
+  <script type="text/javascript" src="../sites/overlay.js"></script>
+  <style>
+    td {
+	vertical-align: middle;
+	text-align: center;
+    }
+  </style>
 </head>
 <body lang="fi-FI" link="#0563c1" vlink="#800000" dir="ltr">
   <span id="top"></span>
@@ -552,9 +558,86 @@ insights into the potential pathogenicity of genetic variants (DOI:
   the inner post-synaptic membrane and RasGTPase.
 </p>
 
+<p class="myjust"><i><b>Thresholds</b></i> for prediction methods that
+  are used to create textual predictions from the numeric scores. These
+  are adjusted to produce same values as the methods own materials do,
+  but with compensation for different comparison operators and rounding:
+</p>
+
+		      </div>
+		    </div>
+<table>
+  <tr><td><b>Fold-X</b></td><td>Stabilizing</td><td>&lt; -2.0
+  &le;</td><td>Ambiguous</td><td>&lt; -0.495
+  &le;</td><td>Likely Benign</td><td>&lt; 0.495
+  &le;</td><td>Ambiguous</td><td>&lt; 2.0
+  &le;</td><td>Destabilizing</td></tr>
+  <tr><td><b>Foldetta</b></td><td>Stabilizing</td><td>&lt; -2.0
+  &le;</td><td>Ambiguous</td><td>&lt; -0.495
+  &le;</td><td>Likely Benign</td><td>&lt; 0.495
+  &le;</td><td>Ambiguous</td><td>&lt; 2.0
+  &le;</td><td>Destabilizing</td></tr>
+  <tr><td><b>Rosetta</b></td><td>Stabilizing</td><td>&lt; -2.0
+  &le;</td><td>Ambiguous</td><td>&lt; -0.495
+  &le;</td><td>Likely Benign</td><td>&lt; 0.495
+  &le;</td><td>Ambiguous</td><td>&lt; 2.0
+  &le;</td><td>Destabilizing</td></tr>
+  <tr><td><b>PremPS</b></td><td>Stabilizing</td><td>&lt; -1.0
+  &le;</td><td>Ambiguous</td><td>&lt; -0.495
+  &le;</td><td>Likely Benign</td><td>&lt; 0.505
+  &le;</td><td>Ambiguous</td><td>&lt; 1.0
+  &le;</td><td>Destabilizing</td></tr>
+
+  <tr><td><b>AlphaMissense</b></td>
+    <td>Likely Benign</td><td>&lt; 0.3405
+      &le;</td><td colspan=5>Ambiguous</td><td>&lt; 0.5645
+      &le;</td><td>Likely Pathogenic</td></tr>
+  <tr><td><b>AlphaMissense</b></td>
+    <td>Likely Benign</td><td>&lt; 0.3405
+      &le;</td><td colspan=5>Ambiguous</td><td>&lt; 0.5645
+      &le;</td><td>Likely Pathogenic</td></tr>
+  <tr><td><b>AlphaMissense Optimized</b></td>
+    <td>Likely Benign</td><td>&lt; 0.7832
+      &le;</td><td colspan=5>Ambiguous</td><td>&lt; 0.9776
+      &le;</td><td>Likely Pathogenic</td></tr>
+  <tr><td><b>EVE 75%</b></td>
+    <td>Benign</td><td>&lt; 0.35927
+      &le;</td><td colspan=5>Uncertain</td><td>&lt; 0.6407
+      &le;</td><td>Pathogenic</td></tr>
+  <tr><td><b>PolyPhen-2 HumDiv</b></td>
+    <td>Benign</td><td>&lt; 0.452
+      &le;</td><td colspan=5>Possibly Damaging</td><td>&lt; 0.956
+      &le;</td><td>Probably Damaging</td></tr>
+  <tr><td><b>PolyPhen-2 HumVar</b></td>
+    <td>Benign</td><td>&lt; 0.447
+      &le;</td><td colspan=5>Possibly Damaging</td><td>&lt; 0.91
+      &le;</td><td>Probably Damaging</td></tr>
+
+  <tr><td><b>MutPred2</b></td>
+    <td colspan=4>Uncertain</td><td>&lt; 0.5 &le;</td><td colspan=4>Affected</td></tr>
+  <tr><td><b>Revel</b></td>
+    <td colspan=4>Likely Benign</td><td>&lt; 0.5 &le;</td><td colspan=4>Likely Pathogenic</td></tr>
+  <tr><td><b>Varity</b></td>
+    <td colspan=4>Likely Benign</td><td>&lt; 0.381 &le;</td><td colspan=4>Likely Pathogenic</td></tr>
+
+  <tr><td><b>ESM1b</b></td>
+    <td>Likely Benign</td><td>&ge; -6.999
+      &gt;</td><td colspan=5>In-Between</td><td>&ge; -8.0
+      &gt;</td><td>Likely Pathogenic</td></tr>
+
+  <tr><td><b>Provean</b></td>
+    <td colspan=4>Neutral</td><td>&ge; -2.495 &gt;</td><td colspan=4>Deleterious</td></tr>
+  <tr><td><b>FATHMM</b></td>
+    <td colspan=4>Benign</td><td>&ge; 2.5 &gt;</td><td colspan=4>Pathogenic</td></tr>
+  <tr><td><b>SIFT</b></td>
+    <td colspan=4>Tolerated</td><td>&ge; 0.055 &gt;</td><td colspan=4>Affected</td></tr>
+</table>
+
+		    <div class="paragraph paragraph--type--free-text free-text free-text--default paragraph--view-mode--default">
+                      <div class="field field__field_item_text
+				  free-text__item-text">
 <p class="myjust"><i><b>DOI</b></i> link to relevant scientific
   article.</p>
-
 <hr>
 
 <p><a href="#top">Top</a></p>
@@ -563,7 +646,6 @@ insights into the potential pathogenicity of genetic variants (DOI:
     const event = new Date(document.lastModified);
     document.write("This page was last modified: " + event.toISOString());
   </script>
-</main>
 		      </div>
 		    </div>
 		  </div>
@@ -572,6 +654,7 @@ insights into the potential pathogenicity of genetic variants (DOI:
 	    </div>
 	  </div>
 	</div>
+</main>
       </div>
     </div>
 </div>
