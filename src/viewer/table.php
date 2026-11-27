@@ -389,15 +389,38 @@ document.getElementById(\"defaultOpen\").click();
             echo "<tr>
 	<th colspan=2>ESM1b (Q96PV0)</th>
 	<th colspan=2>AlphaMissense</th>
-	<th colspan=2>EVE 75%</th>
-	<th colspan=2>MutPred2</th>
-	<th colspan=2>Varity R</th>
+	<th colspan=2>CADD</th>
       </tr>
       <tr>
 	<th>LLR score</th>
 	<th>Prediction</th>
 	<th>Pathogenicity</th>
 	<th>Class</th>
+	<th>Raw</th>
+	<th>PHREDD</th>
+      </tr>\n";
+            echo "</thead>
+<tbody>\n";
+            echo "<tr>";
+            echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_LLRscore'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_Prediction'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['AlphaMissense_Pathogenicity'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['AlphaMissense_Class'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['cadd_rawscore'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['cadd_PHREDD'] . "</td>\n";
+            echo "</tr>\n";
+            echo "</tbody>
+    </table>\n\n";
+
+
+            echo "<table class=\"table table-bordered table-sm text-center\">
+<thead class=\"thead-light\">\n";
+            echo "<tr>
+	<th colspan=2>EVE 75%</th>
+	<th colspan=2>MutPred2</th>
+	<th colspan=2>Varity R</th>
+      </tr>
+      <tr>
 	<th>Score</th>
 	<th>Class</th>
 	<th>Score</th>
@@ -408,10 +431,6 @@ document.getElementById(\"defaultOpen\").click();
             echo "</thead>
 <tbody>\n";
             echo "<tr>";
-            echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_LLRscore'] . "</td>\n";
-            echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_Prediction'] . "</td>\n";
-            echo "<td " . $style . ">" . $row['AlphaMissense_Pathogenicity'] . "</td>\n";
-            echo "<td " . $style . ">" . $row['AlphaMissense_Class'] . "</td>\n";
             echo "<td " . $style . ">" . $row['eve_score'] . "</td>\n";
             echo "<td " . $style . ">" . $row['EVE_predict'] . "</td>\n";
             echo "<td " . $style . ">" . $row['MutPred2'] . "</td>\n";
