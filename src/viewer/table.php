@@ -389,6 +389,7 @@ document.getElementById(\"defaultOpen\").click();
             echo "<tr>
 	<th colspan=2>ESM1b (Q96PV0)</th>
 	<th colspan=2>AlphaMissense</th>
+	<th colspan=2>EVE 75%</th>
 	<th colspan=2>MutPred2</th>
 	<th colspan=2>Varity R</th>
       </tr>
@@ -396,6 +397,8 @@ document.getElementById(\"defaultOpen\").click();
 	<th>LLR score</th>
 	<th>Prediction</th>
 	<th>Pathogenicity</th>
+	<th>Class</th>
+	<th>Score</th>
 	<th>Class</th>
 	<th>Score</th>
 	<th>Prediction</th>
@@ -409,6 +412,8 @@ document.getElementById(\"defaultOpen\").click();
             echo "<td " . $style . ">" . $row['ESM1b_Q96PV0_Prediction'] . "</td>\n";
             echo "<td " . $style . ">" . $row['AlphaMissense_Pathogenicity'] . "</td>\n";
             echo "<td " . $style . ">" . $row['AlphaMissense_Class'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['eve_score'] . "</td>\n";
+            echo "<td " . $style . ">" . $row['EVE_predict'] . "</td>\n";
             echo "<td " . $style . ">" . $row['MutPred2'] . "</td>\n";
             echo "<td " . $style . ">" . $row['MutPred2_predict'] . "</td>\n";
             echo "<td " . $style . ">" . $row['varity_R'] . "</td>\n";
